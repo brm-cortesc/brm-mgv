@@ -1,0 +1,24 @@
+{
+  "name": "ng-brm",
+  "title": "Angular BRM",
+  "description": "Descripción del proyecto.",
+  "version": "0.1.0",
+  "author": {
+    "name": "Julian Barrera and Cristian Cortés",
+    "email": "julian.barrera@brm.com.co | cristian.cortes@brm.com.co"
+  },
+  "app": "app/",
+  "root": "src/",
+  "css": "css/",
+  "dev": "dev/",
+  "stylus": "stylus/",
+  "templates": "templates/",
+  "js": "js/",
+  "assets": "assets/",
+  "images": "images/",
+  "fonts": "fonts/",
+  "libs":{
+    "bootstrap": "bootstrap.min.js",
+    "validate": "jquery.validate.js"
+  }
+}

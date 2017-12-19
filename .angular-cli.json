@@ -1,15 +1,14 @@
 {
   "$schema": "./node_modules/@angular/cli/lib/config/schema.json",
   "project": {
-    "name": "new-ng5t"
+    "name": "ng-brm"
   },
   "apps": [
     {
       "root": "src",
       "outDir": "dist",
       "assets": [
-        "assets",
-        "favicon.ico"
+        "assets"
       ],
       "index": "index.html",
       "main": "main.ts",
@@ -18,9 +17,6 @@
       "tsconfig": "tsconfig.app.json",
       "testTsconfig": "tsconfig.spec.json",
       "prefix": "app",
-      "styles": [
-        "styles.css"
-      ],
       "scripts": [],
       "environmentSource": "environments/environment.ts",
       "environments": {
@@ -51,7 +47,12 @@
   "test": {
     "karma": {
       "config": "./karma.conf.js"
-    }
+    },
+    "codeCoverage": {
+        "exclude": [
+         "src/dev/**/"
+        ]
+      }
   },
   "defaults": {
     "styleExt": "css",
