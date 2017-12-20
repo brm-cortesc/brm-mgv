@@ -1,28 +1,102 @@
-# NewNg5t
+# NG BRM
 
-This project was generated with [Angular CLI](https://github.com/angular/angular-cli) version 1.6.0.
+**ng-brm** es el paquete de herramientas con el que se construyen apps Angular 5 en ***BRM***, provee un flujo de trabajo optimizado en FrontEND para ayudar a tener mejor calidad y rendimiento en el desarrollo de aplicaciones web.
 
-## Development server
+![NG BRM](https://brm.com.co/images/ng-brm.jpg "NG BRM")
 
-Run `ng serve` for a dev server. Navigate to `http://localhost:4200/`. The app will automatically reload if you change any of the source files.
+## Características 
+|Característica|Descripción|
+|------------------|-----------|
+|Development|[AngularCLI](https://cli.angular.io)|
+|CSS| [Stylus](http://stylus-lang.com/), [SMACSS](https://goo.gl/Skz2Ew), [Bootpstra-Stylus](https://goo.gl/htL5nT), [FontAwesome-Stylus](http://fontawesome.io/)|
+|JS|[typescript](https://www.typescriptlang.org/)
+|Testing|[Karma](https://karma-runner.github.io), [JasmineJS](https://jasmine.github.io/) |
+|HTML| [Pug Engine](pugjs.org)|
 
-## Code scaffolding
+# Cómo usarlo
+Antes que nada hay que tener instalado:
+- [NodeJS](https://nodejs.org/) 6.10.*
+- [GulpJS](http://gulpjs.com/)
+- [Angular Cli](https://cli.angular.io) 1.6.0.
 
-Run `ng generate component component-name` to generate a new component. You can also use `ng generate directive|pipe|service|class|guard|interface|enum|module`.
+# Iniciando un proyecto
 
-## Build
+### 1 - Clonar el código
 
-Run `ng build` to build the project. The build artifacts will be stored in the `dist/` directory. Use the `-prod` flag for a production build.
+```bash
+git clone https://github.com/BRMBog/ng-brm <nombre-proyecto>
+cd <nombre-proyecto>
+```
+### 2 - Setup del proyecto
 
-## Running unit tests
+En el archivo  ***frontend.json*** 
 
-Run `ng test` to execute the unit tests via [Karma](https://karma-runner.github.io).
+```json
+"name": "nombre-proyecto"
+"author":{
+"name": "nombre"
+"email": "email@brm.com.co"
+}
+```
 
-## Running end-to-end tests
+### 3 - Instalar las dependecias
 
-Run `ng e2e` to execute the end-to-end tests via [Protractor](http://www.protractortest.org/).
+```bash
+npm install
+```
 
-## Further help
+# Tareas/comandos
 
-To get more help on the Angular CLI use `ng help` or go check out the [Angular CLI README](https://github.com/angular/angular-cli/blob/master/README.md).
-# ng-brm
+```bash
+npm start
+```
+
+Se crea  http://localhost:4200/ donde podrá ver el corte, css y js que va generando y la tarea se queda escuchando cambios en los archivos para refrescar automaticamente el navegador.
+
+```bash
+npm run build
+```
+Genera un directorio ***dist*** con los bundles, html y assets para cargar en un servidor.
+
+```bash
+npm run reports
+```
+Genera un reporte de peso de archivos para html, css, js y assets.
+
+```bash
+npm run css
+```
+Se genera un bundle.css minificado con el nombre del proyecto
+
+```bash
+npm run test
+```
+Ejecuta pruebas unitarias via [Karma](https://karma-runner.github.io)
+
+```bash
+npm run e2e
+```
+Ejecuta pruebas punto a punto  via [Protractor](http://www.protractortest.org/)
+
+# Para tener en cuenta
+
+- La carpeta de archivos fuente es ***src/dev***, la carpeta ***src/apps*** se genera automáticamente
+- Los assets gráficos como imágenes y webfonts van dentro de la carpeta ***src/assets***
+- En la carpeta stylus están todos los módulos de estilos, incluyendo Bootstrap y FontAwesome
+- el archivo index de la aplicación, se encuentra en ***src/dev/templates*** 
+- El root de la web app es el componente ***public/home***
+
+# Soporte 
+
+Cualquier inquietud, no duden en comunicarse con:
+Julian Barrera julian.barrera@brm.com.co, Cristian Cortés cristian.cortes@brm.com.co o Luis Cruz luis.cruz@brm.com.co 
+
+:muscle:
+
+# Licencia
+MIT
+
+![Code with love by BRM](https://www.brm.com.co/by-brm.svg "Code with love by BRM")
+
+
+
