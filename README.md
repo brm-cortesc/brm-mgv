@@ -32,9 +32,9 @@ cd <nombre-proyecto>
 En el archivo  ***frontend.json*** 
 
 ```json
-"name": "nombre-proyecto"
+"name": "nombre-proyecto",
 "author":{
-"name": "nombre"
+"name": "nombre",
 "email": "email@brm.com.co"
 }
 ```
