@@ -4,6 +4,7 @@
   "license": "MIT",
   "scripts": {
     "ng": "ng",
+    "preinstall": "git remote remove origin && mv pre-commit .git/hooks/ && chmod -R 777 .git/hooks/pre-commit",
     "reports": "gulp report:css && gulp report:js && gulp report:img",
     "watch": "gulp watch",
     "css": "gulp css && gulp minicss",
@@ -27,6 +28,7 @@
     "@angular/platform-browser": "^5.0.0",
     "@angular/platform-browser-dynamic": "^5.0.0",
     "@angular/router": "^5.0.0",
+    "@ng-bootstrap/ng-bootstrap": "^1.0.0-beta.8",
     "core-js": "^2.4.1",
     "rxjs": "^5.5.2",
     "zone.js": "^0.8.14"
