@@ -39,7 +39,7 @@ gulp.task('css',  () =>{
   }))
   .pipe(rename('style.css')) //renombramos el archivo
   .pipe(gulp.dest(data.root + data.assets + data.css)) // destino del archivo
-  .pipe(sourcemaps.write('../../maps')) //creamos sourcemap aparte
+  .pipe(sourcemaps.write('../maps')) //creamos sourcemap aparte
   .pipe(gulp.dest(data.root + data.assets + data.css))
 });
 
