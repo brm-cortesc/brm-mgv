@@ -8,7 +8,7 @@
 |Característica|Descripción|
 |------------------|-----------|
 |Development|[AngularCLI](https://cli.angular.io),  [Angular - Bootstrap](https://ng-bootstrap.github.io/#/components/accordion/examples)|
-|CSS| [Stylus](http://stylus-lang.com/), [SMACSS](https://goo.gl/Skz2Ew), [Bootpstra-Stylus](https://goo.gl/htL5nT), [FontAwesome-Stylus](http://fontawesome.io/)|
+|CSS| [Stylus](http://stylus-lang.com/), [SMACSS](https://goo.gl/Skz2Ew), [Bootpstrap-Stylus](https://goo.gl/htL5nT), [FontAwesome-Stylus](http://fontawesome.io/)|
 |JS|[typescript](https://www.typescriptlang.org/)
 |Testing|[Karma](https://karma-runner.github.io), [JasmineJS](https://jasmine.github.io/) |
 |HTML| [Pug Engine](pugjs.org)|
