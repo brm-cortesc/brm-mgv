@@ -13,6 +13,7 @@ import { RequestService } from '../services/request/app.request';
 //Modulo para sliders
 import { SlickModule } from 'ngx-slick';
 
+// Rutas
 import { PublicRoutingModule } from './public-routing.module';
 
 //Header

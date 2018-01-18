@@ -1,0 +1,41 @@
+//- include ../../includes/mixins
+
+section.container-fluid.container-clients
+	div.row.row-create
+		//Crear clientes
+		a.btn.btn-blue((click)="toggleClass()", [class.active]="activeS")
+			i.glyphicon.glyphicon-plus
+			| Nueva Propuesta
+
+		article.client-create( [class.active]="activeS")
+			form-client([idClient]="",(insertClient)="insertClient($event)",*ngIf="activeS")
+		///-Crear clientes
+
+	//Listado de clientes BRM
+	div.row.row-client-list
+
+		//Cliente	
+		div(*ngFor="let propuesta of propuestas; let keyCliente = index")
+			article.client.client-item
+				//Logo Marca
+				//- figure.marca(style="background:#")
+				//- 	img((click)="goToClient(cliente.idCuenta)", src="assets/images/{{cliente.imagenCuenta}}", alt="{{cliente.nombreCuenta}}")
+
+				
+				//Usuario por marca
+				aside.client.client-user
+					
+					h3 {{propuesta.nombre}}
+
+					a((click)="goToClient(propuesta.id)"): i.glyphicon.glyphicon-edit Editar
+
+					a((click)="removePropuesta(propuesta.id)"): i.glyphicon.glyphicon-remove Borrar
+			
+				///-Usuario por marca
+
+			div([ngClass]="{'clearfix': ((keyCliente+1) % 3) == 0}")
+		
+		///-Cliente
+
+	///-Listado de clientes BRM
+	alert-toast

@@ -24,9 +24,9 @@ const routes: Routes = [
 		]
 	},
 	{path: 'contacto', component: ContactoComponent},
-	{path: 'biografia', component: BioComponent},
+	{path: 'biografia', component: BioComponent}
 	//{path: '404', component: HomeComponent},
-	{path: '**', redirectTo: ''}
+	// {path: '**', redirectTo: ''}
 ];
 
 

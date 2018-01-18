@@ -3,7 +3,7 @@
  * @version v0.1.0
  * @link Cristian Cortés - cristian.cortes@brm.com.co
  * @license 
- *Wed Jan 17 2018 21:11:20 GMT-0500 (COT)
+ *Thu Jan 18 2018 16:58:32 GMT-0500 (COT)
  */
 /*
  *  Font Awesome 4.7.0 by @davegandy - http://fontawesome.io - @fontawesome
@@ -1998,7 +1998,7 @@ footer .col-4 p {
 }
 @media (min-width: 1200px) {
   .menu-list li a {
-    padding: 0.5rem 3.5rem;
+    padding: 0.5rem 3.3rem;
   }
 }
 .slide-img img {
