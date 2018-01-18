@@ -1,12 +1,19 @@
-/*
--deben ser elementos por default que lucirán igual en todo el sitio, es .
--ningún estilo de estos elementos selectores deberá usar !important.
--no usar selectores tipo class o id.
-*/
+&::selection /* WebKit/Blink Browsers */
+	background $rojo
+	color #fff
+	text-shadow 0px 0px 5px rgba(255, 255, 255, .75)
 
+&::-moz-selection /* Gecko Browsers */
+	background $rojo
+	color #fff
+	text-shadow 0px 0px 5px rgba(255, 255, 255, .75)
 	
+
+
 a
+	color $azul
 	text-decoration none
+	transitionBase()
 	
 	&:hover
 		text-decoration underline
@@ -15,11 +22,16 @@ a
 		border 0
 	
 body
-	color $gris
-	font-size 1.3em
+	color black
+	font-family $font-stack
+	font-size 1.4rem
 	
 
-h1, h2, h3
-	color darken($naranja, 30%)
-	font-family $varela
+h1, h2, h3, h4, h5, h6
+	font-weight $bold
+	
+strong, b
+	font-weight $bold
+
+
 

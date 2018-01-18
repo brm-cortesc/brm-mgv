@@ -1,5 +1,102 @@
 .container
 	&-fluid
 		clearfix()
-	
 		
+	&-banner-bio				
+		
+		.row
+			background-repeat no-repeat
+			background-size cover
+			color white
+			margin 1rem auto
+			padding-bottom 1rem
+			padding-top @padding-bottom
+			path('layout/bg-bio-home.jpg')
+			position relative
+			z-index 1
+			&::before
+				border 2px solid $gris
+				content ''
+				cuadrado(95%)
+				display block
+				left 50%
+				pointer-events none
+				position absolute
+				top 50%
+				transform translate3d(-50%,-50%,0)
+				z-index 0
+			
+		h2
+			font-weight $light
+			text-transform uppercase
+			text-align center
+			
+			strong
+				display block
+				font-weight $strong
+				
+
+		.btn
+			display block
+			margin 0 auto
+	
+	//Contenedor de texto de las propuestas
+	&-text
+		p
+			padding 0 1rem
+			
+
+@media (min-width:$screen-sm)
+	.container			
+		&-banner-bio
+			
+			h2
+				font-size 1.8rem
+			
+
+			.row
+				&::before
+					width 99%
+		
+		&-text
+			height 100rem
+			max-height 21rem
+			overflow-y scroll
+			transitionBase()
+			
+			&::-webkit-scrollbar-track
+				background-color lighten($gris, 40%)
+
+			&::-webkit-scrollbar
+				background-color lighten($azul, 40%)
+				width 1rem
+
+			&::-webkit-scrollbar-thumb
+				background-color lighten($azul, 40%)
+				border-radius 1rem
+				
+@media (min-width:890px)
+	.container
+		&-text
+			max-height 24.6rem
+			
+@media (min-width:960px)
+	.container
+		&-text
+			max-height 26.7rem
+			
+@media (min-width:1000px)
+	.container
+		&-text
+			max-height 27.9rem
+			
+@media (min-width:1100px)
+	.container
+		&-text
+			max-height 30.2rem
+
+@media (min-width:1200px)
+	.container
+		&-text
+			max-height 33.5rem
+

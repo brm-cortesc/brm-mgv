@@ -1,0 +1,28 @@
+.container-text
+	p
+		margin 1rem auto
+
+.img
+	&-article
+		display block
+		height 16rem
+		max-width 100%
+		object-fit(cover)
+		width 100%
+	
+	&-bio
+		height auto
+		margin 0 auto
+		max-width 50rem
+		
+
+@media (min-width:$screen-sm)
+	.img
+		&-bio
+			max-width 40rem
+			
+
+@media (min-width:820px)
+	.img
+		&-article
+			height auto

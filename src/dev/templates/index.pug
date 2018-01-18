@@ -5,23 +5,24 @@ doctype html
 | <!--[if gt IE 8]><!--> <html class="no-js" lang="es-CO"> <!--<![endif]-->
 head
 	meta(charset='utf-8')
-	block title
-		title BlockTitle
+	title #MejorVargasLleras
 	block description
 		meta(name="description" content="Meta description Ready" )
 	meta(http-equiv='X-UA-Compatible', content='IE=edge')
 	meta(name='viewport', content='width=device-width, initial-scale=1')
-	link(rel="shortcut icon" href="assets/favicon.ico" type="image/x-icon")
+	link(rel="shortcut icon" href="./assets/favicon.ico" type="image/x-icon")
+	base(href="/")
 	
 	if !production
-		link(rel='stylesheet', href='assets/css/style.css')
+		link(rel='stylesheet', href='./assets/css/slick.css')
+		link(rel='stylesheet', href='./assets/css/style.css')
 
 	else
 		//-El nombre del archivo se debe reemplazar por el atributo name del package.json
-		link(rel='stylesheet', href='assets/css/'+name+'.min.css') 
+		link(rel='stylesheet', href='./assets/css/'+name+'.min.css') 
 
 	// Web Fonts
-	link(href='http://fonts.googleapis.com/css?family=Varela+Round|Roboto:400italic,300,700,400' rel='stylesheet' type='text/css')
+	link(link href="https://fonts.googleapis.com/css?family=Montserrat:300,400,700" rel="stylesheet")
 
 	|<!--[if lt IE]>
 	<script src="//html5shiv.googlecode.com/svn/trunk/html5.js"></script>
@@ -29,8 +30,11 @@ head
 	
 	//- Modernizr para tener compatilibidad de elementos semánticos HTML5
 	//- & para identificar si el browser soporta css3 para generar reglas especificas en los casos que no soporte una propiedad 
-	script(src='assets/js/libs/modernizr-2.6.2.min.js')
-	base(href="/")
+	script(src='./assets/js/libs/modernizr-2.6.2.min.js')
+
+	//- Esto es para que sirva unicamente el carrusel
+	script(src='./assets/js/libs/jquery.js')
+	script(src='./assets/js/libs/slick.js')
 
 body
 		

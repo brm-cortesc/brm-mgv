@@ -1,0 +1,34 @@
+include ../../../templates/partials/mixins.pug
+
+//Footer
+footer.container-fluid
+	div.row
+		div.col-4
+			//Logo
+			+image('layout/mejor-vargas-lleras-negro.svg', '#MejorVargasLleras')
+			///-Logo
+
+		div.col-4
+			//Redes Sociales
+			ul.social-list
+				li
+					a(href="#", rel="nofollow", target="_Blank"): i.icon.icon-fb
+
+				li
+					a(href="#", rel="nofollow", target="_Blank"): i.icon.icon-tw
+
+				li
+					a(href="#", rel="nofollow", target="_Blank"): i.icon.icon-ins
+
+				li
+					a(href="#", rel="nofollow", target="_Blank"): i.icon.icon-yt
+
+			///-Redes Sociales
+
+		div.col-4
+			p
+				a([routerLink]="['/terminos']") Términos y condiciones
+			p Copyright &copy; - Mejor Vargas Lleras
+			p Todos los derechos reservados	
+
+///-Footer

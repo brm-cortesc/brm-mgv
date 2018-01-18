@@ -1,15 +1,143 @@
-//se pueden declarar con funciones
-// make-prefix-column(num)
-// make-prefix-column-offset(num)
 // @stylint off
 
-.column-ex
-	make-xs-column(12)
-	make-sm-column(6)
-	make-md-column(4)
-	make-lg-column(3)
+.col
+	&-4
+		make-sm-column(4)
+		
+	&-6
+		make-sm-column(6)
+		&.col-center
+			make-sm-column-offset(3)
+			
+	&-8
+		make-sm-column(8)
+		
+	&-btn,
+	&-logo
+		make-xs-column(6)
+	
+	&-bio
+		make-sm-column(4)
+		make-sm-column-offset(2)
+		
+	&-banner
+		background-color $azul
+		make-sm-column(4)
+		
+		a
+			display block
+			
+		img
+			img-responsive(block)
+			padding 3rem
+		
+	&-box
+		make-sm-column(4)
+		
+		.box
+			margin 2rem auto
+			max-width 56rem
 
+	&-btn
+		text-align right
 
+	&-form
+		background-color $rojo
+		color white
+		make-sm-column(4)
+		margin-top 1rem
+		padding-bottom 1rem
+		padding-top @padding-bottom
+		
+		h2
+			margin 2rem auto
+	
+	&-full
+		make-sm-column(12)
+		
+	&-logo
+		make-sm-column(2)
+
+	&-menu-nav
+		make-sm-column(10)
+		
+	&-noticias-recientes
+		make-sm-column(8)
+		
+		.box
+			background-color transparent
+			make-sm-column(6)
+			
+			&-content
+				background-color $gris
+		
+	&-slider
+		make-sm-column(8)
+	
+
+@media (min-width:$screen-sm)
+	.col
+		&-banner
+			img
+				padding 8.1rem 3rem
+				
+		&-bio
+			margin-bottom 5%
+			margin-top @margin-bottom
+		
+		&-box				
+			.box
+				margin 1rem auto
+
+		&-btn
+			display none
+			
+		&-form
+			margin-bottom 1rem
+			margin-top 0
+			
+			h2
+				font-size 1.8rem
+				margin 1rem auto
+				
+		&-noticias-recientes
+			
+			.box
+				margin-top 0 
+	
+@media (min-width:880px)
+	.col
+		&-banner
+			img
+				margin 0 auto
+				max-width 25rem
+				padding 7.9rem 3rem
+
+				
+@media (min-width:960px)
+	.col
+		&-banner
+			img
+				max-width 86%
+
+@media (min-width:1000px)
+	.col
+		&-bio
+			margin-bottom 7%
+			margin-top @margin-bottom
+			
+			h2
+				font-size 2.3rem
+
+@media (min-width:1100px)
+	.col
+		&-banner
+			img
+				max-width 76.6%
+
+@media (min-width:1200px)
+	.col
+		&-form
+			padding-bottom 0.9rem
 
 // @stylint on
-//NO PASAR DE ACA

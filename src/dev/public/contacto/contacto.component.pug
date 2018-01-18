@@ -1,0 +1,97 @@
+header-public
+section.container-fluid
+	div.row
+		h1.title-section.text-center Contáctenos
+
+		div.col-6.col-center
+			//Contactenos
+			form#contact(#contacto="ngForm", novalidate)
+				//Nombre
+				div.form-group
+					label(for="nombre") Nombre
+					input(type="text", id="nombre", name="nombre", required, pattern="[a-zA-ZñÑáéíóúÁÉÍÓÚ ]+", [(ngModel)]="contactoForm.name", #name="ngModel", (focus)="focusIn($event)", (focusout)="focusOut($event)")
+					div.msn-place(*ngIf='name.errors && (name.dirty || name.touched || formSubmitAttempt)')
+						div([hidden]="!name.hasError('required')") El nombre es requerido
+						div([hidden]="!name.hasError('pattern')") El nombre no es correcto
+
+				///-Nombre
+
+				//Apellidos		
+				div.form-group
+					label(for="apellidos") Apellidos
+					input(type="text", id="apellidos", name="apellidos", required, pattern="[a-zA-ZñÑáéíóúÁÉÍÓÚ ]+", [(ngModel)]="contactoForm.surname", #surname="ngModel", (focus)="focusIn($event)", (focusout)="focusOut($event)")
+					div.msn-place(*ngIf='surname.errors && (surname.dirty || surname.touched || formSubmitAttempt)')
+						div([hidden]="!surname.hasError('required')") Los apellidos son requeridos
+						div([hidden]="!surname.hasError('pattern')") Los apellidos son requeridos
+
+				///-Apellidos
+
+				//email
+				div.form-group
+					
+					label(for="email") Email
+					input(type="email", id="email", name="email", required, pattern="[a-zA-Z0-9_-]+([.][a-zA-Z0-9_-]+)*@[a-zA-Z0-9_-]+([.][a-zA-Z0-9_-]+)*[.][a-zA-Z]{1,5}", [(ngModel)]="contactoForm.email",#email="ngModel", (focus)="focusIn($event)", (focusout)="focusOut($event)")
+					div.msn-place(*ngIf='email.errors && (email.dirty || email.touched || formSubmitAttempt)')
+						div([hidden]="!email.hasError('required')") El email es requerido
+						div([hidden]="!email.hasError('pattern')") El email no es correcto
+				
+				///-email
+
+				//Departamento
+				div.form-group.form-dep
+					label(for="departamento") Departamento
+					div.select
+						select(id="departamento", name="departamento", required, [(ngModel)]="contactoForm.state", #state="ngModel", (change)="getCities($event)", (focus)="focusIn($event)", (focusout)="focusOut($event)")
+							option(*ngFor="let state of states; let stateKey = index",[value]="state.idState") {{state.name}}
+					div.msn-place(*ngIf='state.errors && (state.dirty || state.touched || formSubmitAttempt)')
+						div([hidden]="!state.hasError('required')") El departamento es requerido
+
+				///-Departamento
+
+				//Municipios
+				div.form-group
+					label(for="municipio") Municipio
+					div.select
+						select(id="municipio", name="municipio", required, [(ngModel)]="contactoForm.city", #city="ngModel", (focus)="focusIn($event)", (focusout)="focusOut($event)")
+							option(*ngFor="let citie of cities; let citieKey = index",[value]="citie.idCity") {{citie.name}}
+					div.msn-place(*ngIf='city.errors && (city.dirty || city.touched || formSubmitAttempt)')
+						div([hidden]="!city.hasError('required')") El municipio es requerido
+
+				///-Municipios
+
+				
+
+				//Comentario
+				div.form-group
+					label(for="comentario") Comentario
+					div.textarea
+						textarea(id="comentario", name="comentario", required, pattern="[a-zA-ZñÑáéíóúÁÉÍÓÚ ]+", [(ngModel)]="contactoForm.comment", #comment="ngModel", (focus)="focusIn($event)", (focusout)="focusOut($event)")
+						
+							//- option(*ngFor="let citie of cities; let citieKey = index",[value]="citie.idCity") {{citie.name}}
+					div.msn-place(*ngIf='comment.errors && (comment.dirty || comment.touched || formSubmitAttempt)')
+						div([hidden]="!comment.hasError('required')") Escribe algo
+
+				///-Comentario
+				
+				div.clearfix
+					
+				//Acepto terminos
+				div.form-group.form-checkbox
+					div.checkbox
+						input(type="checkbox", name="politicasA", id="politicasA", required, [(ngModel)]="contactoForm.politics",#politics="ngModel")
+						label(for="politicasA")
+							| Acepto  
+							a([routerLink]="['/terminos']", target="_blank") Términos y Condiciones.
+
+						div.msn-place(*ngIf='politics.errors && (politics.dirty || politics.touched || formSubmitAttempt)')
+							div([hidden]="!politics.hasError('required')") Los términos y condiciones son requeridos
+
+
+				///-Acepto terminos
+
+				//Submit
+				button.btn.btn-submit((click)="save(contacto)") Enviar
+				///-Submit
+			///-Contactenos
+
+footer-public

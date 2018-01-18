@@ -1,18 +1,114 @@
-.btn-cargar-mas
-	background-color $azul !important
-	color #fff !important
-	display block
-	font-size 1.5em
-	margin 1em auto
-	vertical-align middle
+.btn
+	transitionBase()
 	
-	&:hover
-		background-color darken($azul, 40%) !important
-
-.btn-primary
-	background-color $azul
-	
-
-	&:hover
-		background-color darken($azul, 40%)
+	&-back
+		color black
+		display block
+		margin 2rem auto
 		
+		i
+			font-size 2rem
+			padding-right 1.1rem
+			vertical-align middle
+
+	&-menu
+		background-color white
+		border none
+		cuadrado(6rem)
+		cursor pointer
+		display inline-block
+		margin 2.5rem 0 1rem
+		outline 0 !important
+		outline none !important
+		padding 0
+		position relative
+
+		.m-line
+			background-color black
+			border-radius 1rem
+			display block
+			height 0.5rem
+			left 15%
+			margin 0
+			padding 0
+			position absolute
+			transitionBase()
+			width 70%
+			
+
+			&:nth-of-type(1)
+				top 1.5rem
+			
+			&:nth-of-type(2)
+				top 50%
+				transform translateY(-@top)
+			
+			&:nth-of-type(3)
+				bottom 1.5rem
+				
+
+		&.active
+			outline none !important
+			outline 0 !important
+			z-index 15 
+			
+			.m-line
+				&:nth-of-type(1)
+					left 50%
+					top 50%
+					transform translate3d(-50%,-50%,0) rotate(-45deg)
+				&:nth-of-type(2)
+					opacity 0
+				&:nth-of-type(3)
+					bottom unset
+					left 50%
+					top 50%
+					transform translate3d(-50%,-50%,0) rotate(45deg)
+
+
+	&-read
+		background-color $rojo
+		box-shadow 0px 5px 5px 0px rgba(0, 0, 0, 0.25)
+		color white
+		display block
+		max-width 14rem
+		padding 0.5rem 1rem
+		text-align center
+		width 100%
+		
+		&:hover
+			background-color white
+			color black
+		
+		
+	&-red
+		background-color transparent
+		border 2px solid $rojo
+		color $rojo
+		display block
+		font-weight $bold
+		margin 1rem auto
+		max-width 22rem
+		padding 0.5rem 1rem
+		text-align center
+		
+		&:hover
+			background-color $rojo
+			color white
+			
+
+	&-submit
+		background-color $rojo
+		border none
+		box-shadow 0px 5px 5px 0px rgba(0, 0, 0, 0.25)
+		color white
+		display block
+		margin 1rem auto
+		max-width 24rem
+		padding 1rem 2rem
+		text-align center
+		text-transform uppercase
+		
+		&:hover
+			background-color #fff
+			color $rojo

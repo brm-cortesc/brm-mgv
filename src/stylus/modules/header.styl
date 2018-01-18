@@ -1,0 +1,65 @@
+header
+	animation 0.3s ease-out reverse backwards paused
+	background-color #fff
+	transitionBase()
+	width 100%
+	z-index 10
+	
+	
+	&.affix
+		animation-direction normal
+		animation-fill-mode forwards
+		animation-name header-animation
+		animation-play-state running
+		max-height 15rem
+		position fixed
+		z-index 1000
+		
+
+	
+		// .row-programa
+		// 	max-height 0
+		// 	opacity 0			
+			
+	
+	.col-btn.fixed
+		position fixed
+		right 1rem
+		z-index 12
+		
+
+	.divisor
+		border-top 4px solid $azul
+		position relative
+		top -4rem
+		z-index 0
+		
+	.logo
+		border 4px solid white
+		border-top none
+		margin 0
+		max-width 15rem
+		position relative
+		z-index 1
+		
+		img
+			img-responsive(block)
+
+
+			
+
+	.social-list
+		margin-top 2rem
+		
+
+.row-programa
+
+	h3
+		font-weight $light
+		margin 1rem auto
+		
+
+@media (min-width:1000px)
+	header
+		&.affix
+			max-height 13rem

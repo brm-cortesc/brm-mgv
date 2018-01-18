@@ -1,0 +1,80 @@
+.body
+	&-fixed
+		height 100vh
+		overflow hidden
+		
+
+.banner
+	&-pdf
+		img
+			img-responsive(block)
+			margin 0 auto
+			
+.clearfix
+	clearfix()
+
+.fixed
+	position fixed
+
+.iterador
+	&:nth-of-type(1)
+		display none	
+
+.space
+	&-bottom-base
+		margin-bottom 1rem
+		padding-bottom 1rem
+		padding-top @padding-bottom
+	
+
+.shadow
+	&-base
+		box-shadow 0px 0px 5px rgba(0, 0, 0, 0.5)
+
+
+.title
+	&-section
+		font-size 2rem
+		margin 3rem auto
+		position relative
+		text-align center
+		text-transform uppercase
+		
+		&::before
+			background-color black
+			bottom -1rem
+			content ''
+			display block
+			height 1px
+			left 30%
+			position absolute		
+			width 40%
+	
+
+.text
+	&-center
+		text-align center
+		
+	&-justify
+		text-align justify
+		text-align-last left
+	&-left
+		text-align left
+		
+	&-desc-video
+		h3
+			color $rojo
+			font-size 1.8rem
+			font-weight $light
+			line-height 1.1
+			margin 1rem auto
+			text-align center
+			
+@media(min-width:$screen-sm)
+	.title
+		&-bio	
+			text-align left
+			
+			&::before
+				left 0
+				

@@ -1,0 +1,82 @@
+include ../../../templates/partials/mixins.pug
+
+//Header
+header.container-fluid([class.affix]="headerFixed")
+	div.row
+		
+		//Logo
+		div.col-logo
+			h2.logo(*ngIf="router.url != '/'; else logo_home ")
+				a([routerLink]="['/']"): +image('layout/mejor-vargas-lleras-rojo.svg', '#MejorVargasLleras')
+			
+
+			ng-template(#logo_home="")
+				h1.logo: +image('layout/mejor-vargas-lleras-rojo.svg', '#MejorVargasLleras')
+
+		///-Logo
+		
+		//Btn mobile
+		div.col-btn([class.fixed]="headerFixed")
+			button.btn.btn-menu(type="button", (click)="toggleMenu()", [class.active]="menuState")
+				span.m-line
+				span.m-line
+				span.m-line
+
+		///-Btn mobile
+		div.col-menu-nav()
+			//Menu
+			
+			nav.menu([class.active]="menuState")
+				div.container-menu
+					//- //Btn cerrar
+					//- button.btn.btn-close(type="button", (click)="toggleMenu()")
+					//- 	i.icon.icon-close-white
+					//- ///-Btn cerrar
+
+					//Navegacion
+					ul.menu-list
+						li(routerLinkActive="active", [routerLinkActiveOptions]="{ exact: true }")
+							a([routerLink]="['/']", (click)="toggleMenu()") Inicio
+
+						li(routerLinkActive="active")
+							a([routerLink]="['/noticias']", (click)="toggleMenu()") Noticias
+
+						li(routerLinkActive="active", [routerLinkActiveOptions]="{ exact: true }")
+							a([routerLink]="['/biografia']", (click)="toggleMenu()") Biografía
+
+						li(routerLinkActive="active")
+							a([routerLink]="['/propuestas']", (click)="toggleMenu()") Propuestas
+
+						li(routerLinkActive="active", [routerLinkActiveOptions]="{ exact: true }")
+							a([routerLink]="['/contacto']", (click)="toggleMenu()") Contacto
+
+					///-Navegacion
+
+					//Redes Sociales
+					ul.social-list
+						li
+							a(href="#", rel="nofollow", target="_Blank"): i.icon.icon-fb
+
+						li
+							a(href="#", rel="nofollow", target="_Blank"): i.icon.icon-tw
+
+						li
+							a(href="#", rel="nofollow", target="_Blank"): i.icon.icon-ins
+
+						li
+							a(href="#", rel="nofollow", target="_Blank"): i.icon.icon-yt
+
+					///-Redes Sociales
+
+			///-Menu
+	
+	hr.divisor
+
+section.container-fluid
+	//Descargar programa
+	div.row.row-programa.text-center
+		h3 Programa de Gobierno 2018 - 2022
+		a.btn.btn-red(href="#", target="_blank") Descargar Programa
+	///-Descargar programa
+
+///-Header

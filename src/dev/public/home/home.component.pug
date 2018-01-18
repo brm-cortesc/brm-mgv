@@ -1,5 +1,129 @@
-h1(style="text-align:center")
-	a(href="https://www.youtube.com/watch?v=My2FRPA3Gf8", target="_blank", style="text-decoration:underline")
-		| I came in like a  
-		strong wrecking ball!
+include ../../templates/partials/mixins.pug
+//- img(src='images/slider/articulo-home.jpg', srcset="images/slider/articulo-home.jpg 1000w, images/slider/articulo-home-640.jpg 770w", sizes="(min-width:770px) 100%, 100% " )
+
+header-public
+
+section.container-fluid
+	div.row
+		//Slider
+		div.col-slider
+			ngx-slick.slider(#slickModal="slick-modal", [config]="slideConfig")
+				//Item
+				article.slide(ngxSlickItem, *ngFor="let slide of slides; let keySlide = index ")
+					
+					div.slide-img
+						a(*ngIf="slide.url; else slide_img" href="{{slide.url}}")
+							
+							img(src='{{slide.imgBig}}',
+								srcset="{{slide.imgBig}} 1000w, {{slide.imgThumb}} 770w",
+								sizes="(min-width:770px) 100%, 100% " )
+
+						ng-template(#slide_img="")
+							img(src='{{slide.imgBig}}',
+								srcset="{{slide.imgBig}} 1000w, {{slide.imgThumb}} 770w",
+								sizes="(min-width:770px) 100%, 100% ")
+				//Item
+		///-Slider
+		//Inscripcion
+		div.col-form
+			h2.text-center Lorem Ipsum
+			form#ins.form-home(#inscripcion="ngForm", novalidate)
+				
+				//Nombre
+				div.form-group
+					label(for="nombre") Nombre
+					input(type="text", id="nombre", name="nombre", required, pattern="[a-zA-ZñÑáéíóúÁÉÍÓÚ ]+", [(ngModel)]="inscripcionForm.name", #name="ngModel", (focus)="focusIn($event)", (focusout)="focusOut($event)")
+					div.msn-place(*ngIf='name.errors && (name.dirty || name.touched || formSubmitAttempt)')
+						div([hidden]="!name.hasError('required')") El nombre es requerido
+						div([hidden]="!name.hasError('pattern')") El nombre no es correcto
+
+				///-Nombre
+
+				//Apellidos		
+				div.form-group
+					label(for="apellidos") Apellidos
+					input(type="text", id="apellidos", name="apellidos", required, pattern="[a-zA-ZñÑáéíóúÁÉÍÓÚ ]+", [(ngModel)]="inscripcionForm.surname", #surname="ngModel", (focus)="focusIn($event)", (focusout)="focusOut($event)")
+					div.msn-place(*ngIf='surname.errors && (surname.dirty || surname.touched || formSubmitAttempt)')
+						div([hidden]="!surname.hasError('required')") Los apellidos son requeridos
+						div([hidden]="!surname.hasError('pattern')") Los apellidos son requeridos
+
+				///-Apellidos
+
+				//email
+				div.form-group
+					
+					label(for="email") Email
+					input(type="email", id="email", name="email", required, pattern="[a-zA-Z0-9_-]+([.][a-zA-Z0-9_-]+)*@[a-zA-Z0-9_-]+([.][a-zA-Z0-9_-]+)*[.][a-zA-Z]{1,5}", [(ngModel)]="inscripcionForm.email",#email="ngModel", (focus)="focusIn($event)", (focusout)="focusOut($event)")
+					div.msn-place(*ngIf='email.errors && (email.dirty || email.touched || formSubmitAttempt)')
+						div([hidden]="!email.hasError('required')") El email es requerido
+						div([hidden]="!email.hasError('pattern')") El email no es correcto
+				
+				///-email
+
+				//Departamento
+				div.form-group.form-dep
+					label(for="departamento") Departamento
+					div.select
+						select(id="departamento", name="departamento", required, [(ngModel)]="inscripcionForm.state", #state="ngModel", (change)="getCities($event)", (focus)="focusIn($event)", (focusout)="focusOut($event)")
+							option(*ngFor="let state of states; let stateKey = index",[value]="state.idState") {{state.name}}
+					div.msn-place(*ngIf='state.errors && (state.dirty || state.touched || formSubmitAttempt)')
+						div([hidden]="!state.hasError('required')") El departamento es requerido
+
+				///-Departamento
+
+				//Municipios
+				div.form-group
+					label(for="municipio") Municipio
+					div.select
+						select(id="municipio", name="municipio", required, [(ngModel)]="inscripcionForm.city", #city="ngModel", (focus)="focusIn($event)", (focusout)="focusOut($event)")
+							//- option(*ngFor="let citie of cities; let citieKey = index",[value]="citie.idCity") {{citie.name}}
+					div.msn-place(*ngIf='city.errors && (city.dirty || city.touched || formSubmitAttempt)')
+						div([hidden]="!city.hasError('required')") El municipio es requerido
+
+				///-Municipios
+
+				//Submit
+				button.btn.btn-submit((click)="save(inscripcion)") Enviar
+				///-Submit
+
+				div.clearfix
+		///-Inscripcion
+
+
+section.container-fluid
+	div.row
+		//Noticias Recientes
+		div.col-noticias-recientes
+			
+			div.box(*ngFor="let noticia of noticiasR;")
+				div.box-header
+					span.btn.btn-read Noticias
+					//Imagen noticia
+					+image('{{noticia.img}}', '{{noticia.title}}')
+					///-Imagen noticia
+				
+				div.box-content
+					p {{noticia.title}}
+
+		///-Noticias Recientes
+
+		//Btn propuestas
+		div.col-banner
+			a([routerLink]="['/propuestas']")
+				+image('layout/conoce-propuestas.svg', 'Conoce Nuestras Propuestas')
+		///-Btn propuestas
+
+
+section.container-fluid.container-banner-bio
+	div.row
+		div.col-bio
+			h2
+				| Biografía de:
+				strong Germán Vargas Lleras
+
+			a.btn.btn-read([routerLink]="['/biografia']") Leer
+
+
+footer-public
+
 

@@ -1,0 +1,44 @@
+.box
+	background-color $gris
+	margin 1rem auto
+	position relative
+	
+	&-1
+		display none
+	&-content
+		padding 3rem 2rem 1rem
+		
+
+	&-header
+		position relative
+		
+		.btn
+			bottom -1.3rem
+			left 50%
+			position absolute
+			transform translateX(-@left)
+			z-index 5
+
+	&-title
+		color white
+		font-size 1.8rem
+		left 50%
+		margin 0
+		padding 0
+		position absolute
+		text-align center
+		text-shadow 0px 0px 5px rgba(0, 0, 0, 0.5)
+		text-transform uppercase
+		top 50%
+		transform translate3d(-50%,-50%,0)
+		z-index 9
+
+
+	img
+		img-responsive(block)
+		width 100%
+		
+
+// @media (min-width:$screen-sm)
+// 	.col-box
+// 		.box

@@ -1,0 +1,24 @@
+include ../../templates/partials/mixins.pug
+
+header-public
+section.container-fluid
+	div.row
+		//Texto
+		article.col-8
+			
+			h1.title-section.title-bio Biografía
+			-for(x = 0; x < 3; x ++)
+				p.
+					Lorem ipsum dolor sit amet, consectetur adipisicing elit. Amet tempora, ad at quo assumenda voluptates dolor molestiae rerum impedit tempore facilis sint, aliquam ullam? A, nisi? Animi, iure ab. Quis.
+
+
+		///-Texto
+		
+
+		//Foto
+		article.col-4.offset-1
+			+image('noticias/foto-bio.jpg', 'Germán Vargas Lleras')(class='img-article img-bio')
+
+		///-Foto
+
+footer-public

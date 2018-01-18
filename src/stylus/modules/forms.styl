@@ -1,0 +1,289 @@
+.form
+	&-group
+		border 1px solid black
+		margin 1rem auto
+		padding 0.5rem
+		transitionBase()
+
+		&.form-checkbox
+			border-color transparent
+			text-align center
+			
+			input,
+			label
+				display inline-block
+				vertical-align top
+			
+			label
+				cursor: pointer
+				max-width 90%
+				text-transform none !important
+				
+			input
+				margin-top 0.4rem
+				max-width 2rem
+		
+		input,
+		label,
+		.select
+			display inline-block
+			margin 0 0.5rem
+			vertical-align middle
+			transitionBase()
+			
+		label
+			font-weight $light
+			margin-bottom 0 			
+
+		input
+			background-color transparent
+			border none
+			color black
+			max-width 64%
+			padding 1rem 0.5rem
+			width 100%
+			
+			&:focus
+				outline 0 !important
+				outline none !important
+			
+		select,
+		textarea
+			background-color transparent
+			border none
+			color black
+			transitionBase()
+			width 100%
+			
+			&:focus
+				outline 0 !important
+				outline none
+				
+			option
+				color black
+			
+
+		.select
+			max-width 62%
+			padding 1rem 0.5rem
+			width 100%
+	
+		.textarea
+			textarea
+				resize none
+				
+		
+	&-dep
+		.select
+			max-width 49%
+
+		
+
+	&-home
+		padding 0 1rem
+		
+		.btn-submit
+			background-color #fff
+			border none
+			color black
+			display block
+			font-size 1.8rem
+			font-weight $bold
+			margin 2rem auto
+			max-width 20rem
+			text-align center
+			text-transform uppercase
+			
+		
+		label
+			font-weight $light
+			margin-bottom 0 
+			
+
+		input
+			background-color transparent
+			border none
+			color white
+			max-width 64%
+			padding 1rem 0.5rem
+			width 100%
+			
+			&:focus
+				outline 0 !important
+				outline none !important
+			
+		select
+			background-color transparent
+			border none
+			color white
+			width 100%
+			
+			&:focus
+				outline 0 !important
+				outline none
+				
+			option
+				color black
+			
+		.form
+			&-group
+				border 1px solid white
+				margin 1rem auto
+				padding 0.5rem
+				
+								
+				input,
+				label,
+				.select
+					display inline-block
+					margin 0 0.5rem
+					vertical-align middle
+					
+
+				// .select
+				// 	max-width 62%
+				// 	width 100%
+				
+
+			// &-dep
+			// 	.select
+			// 		max-width 49%
+					
+	&-email-prop
+		border none
+		margin 3rem auto
+		
+		label
+			font-weight $bold
+		input
+			border none
+			border-bottom 1px solid black
+			padding 1rem 0
+			width 100%
+
+	&-select-props
+		border none
+		margin 3rem auto
+		text-align center
+		
+		label,
+		.select
+			display inline-block
+			vertical-align middle
+			width 100%
+		
+		label
+			max-width 20%
+			text-align right
+			
+		.select
+			max-width 45% !important
+			select
+				background-color transparent
+				border none
+				
+
+#contact
+	margin-top 3rem
+	
+.msn-place
+	color $amarillo
+	font-size 0.9rem
+
+@media (min-width:460px)
+	.form
+
+		&-group
+			.select
+				max-width 76%
+
+		&-dep
+			.select
+				max-width 67%
+				
+		// &-select-props
+		// 	.select
+		// 		max-width 45%
+		
+@media (min-width:580px)
+		.form
+
+			&-group
+				.select
+					max-width 81%
+
+			&-dep
+				.select
+					max-width 75%
+			
+@media (min-width:$screen-sm)
+	// .form
+	// 	&-group
+
+	.form
+		&-home
+			.form-group
+				&.active
+					label
+						background-color $rojo
+						
+		&-group
+			margin 1rem auto
+			position relative
+			
+
+			&.form-checkbox
+				label
+					display inline-block
+					pointer-events all
+					position static
+					top auto
+					transform none
+					
+			
+			.btn-submit
+				font-size 1.4rem
+			
+			label
+				display block
+				margin 0
+				padding 0 0.5rem
+				pointer-events none
+				position absolute
+				top 50%
+				transform translateY(-50%)
+				z-index 2
+					
+			input,
+			.select
+				max-width 100%
+				padding 0.5rem
+			
+
+			&.active
+				label
+					background-color white
+					top -1rem
+					transform scale(0.8) translateY(0)
+	
+				
+		&-email-prop
+			label
+				display inline-block
+				pointer-events all
+				position static
+				top auto
+				transform none
+				
+		&-select-props
+			margin 0 auto
+			width 50%
+			
+			label
+				display inline-block
+				pointer-events all
+				position static
+				top auto
+				transform none
+				
+				
