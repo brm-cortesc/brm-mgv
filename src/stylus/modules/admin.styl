@@ -1,0 +1,60 @@
+.admin
+	
+	header.container-fluid
+		div.row
+			max-width 80rem
+			text-align center
+		
+
+	.btn
+		border 1px solid $azul
+		color $azul
+		cursor pointer
+		display inline-block
+		margin 1rem auto
+		padding 1rem 2rem
+		transitionBase()
+		vertical-align top
+		
+		&:hover
+			background-color $azul
+			color white
+			text-decoration none
+		
+		&-blue
+			display block
+			margin 1rem auto
+			max-width 20rem
+			text-align center
+			
+		&-submit
+			background-color $azul
+			color #fff
+			display block
+			margin 1rem auto
+			
+			&:hover
+				background-color #fff
+				color $azul
+
+	.container-dashboard
+		.row
+			margin 1rem auto
+			max-width 60rem
+			text-align center
+			
+	.container-login
+		.row
+			margin 1rem auto
+			max-width 42rem
+			
+
+	.form-group
+		margin 2rem auto
+		
+		input
+			&[type="file"]
+				padding-left 14rem
+			
+
+			

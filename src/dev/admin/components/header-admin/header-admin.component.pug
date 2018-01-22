@@ -1,0 +1,29 @@
+include ../../../templates/partials/mixins.pug
+
+//Header
+header.container-fluid()
+	div.row
+		
+		//Logo
+		div.col-logo
+			h2.logo
+				a([routerLink]="['/admin/dashboard']"): +image('layout/mejor-vargas-lleras-rojo.svg', '#MejorVargasLleras')
+
+		///-Logo
+		
+		//- //Btn mobile
+		//- div.col-btn([class.fixed]="headerFixed")
+		//- 	button.btn.btn-menu(type="button", (click)="toggleMenu()", [class.active]="menuState")
+		//- 		span.m-line
+		//- 		span.m-line
+		//- 		span.m-line
+
+		//- ///-Btn mobile
+		div.col-8(*ngIf="router.url != '/admin/login'")
+			//- div.col-8
+			a.btn.btn-section([routerLink]="['/admin/dashboard']") Dashboard
+			sign-out
+
+	hr.divisor
+
+///-Header

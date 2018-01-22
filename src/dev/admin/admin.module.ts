@@ -1,4 +1,4 @@
-import { NgModule } from '@angular/core';
+import { NgModule} from '@angular/core';
 import { CommonModule } from '@angular/common';
 import {NgbModule} from '@ng-bootstrap/ng-bootstrap';
 import { FormsModule, ReactiveFormsModule }   from '@angular/forms';
@@ -18,6 +18,7 @@ import { SignOutComponent }      from './components/sign-out/sign-out';
 import { AlertToastComponent }      from './components/alert-toast/alert-toast';
 import { FormClientComponent }      from './components/form-client/form-client';
 import { FormUserClientComponent }      from './components/form-user-client/form-user-client';
+import { HeaderAdmin }      from './components/header-admin/header-admin.component';
 
 
 
@@ -42,6 +43,7 @@ import { AdminPropuesta }      from './propuesta/propuesta';
     AlertToastComponent,
     FormClientComponent,
     FormUserClientComponent,
+    HeaderAdmin,
     AdminLogin,
     AdminReports,
     AdminDashboard,
@@ -50,4 +52,7 @@ import { AdminPropuesta }      from './propuesta/propuesta';
   ],
   providers:[browserWindowProvider, windowProvider, RequestService]
 })
-export class AdminModule { }
+export class AdminModule {
+
+
+}

@@ -3,7 +3,7 @@
  * @version v0.1.0
  * @link Cristian Cortés - cristian.cortes@brm.com.co
  * @license 
- *Thu Jan 18 2018 16:58:32 GMT-0500 (COT)
+ *Mon Jan 22 2018 16:32:15 GMT-0500 (COT)
  */
 /*
  *  Font Awesome 4.7.0 by @davegandy - http://fontawesome.io - @fontawesome
@@ -2395,6 +2395,60 @@ footer .col-4 p {
   .img-article {
     height: auto;
   }
+}
+.admin header.container-fluid div.row {
+  max-width: 80rem;
+  text-align: center;
+}
+.admin .btn {
+  border: 1px solid #2e3191;
+  color: #2e3191;
+  cursor: pointer;
+  display: inline-block;
+  margin: 1rem auto;
+  padding: 1rem 2rem;
+  -o-transition: all 0.3s ease-in-out;
+  -ms-transition: all 0.3s ease-in-out;
+  -webkit-transition: all 0.3s ease-in-out;
+  -moz-transition: all 0.3s ease-in-out;
+  transition: all 0.3s ease-in-out;
+  vertical-align: top;
+}
+.admin .btn:hover {
+  background-color: #2e3191;
+  color: #fff;
+  text-decoration: none;
+}
+.admin .btn-blue {
+  display: block;
+  margin: 1rem auto;
+  max-width: 20rem;
+  text-align: center;
+}
+.admin .btn-submit {
+  background-color: #2e3191;
+  color: #fff;
+  display: block;
+  margin: 1rem auto;
+}
+.admin .btn-submit:hover {
+  background-color: #fff;
+  color: #2e3191;
+}
+.admin .container-dashboard .row {
+  margin: 1rem auto;
+  max-width: 60rem;
+  text-align: center;
+}
+.admin .container-login .row {
+  margin: 1rem auto;
+  max-width: 42rem;
+}
+.admin .form-group {
+  margin: 2rem auto;
+}
+.admin .form-group input[type="file"] {
+  padding-left: 14rem;
 }
 .body-fixed {
   height: 100vh;

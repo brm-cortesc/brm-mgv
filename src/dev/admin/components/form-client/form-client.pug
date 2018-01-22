@@ -1,28 +1,36 @@
-div.form-group Nombre
-	input(type="text", value="{{propuest.nombre}}",[(ngModel)]="propuest.nombre")
+div.form-group
+	label Nombre
+	input(type="text", value="{{propuest.nombre}}",[(ngModel)]="propuest.nombre", (focus)="focusIn($event)", (focusout)="focusOut($event)")
 
-div.form-group Url
-	input(type="text", value="{{propuest.url}}",[(ngModel)]="propuest.url")
+div.form-group
+	label URL
+	input(type="text", value="{{propuest.url}}",[(ngModel)]="propuest.url", (focus)="focusIn($event)", (focusout)="focusOut($event)")
 
-div.form-group Video ID
-	input(type="text", value="{{propuest.videoId}}",[(ngModel)]="propuest.videoId")
+div.form-group
+	label YouTube Video ID
+	input(type="text", value="{{propuest.videoId}}",[(ngModel)]="propuest.videoId", (focus)="focusIn($event)", (focusout)="focusOut($event)")
 
-div.form-group Descripción Video
-	input(type="text", value="{{propuest.descVideo}}",[(ngModel)]="propuest.descVideo")
+div.form-group
+	label Descripción Video
+	input(type="text", value="{{propuest.descVideo}}",[(ngModel)]="propuest.descVideo", (focus)="focusIn($event)", (focusout)="focusOut($event)")
 
-div.form-group PDF
+div.form-group
+	label PDF
 	input(type="hidden", value="{{propuest.pdf}}",[(ngModel)]="propuest.pdf", (change)="fileChange2($event)", accept=".pdf")
-	input(type="file", placeholder="PDF", (change)="fileChange2($event)", accept=".pdf")
+	input(type="file", placeholder="PDF", (change)="fileChange2($event)", accept=".pdf", (focus)="focusIn($event)", (focusout)="focusOut($event)")
 
-div.form-group Imagen Banner
+div.form-group
+	label Imagen Banner
 	input(type="hidden", value="{{propuest.imgBanner}}",[(ngModel)]="propuest.imgBanner", (change)="fileChange($event)", accept=".png,.jpg,.jpeg")
-	input(type="file", placeholder="Imagen Banner", (change)="fileChange($event)", accept=".png,.jpg,.jpeg")
+	input(type="file", placeholder="Imagen Banner", (change)="fileChange($event)", accept=".png,.jpg,.jpeg", (focus)="focusIn($event)", (focusout)="focusOut($event)")
 
 figure.client(*ngIf="propuest.imgBanner != undefined")
 	img(src="assets/images/{{propuest.imgBanner}}", class="imagn")
 	
-div.color    Propuesta Txt
-	textarea(value="{{propuest.propuestaTxt}}",[(ngModel)]="propuest.propuestaTxt")
+div.form-group
+	label Texto Contenido:
+	div.textarea
+		textarea(value="{{propuest.propuestaTxt}}",[(ngModel)]="propuest.propuestaTxt", (focus)="focusIn($event)", (focusout)="focusOut($event)")
 
 div.clearfix
 

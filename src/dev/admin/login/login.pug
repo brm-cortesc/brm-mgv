@@ -1,28 +1,24 @@
-header.container-fluid.container-admin
-	div.row
-		//Logo brm login
-		
-
-		h1.login Administrador
+header-admin
 		
 alert-toast
 	
 //Login
 div.container-fluid.container-login
 	div.row
+		h2.text-center Administrador #MejorVargasLleras
 		div.col-login
 			//- div.form-group((click)="this.active = !this.active", [class.active]="this.active")
-			div.form-group.form-user((click)="toggleFixed()", [class.active]="this.activeI")
-				//- label(for="usuario") Usuario
-				input(type="text", [(ngModel)]="correo", id="correo", placeholder="Usuario")
+			div.form-group.form-user
+				label(for="usuario") Usuario
+				input(type="text", [(ngModel)]="correo", id="correo", (focus)="focusIn($event)", (focusout)="focusOut($event)")
 
 			//- div.form-group((click)="this.aca = !this.aca", [class.active]="this.aca")
-			div.form-group.form-pass((click)="toggleFixed()", [class.active]="this.activeO")
-				//- label(for="pass") Contraseña
-				input(type="password", [(ngModel)]="contrasena", id="pass", placeholder="Contraseña")
+			div.form-group.form-pass
+				label(for="pass") Contraseña
+				input(type="password", [(ngModel)]="contrasena", id="pass", (focus)="focusIn($event)", (focusout)="focusOut($event)")
 
 
-			button.btn.btn-submit((click)="login()") Aceptar
+			button.btn.btn-submit((click)="login()") Ingresar
 
 ///-Login
 

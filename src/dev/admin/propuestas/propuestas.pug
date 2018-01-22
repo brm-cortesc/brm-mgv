@@ -1,11 +1,11 @@
 //- include ../../includes/mixins
 
-section.container-fluid.container-clients
+header-admin
+
+section.container-fluid.container-propuestas
 	div.row.row-create
 		//Crear clientes
-		a.btn.btn-blue((click)="toggleClass()", [class.active]="activeS")
-			i.glyphicon.glyphicon-plus
-			| Nueva Propuesta
+		a.btn.btn-blue((click)="toggleClass()", [class.active]="activeS") Nueva Propuesta
 
 		article.client-create( [class.active]="activeS")
 			form-client([idClient]="",(insertClient)="insertClient($event)",*ngIf="activeS")
