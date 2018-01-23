@@ -3,7 +3,7 @@
  * @version v0.1.0
  * @link Cristian Cortés - cristian.cortes@brm.com.co
  * @license 
- *Mon Jan 22 2018 16:32:15 GMT-0500 (COT)
+ *Tue Jan 23 2018 16:14:30 GMT-0500 (COT)
  */
 /*
  *  Font Awesome 4.7.0 by @davegandy - http://fontawesome.io - @fontawesome
@@ -1594,6 +1594,9 @@ footer .col-4 p {
   -moz-transition: all 0.3s ease-in-out;
   transition: all 0.3s ease-in-out;
 }
+.btn:hover {
+  text-decoration: none;
+}
 .btn-back {
   color: #000;
   display: block;
@@ -1681,6 +1684,7 @@ footer .col-4 p {
   -webkit-box-shadow: 0px 5px 5px 0px rgba(0,0,0,0.25);
   box-shadow: 0px 5px 5px 0px rgba(0,0,0,0.25);
   color: #fff;
+  cursor: pointer;
   display: block;
   max-width: 14rem;
   padding: 0.5rem 1rem;
@@ -1695,6 +1699,7 @@ footer .col-4 p {
   background-color: transparent;
   border: 2px solid #ec1c24;
   color: #ec1c24;
+  cursor: pointer;
   display: block;
   font-weight: 700;
   margin: 1rem auto;
@@ -1890,6 +1895,8 @@ footer .col-4 p {
 .menu-list li.active a {
   background-color: #2e3191;
   color: #fff;
+  cursor: pointer;
+  text-decoration: none;
 }
 .menu .container-menu {
   left: 5%;
@@ -2055,7 +2062,7 @@ footer .col-4 p {
 }
 @media (min-width: 770px) {
   .slide-img img {
-    height: 38.2rem;
+    height: 45rem;
     object-fit: cover;
     -webkit-object-fit: cover;
     -moz-object-fit: cover;
@@ -2064,27 +2071,25 @@ footer .col-4 p {
 }
 @media (min-width: 830px) {
   .slide-img img {
-    height: 39rem;
+    height: 45.2rem;
+  }
+}
+@media (min-width: 940px) {
+  .slide-img img {
+    height: 43.2rem;
   }
 }
 @media (min-width: 990px) {
   .slide-img img {
-    height: 39.3rem;
+    height: 43.5rem;
   }
 }
 @media (min-width: 1100px) {
   .slide-img img {
-    height: 39.6rem;
+    height: 43.8rem;
   }
 }
 @media (min-width: 1200px) {
-  .slide-img img {
-    height: auto;
-    object-fit: fill;
-    -webkit-object-fit: fill;
-    -moz-object-fit: fill;
-    -o-object-fit: fill;
-  }
   .slick-slider {
     padding: 0 0.5rem;
   }
@@ -2233,6 +2238,13 @@ footer .col-4 p {
   margin: 0 0.5rem;
   vertical-align: middle;
 }
+.form-home .form-checkbox {
+  border-color: transparent;
+}
+.form-home .form-checkbox input,
+.form-home .form-checkbox label {
+  margin: 0;
+}
 .form-email-prop {
   border: none;
   margin: 3rem auto;
@@ -2268,6 +2280,9 @@ footer .col-4 p {
   background-color: transparent;
   border: none;
 }
+.form-select-props .select select option {
+  color: #000;
+}
 #contact {
   margin-top: 3rem;
 }
@@ -2292,6 +2307,17 @@ footer .col-4 p {
   }
 }
 @media (min-width: 770px) {
+  .form-home .form-checkbox input,
+  .form-home .form-checkbox label {
+    vertical-align: top;
+  }
+  .form-home .form-checkbox input {
+    margin-top: 0.5rem;
+  }
+  .form-home .form-checkbox label {
+    max-width: 66%;
+    text-align: left;
+  }
   .form-home .form-group.active label {
     background-color: #ec1c24;
   }
@@ -2366,6 +2392,11 @@ footer .col-4 p {
     -webkit-transform: none;
     -moz-transform: none;
     transform: none;
+  }
+}
+@media (min-width: 850px) {
+  .form-home .form-group.form-checkbox label {
+    max-width: 88%;
   }
 }
 .container-text p {

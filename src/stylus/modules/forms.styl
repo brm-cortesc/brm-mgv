@@ -139,6 +139,12 @@
 					margin 0 0.5rem
 					vertical-align middle
 					
+			&-checkbox
+				border-color transparent
+				
+				input,
+				label
+					margin 0
 
 				// .select
 				// 	max-width 62%
@@ -182,6 +188,9 @@
 				background-color transparent
 				border none
 				
+				option
+					color black
+				
 
 #contact
 	margin-top 3rem
@@ -222,6 +231,18 @@
 
 	.form
 		&-home
+			.form-checkbox
+				input,
+				label
+					vertical-align top
+				
+				input
+					margin-top 0.5rem
+					
+				label
+					max-width 66%
+					text-align left
+					
 			.form-group
 				&.active
 					label
@@ -286,4 +307,9 @@
 				top auto
 				transform none
 				
-				
+@media (min-width:850px)
+	.form
+		&-home
+			.form-group.form-checkbox
+				label
+					max-width 88%

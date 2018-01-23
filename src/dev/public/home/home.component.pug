@@ -82,6 +82,20 @@ section.container-fluid
 
 				///-Municipios
 
+				//Acepto terminos
+				div.form-group.form-checkbox
+					div.checkbox
+						input(type="checkbox", name="politicasH", id="politicasH", required, [(ngModel)]="inscripcionForm.politics",#politics="ngModel")
+						label(for="politicasH")
+							| Acepto  
+							a([routerLink]="['/terminos']", target="_blank") Términos y Condiciones.
+
+						div.msn-place(*ngIf='politics.errors && (politics.dirty || politics.touched || formSubmitAttempt)')
+							div([hidden]="!politics.hasError('required')") Los términos y condiciones son requeridos
+
+
+				///-Acepto terminos
+
 				//Submit
 				button.btn.btn-submit((click)="save(inscripcion)") Enviar
 				///-Submit

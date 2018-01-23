@@ -1,6 +1,9 @@
 .btn
 	transitionBase()
 	
+	&:hover
+		text-decoration none
+	
 	&-back
 		color black
 		display block
@@ -57,8 +60,10 @@
 					left 50%
 					top 50%
 					transform translate3d(-50%,-50%,0) rotate(-45deg)
+					
 				&:nth-of-type(2)
 					opacity 0
+
 				&:nth-of-type(3)
 					bottom unset
 					left 50%
@@ -70,6 +75,7 @@
 		background-color $rojo
 		box-shadow 0px 5px 5px 0px rgba(0, 0, 0, 0.25)
 		color white
+		cursor pointer
 		display block
 		max-width 14rem
 		padding 0.5rem 1rem
@@ -85,6 +91,7 @@
 		background-color transparent
 		border 2px solid $rojo
 		color $rojo
+		cursor pointer
 		display block
 		font-weight $bold
 		margin 1rem auto
