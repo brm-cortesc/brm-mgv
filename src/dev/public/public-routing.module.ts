@@ -25,7 +25,7 @@ const routes: Routes = [
 		]
 	},
 	{path: 'contacto', component: ContactoComponent},
-	{path: 'biografia', component: BioComponent}
+	{path: 'biografia', component: BioComponent},
 	{path: '404', component: NotFoundComponent},
 	{path: '**', redirectTo: '404'}
 ];

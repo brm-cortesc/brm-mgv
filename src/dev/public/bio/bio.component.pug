@@ -7,9 +7,7 @@ section.container-fluid.container-content
 		article.col-8
 			
 			h1.title-section.title-bio Biografía
-			-for(x = 0; x < 3; x ++)
-				p.
-					Lorem ipsum dolor sit amet, consectetur adipisicing elit. Amet tempora, ad at quo assumenda voluptates dolor molestiae rerum impedit tempore facilis sint, aliquam ullam? A, nisi? Animi, iure ab. Quis.
+			div(*ngIf="biografia",[innerHTML]="biografia.contenido")
 
 
 		///-Texto

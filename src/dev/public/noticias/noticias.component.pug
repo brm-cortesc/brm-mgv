@@ -2,7 +2,8 @@ include ../../templates/partials/mixins.pug
 
 header-public
 
-section.container-fluid.container-content(*ngIf="listaNoticias == true; else noticia_single")
+
+section.container-fluid.container-content(*ngIf="noticia == null")
 	div.row
 		h2.title-section.text-center  Noticias
 
@@ -15,7 +16,7 @@ section.container-fluid.container-content(*ngIf="listaNoticias == true; else not
 					div.box-header
 						a.btn.btn-read((click)="ruta(noticia.url)") Leer
 						//Imagen noticia
-						+image('{{noticia.imgThumb}}', '{{noticia.titulo}}')
+						+image('{{"noticias/"+noticia.imgThumb}}', '{{noticia.titulo}}')
 						///-Imagen noticia
 					
 					div.box-content
@@ -28,23 +29,24 @@ section.container-fluid.container-content(*ngIf="listaNoticias == true; else not
 
 
 //Vista individual de Noticia
-ng-template(#noticia_single="")
-	section.container-fluid.container-content(*ngIf="noticia != undefined")
-		div.row
-			div.col-full
-				//Titulo
-				h1.title-section.text-center  {{noticia.titulo}}
-				///-Titulo
+//ng-template(#noticia_single="")
+section.container-fluid.container-content(*ngIf="noticia != null")
+	div.row
+		div.col-full
+			//Titulo
+			h1.title-section.text-center  {{noticia.titulo}}
+			///-Titulo
 
-				a.btn.btn-back([routerLink]="['/noticias']")
-					i.icon.icon-back
-					|  Volver a las noticias
-				
-				//Imagen
-				+image('{{noticia.imgBig}}', '{{noticia.titulo}}')(class='img-article')
-				///-Imagen
+			a.btn.btn-back([routerLink]="['/noticias']")
+				i.icon.icon-back
+				|  Volver a las noticias
+			
+			//Imagen
+			img([src]="'assets/images/noticias/'+noticia.imgBig", title="{{noticia.titulo}}", alt="{{noticia.titulo}}")
+			///-Imagen
 
-				div.container-text-noticia([innerHTML]="noticia.contenido")
+			div.container-text-noticia([innerHTML]="noticia.contenido")
+
 
 
 
