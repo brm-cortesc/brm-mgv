@@ -1,4 +1,5 @@
 import { Component, OnInit} from '@angular/core';
+import { RequestService } from "../../services/request/app.request";
 // import { DOCUMENT } from '@angular/platform-browser';
 
 @Component({
@@ -7,7 +8,8 @@ import { Component, OnInit} from '@angular/core';
 export class HomeComponent implements OnInit {
 
   constructor(
-     // @Inject(DOCUMENT) private document: Document,
+    private requestService:RequestService,
+    // @Inject(DOCUMENT) private document: Document,
     ) { }
   
 	slides:any = [];
@@ -19,22 +21,48 @@ export class HomeComponent implements OnInit {
 
  	ngOnInit() {
 
- 		//Slide items
- 		this.slides = [
- 		  {
-         titulo: 'slide 1',
-         imgBig: 'assets/images/slides/slide-01-big.jpg',
-         imgThumb: 'assets/images/slides/slide-01-thumb.jpg',
-         url: 'noticias/lorem-ipsum-dolor-samet'
-      },
-      {
-         titulo: 'slide 2',
-         imgBig: 'assets/images/slides/slide-01-big.jpg',
-         imgThumb: 'assets/images/slides/slide-01-thumb.jpg',
-         url: 'noticias/ricardo'
+    // Trae de base de datos
+    this.requestService.post('app.php',{accion:"getHome"})
+    .subscribe(
+    (result) => {
+      //this.toast.closeLoader();
+      /* Error general */
+      switch (result.error) {
+        case 0:
+          console.log("Datos incorrectos");
+          break;
       }
- 		
- 		];
+      /* Datos Slider */
+      switch (result.error.slider) {
+        case 1:
+          this.slides = result.data.slider;
+          console.log("Datos de slider",result.data.slider);
+          break;
+        case 2:
+          console.log("No hay datos disponibles slider");
+          break;
+        default:
+          console.log("Ocurrió un error");
+          break;
+      }
+      /* Datos Noticias */
+      switch (result.error.noticias) {
+        case 1:
+          this.noticiasR = result.data.noticias;
+          console.log("Datos de noticias",result.data.noticias);
+          break;
+        case 2:
+          console.log("No hay datos disponibles noticias");
+          break;
+        default:
+          console.log("Ocurrió un error");
+          break;
+      }
+    },
+    (error) =>  {
+      //this.toast.closeLoader();
+      console.log(error)
+    });
 
  		//configuracion de slider
  		this.slideConfig = {
@@ -49,18 +77,6 @@ export class HomeComponent implements OnInit {
  		  'swipe':true
   		};
 
-  	//Noticias recientes
-  	this.noticiasR = [
-  		{
-  			img:'noticias/sample-noticia.jpg',
-  			title: 'Lorem ipsum dolor sit amet, consectetur adipisicing elit. Maxime laborum cum iusto unde expedita labore, explicabo magni enim'
-  		},
-  		{
-  			img:'noticias/sample-noticia.jpg',
-  			title: 'Lorem ipsum dolor sit amet, consectetur adipisicing elit. Maxime laborum cum iusto unde expedita labore, explicabo magni enim'
-  		},
-
-  	]
 	}
 
   // @HostBinding('class.isActive')isActive:boolean;

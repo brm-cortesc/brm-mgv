@@ -14,13 +14,13 @@ section.container-fluid
 					div.slide-img
 						a(*ngIf="slide.url; else slide_img" href="{{slide.url}}")
 							
-							img(src='{{slide.imgBig}}',
-								srcset="{{slide.imgBig}} 1000w, {{slide.imgThumb}} 770w",
+							img(src="{{'assets/images/slides/'+slide.imgBig}}",
+								srcset="{{'assets/images/slides/'+slide.imgBig}} 1000w, {{'assets/images/slides/'+slide.imgThumb}} 770w",
 								sizes="(min-width:770px) 100%, 100% " )
 
 						ng-template(#slide_img="")
-							img(src='{{slide.imgBig}}',
-								srcset="{{slide.imgBig}} 1000w, {{slide.imgThumb}} 770w",
+							img(src="{{'assets/images/slides/'+slide.imgBig}}",
+								srcset="{{'assets/images/slides/'+slide.imgBig}} 1000w, {{'assets/images/slides/'+slide.imgThumb}} 770w",
 								sizes="(min-width:770px) 100%, 100% ")
 				//Item
 		///-Slider
@@ -113,11 +113,11 @@ section.container-fluid
 				div.box-header
 					span.btn.btn-read Noticias
 					//Imagen noticia
-					+image('{{noticia.img}}', '{{noticia.title}}')
+					+image("{{'noticias/'+noticia.imgThumb}}", "{{noticia.titulo}}")
 					///-Imagen noticia
 				
 				div.box-content
-					p {{noticia.title}}
+					p {{noticia.titulo}}
 
 		///-Noticias Recientes
 
