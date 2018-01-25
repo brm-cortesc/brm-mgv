@@ -12,14 +12,14 @@ export class PropuestasComponent implements OnInit {
 
 	listaPropuestas:boolean = true;
 	propuestas:any = [];
-	propuesta:any;
+	propuesta:any = null;
 	propuestaSelUrl:any ="";
 	email:string = "";
 	errorEmail:boolean = false;
 
 
   constructor(
-  	private serviceRequest: RequestService,
+  	private requestService: RequestService,
   	private router: Router,
   	private route: ActivatedRoute,
   	private location: Location,
@@ -29,12 +29,35 @@ export class PropuestasComponent implements OnInit {
  	ngOnInit() {
 		this.propuestaSelUrl = this.route.snapshot.params['id'];
 
-		if(this.propuestaSelUrl == undefined){
-			this.router.navigate(['propuestas']);
-			this.listaPropuestas = true;
-		}
+		/* Trae de base de datos Servicio noticias */
+	    this.requestService.post('app.php',{accion:"getPropuestas"})
+	    .subscribe(
+	    (result) => {
+	      //this.toast.closeLoader();
+	      switch (result.error) {
+	        case 0:
+	          console.log("Los datos son incorrectos");
+	          break;
+	        case 1:
+	          this.propuestas = result.data;
+	          //Filtro para mostrar la vista correspondiente
+	          console.log(this.propuestas,"propuestas");
+	          let notTemp = this.propuestas.filter((node)=>{return node.url == this.noticiaUrl });        
+	          if (notTemp.length > 0) {
+	            this.propuesta = notTemp[0];
+	            console.log(this.propuesta,"propuesta");
+	          }else{
+	            this.router.navigate(['propuestas']);
+	          }
+	          break;
+	      }
+	    },
+	    (error) =>  {
+	      //this.toast.closeLoader();
+	      console.log(error)
+	    });
 
- 		this.propuestas=[
+/* 		this.propuestas=[
 	 		{
 	 			nombre:'Salud',
 	 			url:'salud',
@@ -64,7 +87,7 @@ export class PropuestasComponent implements OnInit {
  			this.selUrl(this.propuestaSelUrl);
 			this.listaPropuestas = false;
 
- 		}
+ 		}*/
 
 
  	}

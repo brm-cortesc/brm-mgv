@@ -8,7 +8,7 @@ section.container-fluid
 		h2.title-section.text-center seleccione una propuesta
 		
 
-section.container-fluid(*ngIf="listaPropuestas == true; else propuesta_single")
+section.container-fluid(*ngIf="propuesta == null")
 
 	div.row
 		ng-container(*ngFor="let propuesta of propuestas; let keyValue = index;")
@@ -31,7 +31,7 @@ section.container-fluid(*ngIf="listaPropuestas == true; else propuesta_single")
 
 
 //Vista individual de propuesta
-ng-template(#propuesta_single="")
+ng-template(*ngIf="propuesta == null")
 	section.container-fluid
 		div.row
 			div.form-group.form-select-props

@@ -25,7 +25,6 @@ export class NoticiasComponent implements OnInit {
   ngOnInit() {
 
     this.noticiaUrl = this.route.snapshot.params['id'];
-    console.log(this.noticiaUrl,"noticiaUrl");
 
     /* Trae de base de datos Servicio noticias */
     this.requestService.post('app.php',{accion:"getNoticias"})
