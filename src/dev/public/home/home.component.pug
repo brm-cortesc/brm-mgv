@@ -111,7 +111,7 @@ section.container-fluid
 			
 			div.box(*ngFor="let noticia of noticiasR;")
 				div.box-header
-					span.btn.btn-read Noticias
+					span.btn.btn-read((click)="ruta(noticia.url)") Leer
 					//Imagen noticia
 					+image("{{'noticias/'+noticia.imgThumb}}", "{{noticia.titulo}}")
 					///-Imagen noticia

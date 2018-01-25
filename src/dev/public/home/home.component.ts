@@ -1,5 +1,6 @@
 import { Component, OnInit} from '@angular/core';
 import { RequestService } from "../../services/request/app.request";
+import { Router, ActivatedRoute} from '@angular/router';
 // import { DOCUMENT } from '@angular/platform-browser';
 
 @Component({
@@ -8,6 +9,7 @@ import { RequestService } from "../../services/request/app.request";
 export class HomeComponent implements OnInit {
 
   constructor(
+    private router: Router,
     private requestService:RequestService,
     // @Inject(DOCUMENT) private document: Document,
     ) { }
@@ -124,6 +126,10 @@ export class HomeComponent implements OnInit {
       }
 
     }
+  }
+
+  ruta(url){
+    this.router.navigate(['noticias/'+ url]);
   }
 
 }
