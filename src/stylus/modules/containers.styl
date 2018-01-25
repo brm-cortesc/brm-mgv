@@ -1,7 +1,10 @@
+section.container-fluid
+	clear both
+	
 .container
 	&-fluid
 		clearfix()
-		
+					
 	&-banner-bio				
 		
 		.row
@@ -42,8 +45,19 @@
 	
 	//Contenedor de texto de las propuestas
 	&-text
+		background-color #fff
 		p
 			padding 0 1rem
+			
+	&-text-noticia
+		background-color #fff
+		padding-top 2rem
+		position relative
+		z-index 2
+		
+		p
+			padding 0 1rem
+		
 			
 
 @media (min-width:$screen-sm)
@@ -75,6 +89,12 @@
 				background-color lighten($azul, 40%)
 				border-radius 1rem
 				
+@media (min-width:800px)
+	.container
+		&-content
+			.row
+				margin-top 4rem
+
 @media (min-width:890px)
 	.container
 		&-text

@@ -39,7 +39,7 @@ export class NoticiasComponent implements OnInit {
   			titulo:'Lorem Ipsum Dolor Samet',
   			url:'lorem-ipsum-dolor-samet',
   			fecha:'10/01/2018',
-  			imgThumb:'noticias/noticia-thumb.jpg',
+  			imgThumb:'noticias/sample-noticia.jpg',
   			imgBig:'noticias/noticia-big.jpg',
   			contenido: '<p><strong>Bucaramanga,&nbsp;21 de noviembre&nbsp;de 2017.-</strong>&nbsp;El programa de gobierno del candidato presidencial, Germán Vargas Lleras se enfoca en la transformación del sistema de salud, para que el ciudadano tenga un servicio de calidad y que cubra todas las necesidades de los pacientes.</p>'
   		},
@@ -47,7 +47,7 @@ export class NoticiasComponent implements OnInit {
         titulo:'Ricardo',
         url:'ricardo',
         fecha:'10/01/2018',
-        imgThumb:'noticias/noticia-thumb.jpg',
+        imgThumb:'noticias/sample-noticia.jpg',
         imgBig:'noticias/noticia-big.jpg',
         contenido: '<p>El programa de gobierno del candidato presidencial, Germán Vargas Lleras se enfoca en la transformación del sistema de salud, para que el ciudadano tenga un servicio de calidad y que cubra todas las necesidades de los <strong>pacientes</strong>.</p> <p>El programa de gobierno del candidato presidencial, Germán Vargas Lleras se enfoca en la transformación del sistema de salud, para que el ciudadano tenga un servicio de calidad y que cubra todas las necesidades de los <strong>pacientes</strong>.</p>'
       },
@@ -55,7 +55,7 @@ export class NoticiasComponent implements OnInit {
         titulo:'Lorem 2',
         url:'lorem-2',
         fecha:'10/01/2018',
-        imgThumb:'noticias/noticia-thumb.jpg',
+        imgThumb:'noticias/sample-noticia.jpg',
         imgBig:'noticias/noticia-big.jpg',
         contenido: '<p><strong>Bucaramanga,&nbsp;21 de noviembre&nbsp;de 2017.-</strong>&nbsp;El programa de gobierno del candidato presidencial, Germán Vargas Lleras se enfoca en la transformación del sistema de salud, para que el ciudadano tenga un servicio de calidad y que cubra todas las necesidades de los pacientes.</p>'
       },
@@ -63,7 +63,7 @@ export class NoticiasComponent implements OnInit {
         titulo:'Lorem Ipsum Dolor Samet 2',
         url:'lorem-ipsum-dolor-samet-2',
         fecha:'10/01/2018',
-        imgThumb:'noticias/noticia-thumb.jpg',
+        imgThumb:'noticias/sample-noticia.jpg',
         imgBig:'noticias/noticia-big.jpg',
         contenido: '<p><strong>Bucaramanga,&nbsp;21 de noviembre&nbsp;de 2017.-</strong>&nbsp;El programa de gobierno del candidato presidencial, Germán Vargas Lleras se enfoca en la transformación del sistema de salud, para que el ciudadano tenga un servicio de calidad y que cubra todas las necesidades de los pacientes.</p>'
       }

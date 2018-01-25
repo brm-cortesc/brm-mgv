@@ -72,11 +72,11 @@ header.container-fluid([class.affix]="headerFixed")
 	
 	hr.divisor
 
-section.container-fluid
-	//Descargar programa
+//- section.container-fluid.CONTAINER
 	div.row.row-programa.text-center
 		h3 Programa de Gobierno 2018 - 2022
-		a.btn.btn-red(href="#", target="_blank") Descargar Programa
-	///-Descargar programa
+//Descargar programa
+a.btn.btn-programa(href="#", target="_blank", [class.btn-inner]="router.url != '/'") Descargue aquí el Programa de Gobierno 2018 - 2012
+///-Descargar programa
 
 ///-Header

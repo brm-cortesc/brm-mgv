@@ -10,6 +10,9 @@
 			img-responsive(block)
 			margin 0 auto
 			
+.bg
+	&-white
+		background-color #fff
 .clearfix
 	clearfix()
 
@@ -72,9 +75,17 @@
 			
 @media(min-width:$screen-sm)
 	.title
-		&-bio	
+		
+		&-bio,
+		&-section	
 			text-align left
 			
 			&::before
 				left 0
+								
+		&-contacto
+			text-align center
+			
+			&::before
+				left 30%
 				
