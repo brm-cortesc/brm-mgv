@@ -25,8 +25,8 @@ import { AdminModule } from './admin/admin.module';
   imports: [
     BrowserModule,
     AppRoutingModule,
-    PublicModule,
     AdminModule,
+    PublicModule,
     NgbModule.forRoot(),
     SlickModule.forRoot(),
     ServiceWorkerModule.register('/ngsw-worker.js', {enabled: environment.production})

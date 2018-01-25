@@ -71,6 +71,27 @@
 					transform translate3d(-50%,-50%,0) rotate(45deg)
 
 
+	&-programa
+		background-color $rojo
+		border 1px solid $rojo
+		bottom 0
+		box-shadow 0px -2px 5px 0px rgba(0, 0, 0, 0.25)
+		color white
+		cursor pointer
+		display block
+		font-weight $bold
+		max-width 100%
+		padding 0.5rem 4.1rem
+		position fixed
+		text-align center
+		width 100%
+		z-index 9
+		
+		&:hover
+			background-color white
+			color $rojo
+			text-decoration none
+
 	&-read
 		background-color $rojo
 		box-shadow 0px 5px 5px 0px rgba(0, 0, 0, 0.25)
@@ -119,3 +140,37 @@
 		&:hover
 			background-color #fff
 			color $rojo
+			
+@media (min-width:460px)
+	.btn
+		&-programa
+			font-size 1.8rem
+			padding 0.5rem 8.6rem
+			
+
+@media (min-width: $screen-sm)
+	.btn
+		&-programa
+			bottom auto
+			box-shadow 0px 5px 5px 0px rgba(0, 0, 0, 0.25)
+			font-size 1.3rem
+			max-width 30rem
+			padding 0.5rem 1rem
+			right 0
+			top 12.2rem
+			
+@media (min-width: 800px)
+	.btn
+		&-inner
+			font-size 1.8rem
+			// top 16.5rem
+// 			top 16%
+			
+@media (min-width: 980px)
+	.btn
+		&-programa
+			top 13.5rem
+			
+		&-inner
+			font-size 1.8rem
+			// top 16.5rem

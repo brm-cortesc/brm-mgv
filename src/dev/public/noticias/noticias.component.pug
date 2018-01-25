@@ -2,6 +2,7 @@ include ../../templates/partials/mixins.pug
 
 header-public
 
+
 section.container-fluid.container-content(*ngIf="noticia == null")
 	div.row
 		h2.title-section.text-center  Noticias
@@ -46,6 +47,7 @@ section.container-fluid.container-content(*ngIf="noticia != null")
 			///-Imagen
 
 			div.container-text-noticia([innerHTML]="noticia.contenido")
+
 
 
 
