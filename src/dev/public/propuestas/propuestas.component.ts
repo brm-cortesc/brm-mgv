@@ -10,10 +10,9 @@ import { Location } from "@angular/common";
 })
 export class PropuestasComponent implements OnInit {
 
-	listaPropuestas:boolean = true;
 	propuestas:any = [];
 	propuesta:any = null;
-	propuestaSelUrl:any ="";
+	propuestaSelUrl:any;
 	email:string = "";
 	errorEmail:boolean = false;
 
@@ -28,7 +27,7 @@ export class PropuestasComponent implements OnInit {
 
  	ngOnInit() {
 		this.propuestaSelUrl = this.route.snapshot.params['id'];
-
+		console.log(this.propuestaSelUrl);
 		/* Trae de base de datos Servicio noticias */
 	    this.requestService.post('app.php',{accion:"getPropuestas"})
 	    .subscribe(
@@ -39,56 +38,28 @@ export class PropuestasComponent implements OnInit {
 	          console.log("Los datos son incorrectos");
 	          break;
 	        case 1:
-	          this.propuestas = result.data;
-	          //Filtro para mostrar la vista correspondiente
-	          console.log(this.propuestas,"propuestas");
-	          let notTemp = this.propuestas.filter((node)=>{return node.url == this.noticiaUrl });        
-	          if (notTemp.length > 0) {
-	            this.propuesta = notTemp[0];
-	            console.log(this.propuesta,"propuesta");
-	          }else{
-	            this.router.navigate(['propuestas']);
-	          }
-	          break;
+				this.propuestas = result.data;
+				this.propuestas.unshift({nombre:'Seleccionar'});
+				if (this.propuestaSelUrl != undefined) {
+					this.selUrl(this.propuestaSelUrl);
+					//Filtro para mostrar la vista correspondiente
+					let notTemp = this.propuestas.filter((node)=>{return node.url == this.propuestaSelUrl });        
+					if (notTemp.length > 0) {
+						this.propuesta = notTemp[0];
+						console.log(this.propuesta,"propuesta");
+					}else{
+						this.router.navigate(['propuestas']);
+					}
+
+				}
+				
+				break;
 	      }
 	    },
 	    (error) =>  {
 	      //this.toast.closeLoader();
 	      console.log(error)
 	    });
-
-/* 		this.propuestas=[
-	 		{
-	 			nombre:'Salud',
-	 			url:'salud',
-	 			imgFondo: 'propuestas/bg-salud.jpg',
-	 			imgBanner: 'propuestas/banner-salud.jpg',
-	 			videoId: 'K35CenjmNXE',
-	 			descVideo: 'Mejorar y equiparar el sistema de salud para todos los colombianos',
-	 			pdf: 'salud.pdf',
-	 			propuestaTxt: '<p><strong>Bucaramanga,&nbsp;21 de noviembre&nbsp;de 2017.-</strong>&nbsp;El programa de gobierno del candidato presidencial, Germán Vargas Lleras se enfoca en la transformación del sistema de salud, para que el ciudadano tenga un servicio de calidad y que cubra todas las necesidades de los pacientes.</p>'
-	 		},
-
-	 		{
-	 			nombre:'Infraestructura',
-	 			url:'infraestructura',
-	 			imgFondo: 'propuestas/bg-salud.jpg',
-	 			imgBanner: 'propuestas/banner-salud.jpg',
-	 			videoId: 'K35CenjmNXE',
-	 			descVideo: 'Mejorar y equiparar el sistema de salud para todos los colombianos',
-	 			pdf: 'salud.pdf',
-	 			propuestaTxt: '<p><strong>Bucaramanga,&nbsp;21 de noviembre&nbsp;de 2017.-</strong>&nbsp;El programa de gobierno del candidato presidencial, Germán Vargas Lleras se enfoca en la transformación del sistema de salud, para que el ciudadano tenga un servicio de calidad y que cubra todas las necesidades de los pacientes.</p>'
-	 		}
-
- 		];
-
- 		this.propuestas.unshift({nombre:'Seleccionar'});
- 		if (this.propuestaSelUrl != undefined) {
- 			this.selUrl(this.propuestaSelUrl);
-			this.listaPropuestas = false;
-
- 		}*/
-
 
  	}
 
@@ -101,7 +72,7 @@ export class PropuestasComponent implements OnInit {
 	verPdf(pdf){
 		this.validEmail();
 		if (!this.errorEmail) {
-			this.serviceRequest.post('http://stagmejorvg.mejorvargaslleras2018.com/propuestas/app.php',{email:this.email,idPropuesta:this.propuesta.id,accion:"setDescarga"})
+			this.requestService.post('app.php',{email:this.email,idPropuesta:this.propuesta.id,accion:"setDescarga"})
 			.subscribe(
 			(result) => {
 				switch (result.error) {
@@ -112,7 +83,7 @@ export class PropuestasComponent implements OnInit {
 						this.email = "";
 						let link = document.createElement("a");
 					    link.target = '_blank';
-					    link.href = 'http://stagmejorvg.mejorvargaslleras2018.com/propuestas/assets/pdf/'+pdf;
+					    link.href = 'assets/pdf/'+pdf;
 					    document.body.appendChild(link);
 					    link.click();
 						break;
@@ -129,7 +100,6 @@ export class PropuestasComponent implements OnInit {
 	}
 
 	ruta(url){
-		this.listaPropuestas = false;
 
 		this.router.navigate(['propuestas/'+ url])
 

@@ -9,42 +9,51 @@ section.container-fluid.container-content
 				//Nombre
 				div.form-group
 					label(for="nombre") Nombre
-					input(type="text", id="nombre", name="nombre", required, pattern="[a-zA-ZñÑáéíóúÁÉÍÓÚ ]+", [(ngModel)]="contactoForm.name", #name="ngModel", (focus)="focusIn($event)", (focusout)="focusOut($event)")
-					div.msn-place(*ngIf='name.errors && (name.dirty || name.touched || formSubmitAttempt)')
-						div([hidden]="!name.hasError('required')") El nombre es requerido
-						div([hidden]="!name.hasError('pattern')") El nombre no es correcto
+					input(type="text", id="nombre", name="nombre", required, pattern="[a-zA-ZñÑáéíóúÁÉÍÓÚ ]+", [(ngModel)]="contactoForm.nombre", #nombre="ngModel", (focus)="focusIn($event)", (focusout)="focusOut($event)")
+					div.msn-place(*ngIf='nombre.errors && (nombre.dirty || nombre.touched || formSubmitAttempt)')
+						div([hidden]="!nombre.hasError('required')") El nombre es requerido
+						div([hidden]="!nombre.hasError('pattern')") El nombre no es correcto
 
 				///-Nombre
 
 				//Apellidos		
 				div.form-group
 					label(for="apellidos") Apellidos
-					input(type="text", id="apellidos", name="apellidos", required, pattern="[a-zA-ZñÑáéíóúÁÉÍÓÚ ]+", [(ngModel)]="contactoForm.surname", #surname="ngModel", (focus)="focusIn($event)", (focusout)="focusOut($event)")
-					div.msn-place(*ngIf='surname.errors && (surname.dirty || surname.touched || formSubmitAttempt)')
-						div([hidden]="!surname.hasError('required')") Los apellidos son requeridos
-						div([hidden]="!surname.hasError('pattern')") Los apellidos son requeridos
+					input(type="text", id="apellidos", name="apellidos", required, pattern="[a-zA-ZñÑáéíóúÁÉÍÓÚ ]+", [(ngModel)]="contactoForm.apellido", #apellido="ngModel", (focus)="focusIn($event)", (focusout)="focusOut($event)")
+					div.msn-place(*ngIf='apellido.errors && (apellido.dirty || apellido.touched || formSubmitAttempt)')
+						div([hidden]="!apellido.hasError('required')") Los apellidos son requeridos
+						div([hidden]="!apellido.hasError('pattern')") Los apellidos son requeridos
 
 				///-Apellidos
 
 				//email
 				div.form-group
-					
 					label(for="email") Email
-					input(type="email", id="email", name="email", required, pattern="[a-zA-Z0-9_-]+([.][a-zA-Z0-9_-]+)*@[a-zA-Z0-9_-]+([.][a-zA-Z0-9_-]+)*[.][a-zA-Z]{1,5}", [(ngModel)]="contactoForm.email",#email="ngModel", (focus)="focusIn($event)", (focusout)="focusOut($event)")
-					div.msn-place(*ngIf='email.errors && (email.dirty || email.touched || formSubmitAttempt)')
-						div([hidden]="!email.hasError('required')") El email es requerido
-						div([hidden]="!email.hasError('pattern')") El email no es correcto
+					input(type="email", id="email", name="email", required, pattern="[a-zA-Z0-9_-]+([.][a-zA-Z0-9_-]+)*@[a-zA-Z0-9_-]+([.][a-zA-Z0-9_-]+)*[.][a-zA-Z]{1,5}", [(ngModel)]="contactoForm.correo",#correo="ngModel", (focus)="focusIn($event)", (focusout)="focusOut($event)")
+					div.msn-place(*ngIf='correo.errors && (correo.dirty || correo.touched || formSubmitAttempt)')
+						div([hidden]="!correo.hasError('required')") El email es requerido
+						div([hidden]="!correo.hasError('pattern')") El email no es correcto
 				
 				///-email
+
+				//Teléfono		
+				div.form-group
+					label(for="tel") Teléfono
+					input(type="number", min="0", id="tel", name="tel", required, [(ngModel)]="contactoForm.telefono",#telefono="ngModel",pattern="\\d{7,10}", (focus)="focusIn($event)", (focusout)="focusOut($event)")
+					div.msn-place(*ngIf='telefono.errors && (telefono.dirty || telefono.touched || formSubmitAttempt)')
+						div([hidden]="!telefono.hasError('required')") El teléfono es requerido
+						div([hidden]="!telefono.hasError('pattern')") El teléfono no es correcto
+
+				///-Teléfono
 
 				//Departamento
 				div.form-group.form-dep
 					label(for="departamento") Departamento
 					div.select
-						select(id="departamento", name="departamento", required, [(ngModel)]="contactoForm.state", #state="ngModel", (change)="getCities($event)", (focus)="focusIn($event)", (focusout)="focusOut($event)")
-							option(*ngFor="let state of states; let stateKey = index",[value]="state.idState") {{state.name}}
-					div.msn-place(*ngIf='state.errors && (state.dirty || state.touched || formSubmitAttempt)')
-						div([hidden]="!state.hasError('required')") El departamento es requerido
+						select(id="departamento", name="departamento", required, [(ngModel)]="contactoForm.departamento", #departamento="ngModel", (change)="getCiudades($event)", (focus)="focusIn($event)", (focusout)="focusOut($event)")
+							option(*ngFor="let departamento of departamentos; let departamentoKey = index",[value]="departamento.id") {{departamento.nombre}}
+					div.msn-place(*ngIf='departamento.errors && (departamento.dirty || departamento.touched || formSubmitAttempt)')
+						div([hidden]="!departamento.hasError('required')") El departamento es requerido
 
 				///-Departamento
 
@@ -52,10 +61,10 @@ section.container-fluid.container-content
 				div.form-group
 					label(for="municipio") Municipio
 					div.select
-						select(id="municipio", name="municipio", required, [(ngModel)]="contactoForm.city", #city="ngModel", (focus)="focusIn($event)", (focusout)="focusOut($event)")
-							option(*ngFor="let citie of cities; let citieKey = index",[value]="citie.idCity") {{citie.name}}
-					div.msn-place(*ngIf='city.errors && (city.dirty || city.touched || formSubmitAttempt)')
-						div([hidden]="!city.hasError('required')") El municipio es requerido
+						select(id="municipio", name="municipio", required, [(ngModel)]="contactoForm.idCiudad", #ciudad="ngModel", (focus)="focusIn($event)", (focusout)="focusOut($event)")
+							option(*ngFor="let ciudad of ciudades; let ciudadKey = index",[value]="ciudad.id") {{ciudad.nombre}}
+					div.msn-place(*ngIf='ciudad.errors && (ciudad.dirty || ciudad.touched || formSubmitAttempt)')
+						div([hidden]="!ciudad.hasError('required')") El municipio es requerido
 
 				///-Municipios
 
@@ -65,11 +74,11 @@ section.container-fluid.container-content
 				div.form-group
 					label(for="comentario") Comentario
 					div.textarea
-						textarea(id="comentario", name="comentario", required, pattern="[a-zA-ZñÑáéíóúÁÉÍÓÚ ]+", [(ngModel)]="contactoForm.comment", #comment="ngModel", (focus)="focusIn($event)", (focusout)="focusOut($event)")
+						textarea(id="comentario", name="comentario", required, pattern="[a-zA-ZñÑáéíóúÁÉÍÓÚ ]+", [(ngModel)]="contactoForm.comentario", #comentario="ngModel", (focus)="focusIn($event)", (focusout)="focusOut($event)")
 						
 							//- option(*ngFor="let citie of cities; let citieKey = index",[value]="citie.idCity") {{citie.name}}
-					div.msn-place(*ngIf='comment.errors && (comment.dirty || comment.touched || formSubmitAttempt)')
-						div([hidden]="!comment.hasError('required')") Escribe algo
+					div.msn-place(*ngIf='comentario.errors && (comentario.dirty || comentario.touched || formSubmitAttempt)')
+						div([hidden]="!comentario.hasError('required')") Escribe algo
 
 				///-Comentario
 				
@@ -78,13 +87,13 @@ section.container-fluid.container-content
 				//Acepto terminos
 				div.form-group.form-checkbox
 					div.checkbox
-						input(type="checkbox", name="politicasA", id="politicasA", required, [(ngModel)]="contactoForm.politics",#politics="ngModel")
+						input(type="checkbox", name="politicasA", id="politicasA", required, [(ngModel)]="contactoForm.politicas",#politicas="ngModel")
 						label(for="politicasA")
 							| Acepto  
 							a([routerLink]="['/terminos']", target="_blank") Términos y Condiciones.
 
-						div.msn-place(*ngIf='politics.errors && (politics.dirty || politics.touched || formSubmitAttempt)')
-							div([hidden]="!politics.hasError('required')") Los términos y condiciones son requeridos
+						div.msn-place(*ngIf='politicas.errors && (politicas.dirty || politicas.touched || formSubmitAttempt)')
+							div([hidden]="!politicas.hasError('required')") Los términos y condiciones son requeridos
 
 
 				///-Acepto terminos
