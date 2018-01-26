@@ -3,7 +3,7 @@
  * @version v0.1.0
  * @link Cristian Cortés - cristian.cortes@brm.com.co
  * @license 
- *Thu Jan 25 2018 18:48:17 GMT-0500 (COT)
+ *Thu Jan 25 2018 21:57:18 GMT-0500 (COT)
  */
 /*
  *  Font Awesome 4.7.0 by @davegandy - http://fontawesome.io - @fontawesome
@@ -1257,6 +1257,19 @@ section.container-fluid {
     width: 33.33333333333333%;
   }
 }
+.col-404 {
+  margin-bottom: 2rem;
+  margin-top: 2rem;
+}
+.col-404 h1,
+.col-404 h2,
+.col-404 h3 {
+  line-height: 1.1;
+  margin: 0 auto;
+}
+.col-404 h3 {
+  font-weight: 400;
+}
 .col-6 {
   position: relative;
   min-height: 1px;
@@ -1450,6 +1463,15 @@ section.container-fluid {
   }
 }
 @media (min-width: 770px) {
+  .col-404 {
+    margin-bottom: 5rem;
+    margin-top: 5rem;
+  }
+  .col-404 h1,
+  .col-404 h2,
+  .col-404 h3 {
+    line-height: 0.8;
+  }
   .col-banner img {
     padding: 8.1rem 3rem;
   }
@@ -2651,6 +2673,12 @@ footer .col-4 p {
   position: absolute;
   width: 40%;
 }
+.text-404 {
+  color: #ec1c24;
+  font-size: 9rem;
+  font-weight: 700;
+  text-align: center;
+}
 .text-center {
   text-align: center;
 }
@@ -2670,6 +2698,9 @@ footer .col-4 p {
   text-align: center;
 }
 @media (min-width: 770px) {
+  .text-404 {
+    font-size: 17rem;
+  }
   .title-bio,
   .title-section {
     text-align: left;
@@ -2683,6 +2714,13 @@ footer .col-4 p {
   }
   .title-contacto::before {
     left: 30%;
+  }
+}
+@media (min-width: 1100px) {
+  .stick-lg {
+    bottom: 0;
+    position: absolute;
+    width: 100%;
   }
 }
 @-moz-keyframes header-animation {

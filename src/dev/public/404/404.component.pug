@@ -4,16 +4,17 @@ header-public
 section.container-fluid.container-content
 	div.row
 		//Texto
-		article.col-8
-			
-			h1.title-section Verga no hay naa
+		article.col-6.col-center.col-404
+
+			h2.text-center ¡Error!
+
+			h1.text-404 404
+
+			h3.text-center Página no encontrada
+			a.btn.btn-red([routerLink]="['/']") Ir a la portada
+
+
 		///-Texto
-		
 
-		//Foto
-		article.col-4.offset-1
-			+image('noticias/foto-bio.jpg', 'Germán Vargas Lleras')(class='img-article img-bio')
-
-		///-Foto
 
 footer-public
