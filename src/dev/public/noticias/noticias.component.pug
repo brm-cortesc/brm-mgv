@@ -42,7 +42,8 @@ section.container-fluid.container-content(*ngIf="noticia != null")
 				|  Volver a las noticias
 			
 			//Imagen
-			img([src]="'assets/images/noticias/'+noticia.imgBig", title="{{noticia.titulo}}", alt="{{noticia.titulo}}")
+			+image('{{"noticias/"+noticia.imgBig}}', '{{noticia.titulo}}')
+			//img([src]="'assets/images/noticias/'+noticia.imgBig", title="{{noticia.titulo}}", alt="{{noticia.titulo}}")
 			///-Imagen
 
 			div.container-text-noticia([innerHTML]="noticia.contenido")

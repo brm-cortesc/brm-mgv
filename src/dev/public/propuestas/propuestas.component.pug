@@ -7,8 +7,7 @@ section.container-fluid.container-content
 	div.row
 		h2.title-section.text-center seleccione una propuesta
 		
-
-section.container-fluid(*ngIf="listaPropuestas == true; else propuesta_single")
+section.container-fluid(*ngIf="propuesta == null")
 
 	div.row
 		ng-container(*ngFor="let propuesta of propuestas; let keyValue = index;")
@@ -20,7 +19,7 @@ section.container-fluid(*ngIf="listaPropuestas == true; else propuesta_single")
 						h2.box-title {{propuesta.nombre}}
 						a.btn.btn-read( (click)="ruta(propuesta.url)") Leer
 						//Imagen propuesta
-						+image('{{propuesta.imgFondo}}', '{{propuesta.nombre}}')
+						+image('{{"propuestas/"+propuesta.imgFondo}}', '{{propuesta.nombre}}')
 						///-Imagen propuesta
 
 					div.box-content
@@ -29,9 +28,8 @@ section.container-fluid(*ngIf="listaPropuestas == true; else propuesta_single")
 
 			div.clearfix(*ngIf='keyValue % 3 == 0 && keyValue > 0')
 
-
 //Vista individual de propuesta
-ng-template(#propuesta_single="")
+ng-container(*ngIf="propuesta != null")
 	section.container-fluid
 		div.row
 			div.form-group.form-select-props
@@ -39,8 +37,7 @@ ng-template(#propuesta_single="")
 				div.select
 					select([ngModel]="propuestaSelUrl", (change)="selPropuesta($event)")
 						option(*ngFor="let prop of propuestas; let keyPropuesta = index", [value]="prop.url") {{prop.nombre}}
-
-	section.container-fluid(*ngIf="propuesta != undefined")
+	section.container-fluid(*ngIf="propuesta != null")
 		div.row.row-propuesta
 			//- | {{propuesta}}
 			article.col-6
@@ -55,10 +52,6 @@ ng-template(#propuesta_single="")
 				//Contenido Propuesta
 				div.container-text([innerHTML]="propuesta.propuestaTxt")
 				///-Contenido Propuesta
-
-
-
-				div.msn-place(*ngIf="errorEmail") Por favor ingrese correo para descargar PDF
 
 		
 			div.clearfix
@@ -77,12 +70,12 @@ ng-template(#propuesta_single="")
 						Ingrese se correo para descarga el PDF:
 					
 					input(type="email", name="email", id="email", [(ngModel)]="email", (ngModelChange)="validEmail()", placeholder="ejemplo@email.com", required, pattern="^\w+([\.-]?\w+)*@\w+([\.-]?\w+)*(\.\w{2,3})+$")
+					
+					div.msn-place(*ngIf="errorEmail") Por favor ingrese correo para descargar PDF
 				///-correo para descargar
-		
 
 			div.banner-pdf((click) = "verPdf(propuesta.pdf)")
-				+image('{{propuesta.imgBanner}}', '{{propuesta.nombre}}')
-
+				+image("{{'propuestas/'+propuesta.imgBanner}}", '{{propuesta.nombre}}')
 
 
 ///-Vista individual de propuesta

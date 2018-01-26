@@ -20,53 +20,69 @@ export class HomeComponent implements OnInit {
 	slideConfig:any = {};
 	public inscripcionForm: any = {};
   public formSubmitAttempt: boolean = false;
-
+  private departamentos: any;
+  private ciudades: any;
  	ngOnInit() {
 
-//     // Trae de base de datos
-//     this.requestService.post('app.php',{accion:"getHome"})
-//     .subscribe(
-//     (result) => {
-//       //this.toast.closeLoader();
-//       /* Error general */
-//       switch (result.error) {
-//         case 0:
-//           console.log("Datos incorrectos");
-//           break;
-//       }
-//       /* Datos Slider */
-//       switch (result.error.slider) {
-//         case 1:
-//           this.slides = result.data.slider;
-//           console.log("Datos de slider",result.data.slider);
-//           break;
-//         case 2:
-//           console.log("No hay datos disponibles slider");
-//           break;
-//         default:
-//           console.log("Ocurrió un error");
-//           break;
-//       }
-//       /* Datos Noticias */
-//       switch (result.error.noticias) {
-//         case 1:
-//           this.noticiasR = result.data.noticias;
-//           console.log("Datos de noticias",result.data.noticias);
-//           break;
-//         case 2:
-//           console.log("No hay datos disponibles noticias");
-//           break;
-//         default:
-//           console.log("Ocurrió un error");
-//           break;
-//       }
-//     },
-//     (error) =>  {
-//       //this.toast.closeLoader();
-//       console.log(error)
-//     });
-//  
-    this.slides = [
+    // Trae de base de datos
+    this.requestService.post('app.php',{accion:"getHome"})
+    .subscribe(
+    (result) => {
+      //this.toast.closeLoader();
+      /* Error general */
+      switch (result.error) {
+        case 0:
+          console.log("Datos incorrectos");
+          break;
+      }
+      /* Datos Slider */
+      switch (result.error.slider) {
+        case 1:
+          this.slides = result.data.slider;
+          console.log("Datos de slider",result.data.slider);
+          break;
+        case 2:
+          console.log("No hay datos disponibles slider");
+          break;
+        default:
+          console.log("Ocurrió un error");
+          break;
+      }
+      /* Datos Noticias */
+      switch (result.error.noticias) {
+        case 1:
+          this.noticiasR = result.data.noticias;
+          console.log("Datos de noticias",result.data.noticias);
+          break;
+        case 2:
+          console.log("No hay datos disponibles noticias");
+          break;
+        default:
+          console.log("Ocurrió un error");
+          break;
+      }
+
+      /* Datos departamentos */
+      switch (result.error.departamentos) {
+        case 1:
+          this.departamentos = result.data.departamentos;
+          this.departamentos.unshift({id:'',nombre:''});
+          console.log("Datos de departamentos",result.data.departamentos);
+          break;
+        case 2:
+          console.log("No hay datos disponibles departamentos");
+          break;
+        default:
+          console.log("Ocurrió un error");
+          break;
+      }
+    },
+    (error) =>  {
+      //this.toast.closeLoader();
+      console.log(error)
+    });
+ 
+/*    this.slides = [
        {
          titulo: 'slide 1',
          imgBig: 'slide-01-big.jpg',
@@ -80,7 +96,7 @@ export class HomeComponent implements OnInit {
          url: 'noticias/ricardo'
       }
      
-     ];
+     ];*/
 
  		//configuracion de slider
  		this.slideConfig = {
@@ -101,8 +117,58 @@ export class HomeComponent implements OnInit {
 
 	save(inscripcion){
 		this.formSubmitAttempt = true;
-		// console.log(inscripcion);
+    if (inscripcion.form.valid) {
+      this.inscripcionForm.accion = "setRegistro";
+      // Inserta un nuevo registro
+      this.requestService.post('app.php', this.inscripcionForm)
+      .subscribe(
+      (result) => {
+        //this.toast.closeLoader();
+        switch (result.error) {
+          case 0:
+            console.log("Los datos son incorrectos");
+            break;
+          case 1:
+             console.log("Se insertó correctqmente");
+            break;
+        }
+      },
+      (error) =>  {
+        //this.toast.closeLoader();
+        console.log(error)
+      });
+    }
 	}
+
+  getCiudades(e,update:any = false){
+    var idDepartamento;
+    if (update) {
+      idDepartamento = e;
+    }else{
+      let selectElement = e.target;
+      var stateIndex = selectElement.selectedIndex;
+      idDepartamento = selectElement.options[stateIndex].value;
+    }
+    // Trae las ciudades de la bd
+    this.requestService.post('app.php',{accion:"getCiudades",idDepartamento:idDepartamento})
+      .subscribe(
+      (result) => {
+        //this.toast.closeLoader();
+        switch (result.error) {
+          case 0:
+            //this.toast.openToast("Ocurrió un error",null,5,null);
+            break;
+          case 1:
+            this.ciudades = result.data;
+            this.ciudades.unshift({id:'',name:''});
+            break;
+        }
+      },
+      (error) =>  {
+        //this.toast.closeLoader();
+        console.log(error)
+      });
+  }
 
   focusIn(event){
     let el = event.srcElement;
