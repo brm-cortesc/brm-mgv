@@ -12,7 +12,7 @@ export class ContactoComponent implements OnInit {
   public formSubmitAttempt: boolean = false;
   public departamentos: any;
   public ciudades: any;
-
+  public msg:any = false;
   constructor(
     private requestService:RequestService
     ) {}
@@ -54,7 +54,13 @@ export class ContactoComponent implements OnInit {
             console.log("Los datos son incorrectos");
             break;
           case 1:
-             console.log("Se insertó correctqmente");
+            this.formSubmitAttempt = false;
+            contacto.reset();
+            this.msg = true;
+            this.contactoForm = {};
+            setTimeout(()=>{
+              this.msg = false;
+            },3000);
             break;
         }
       },
@@ -127,10 +133,9 @@ export class ContactoComponent implements OnInit {
 
     }else{
       if (el.tagName == 'SELECT' || el.tagName == 'TEXTAREA'){
-      parent.parentNode.classList.remove('active')
+        parent.parentNode.classList.remove('active')
       }else{
-
-          parent.classList.remove('active')
+        parent.classList.remove('active')
       }
 
     }

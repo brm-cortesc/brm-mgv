@@ -110,7 +110,7 @@ export class FormNoticiaComponent {
 							break;
 						case 1:
 
-							if (this.idNoticia != null && this.idNoticia == '') {
+							if (this.idNoticia != null || this.idNoticia == '') {
 								this.toast.openToast("Actualizó correctamente la noticia",null,5,null);
 							}else{
 								this.insertNoticia.emit({id: result.data.id,

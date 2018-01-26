@@ -82,16 +82,7 @@ export class PropuestasComponent implements OnInit {
 						break;
 					case 1:
 						this.email = "";
-						let ancla = this.document.getElementById("pdf");
-						//    link.target = '_blank';
-						  let link = 'http://stagmejorvg.mejorvargaslleras2018.com/propuestas/assets/pdf/'+pdf;
-						  // document.body.appendChild(link);
-						  // link.click();
-						  ancla.setAttribute('href', link)
-						  ancla.setAttribute('target', '_blank')
-						  ancla.click();
-
-						  // console.log(ancla)
+						window.open('assets/pdf/'+pdf, '_blank');
 						break;
 					case 2:
 						alert("Ocurrió un error");

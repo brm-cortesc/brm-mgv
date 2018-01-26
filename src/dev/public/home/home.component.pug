@@ -25,7 +25,7 @@ section.container-fluid.container-content
 		///-Slider
 		//Inscripcion
 		div.col-form
-			h2.text-center(click="testAdmin();") Lorem Ipsum
+			h2.text-center(click="testAdmin();") Suscríbase
 			form#ins.form-home(#inscripcion="ngForm", novalidate)
 				
 				//Nombre
@@ -110,6 +110,8 @@ section.container-fluid.container-content
 				button.btn.btn-submit((click)="save(inscripcion)") Enviar
 				///-Submit
 
+				h4.text-center(*ngIf="msg") Gracias por su mensaje.
+				
 				div.clearfix
 		///-Inscripcion
 

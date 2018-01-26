@@ -76,8 +76,8 @@ ng-container(*ngIf="propuesta != null")
 
 			div.clearfix
 
-			div.banner-pdf
-				a#pdf((click)="verPdf(propuesta.pdf)",href=""): +image("{{'propuestas/'+propuesta.imgBanner}}", '{{propuesta.nombre}}')
+			div.banner-pdf((click)="verPdf(propuesta.pdf)")
+				+image("{{'propuestas/'+propuesta.imgBanner}}", '{{propuesta.nombre}}')
 
 
 ///-Vista individual de propuesta

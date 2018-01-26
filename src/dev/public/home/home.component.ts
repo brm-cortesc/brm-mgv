@@ -22,6 +22,7 @@ export class HomeComponent implements OnInit {
   public formSubmitAttempt: boolean = false;
   public departamentos: any;
   public ciudades: any;
+  public msg:any = false;
  	ngOnInit() {
 
     // Trae de base de datos
@@ -129,7 +130,13 @@ export class HomeComponent implements OnInit {
             console.log("Los datos son incorrectos");
             break;
           case 1:
-             console.log("Se insertó correctqmente");
+             this.formSubmitAttempt = false;
+              inscripcion.reset();
+              this.msg = true;
+              this.inscripcionForm = {};
+              setTimeout(()=>{
+                this.msg = false;
+              },3000);
             break;
         }
       },

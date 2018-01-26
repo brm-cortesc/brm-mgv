@@ -14,6 +14,7 @@ export class FormPropuestaComponent {
 	propuest:any = [];
 	activeS:boolean = false;
 	fileImage: File;
+	fileFondo: File;
 	filePdf: File;
 	@ViewChild(AlertToastComponent) toast:AlertToastComponent;
 
@@ -62,11 +63,35 @@ export class FormPropuestaComponent {
 		}
 	}
 
+	fileChange3(event) {
 
-	setClient(){
-		if (this.propuest.nombre != undefined && this.propuest.nombre != '' && this.propuest.url != undefined && this.propuest.url != '' && this.propuest.videoId != undefined && this.propuest.videoId != '' && this.propuest.descVideo != undefined && this.propuest.descVideo && this.propuest.propuestaTxt != undefined && this.propuest.propuestaTxt 
-			&& ((this.propuest.imgBanner != undefined && this.propuest.imgBanner != '') || this.fileImage != undefined)
-			&& ((this.propuest.pdf != undefined && this.propuest.pdf != '') || this.filePdf != undefined)) {
+		let fileList: FileList = event.target.files;
+    	if(fileList.length > 0) {
+			this.fileFondo = fileList[0];
+		}
+	}
+
+
+	setPropuesta(){
+		if (this.propuest.nombre != undefined &&
+		 this.propuest.nombre != '' &&
+		 this.propuest.url != undefined &&
+		 this.propuest.url != '' &&
+		 this.propuest.videoId != undefined &&
+		 this.propuest.videoId != '' &&
+		 this.propuest.descVideo != undefined &&
+		 this.propuest.descVideo &&
+		 this.propuest.propuestaTxt != undefined &&
+		 this.propuest.propuestaTxt 
+			&&
+			 ((this.propuest.imgBanner != undefined &&
+			 this.propuest.imgBanner != '') || this.fileImage != undefined)
+			&&
+			 ((this.propuest.imgFondo != undefined &&
+			 this.propuest.imgFondo != '') || this.fileFondo != undefined)
+			&&
+			 ((this.propuest.pdf != undefined &&
+			 this.propuest.pdf != '') || this.filePdf != undefined)) {
 			let user = this.serviceLoginAdmin.getSession();
 			
 			let formData:FormData = new FormData();
@@ -76,6 +101,12 @@ export class FormPropuestaComponent {
 				formData.append('imgBanner', this.propuest.imgBanner);
 			}else{
 				formData.append('imgBanner', this.fileImage, this.fileImage.name);
+			}
+
+			if (this.fileFondo == undefined) {
+				formData.append('imgFondo', this.propuest.imgFondo);
+			}else{
+				formData.append('imgFondo', this.fileFondo, this.fileFondo.name);
 			}
 
 			if (this.filePdf == undefined) {
@@ -102,9 +133,10 @@ export class FormPropuestaComponent {
 							this.toast.openToast("Ocurrió un error",null,5,null);
 							break;
 						case 1:
-							if (this.idPropuesta != null && this.idPropuesta == '') {
+							if (this.idPropuesta != null || this.idPropuesta == '') {
 								this.toast.openToast("Actualizó correctamente la propuesta",null,5,null);
 							}else{
+								console.log("2");
 								this.insertPropuesta.emit({id: result.data.id,
 									nombre: this.propuest.nombre});
 							}

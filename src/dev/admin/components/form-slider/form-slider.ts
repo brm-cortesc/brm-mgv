@@ -102,7 +102,7 @@ export class FormSliderComponent {
 							this.toast.openToast("Ocurrió un error",null,5,null);
 							break;
 						case 1:
-							if (this.idSlider != null && this.idSlider == '') {
+							if (this.idSlider != null || this.idSlider == '') {
 								this.toast.openToast("Actualizó correctamente el slider",null,5,null);
 							}else{
 								this.insertSlider.emit({id: result.data.id,

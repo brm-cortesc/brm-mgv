@@ -3,7 +3,7 @@
  * @version v0.1.0
  * @link Cristian Cortés - cristian.cortes@brm.com.co
  * @license 
- *Fri Jan 26 2018 06:32:39 GMT-0500 (COT)
+ *Fri Jan 26 2018 09:57:40 GMT-0500 (COT)
  */
 /*
  *  Font Awesome 4.7.0 by @davegandy - http://fontawesome.io - @fontawesome
@@ -1185,7 +1185,7 @@ section.container-fluid {
 }
 .container-text-noticia {
   background-color: #fff;
-  padding-top: 2rem;
+  padding: 2rem;
   position: relative;
   z-index: 2;
 }
@@ -2044,7 +2044,7 @@ footer .col-4 p {
   width: 100%;
 }
 @media (min-width: 770px) {
-  .box p {
+  .box p:not(.fecha) {
     -webkit-box-orient: vertical;
     -moz-box-orient: vertical;
     box-orient: vertical;
@@ -2070,7 +2070,7 @@ footer .col-4 p {
   }
 }
 @media (min-width: 1000px) {
-  .box p {
+  .box p:not(.fecha) {
     height: 8rem;
     line-clamp: 4;
     -moz-line-clamp: 4;
@@ -2080,7 +2080,7 @@ footer .col-4 p {
   }
 }
 @media (min-width: 1100px) {
-  .box p {
+  .box p:not(.fecha) {
     height: 6.2rem;
   }
 }
@@ -2631,6 +2631,11 @@ footer .col-4 p {
     max-width: 88%;
   }
 }
+@media (min-width: 1100px) {
+  .form-home .form-group.form-checkbox label {
+    max-width: 92%;
+  }
+}
 .container-text p {
   margin: 1rem auto;
 }
@@ -2666,6 +2671,9 @@ footer .col-4 p {
 .admin header.container-fluid div.row {
   max-width: 80rem;
   text-align: center;
+}
+.admin header.container-fluid .btn {
+  margin: 3rem 0.5rem;
 }
 .admin .btn {
   border: 1px solid #2e3191;
@@ -2710,6 +2718,22 @@ footer .col-4 p {
 .admin .container-login .row {
   margin: 1rem auto;
   max-width: 42rem;
+}
+.admin .container-toast {
+  background-color: #1c1d57;
+  bottom: 1rem;
+  -webkit-box-shadow: 0px 0px 5px rgba(0,0,0,0.5);
+  box-shadow: 0px 0px 5px rgba(0,0,0,0.5);
+  color: #fff;
+  left: 50%;
+  padding: 1rem 2rem;
+  position: fixed;
+  text-align: center;
+  -o-transform: translateX(-50%);
+  -ms-transform: translateX(-50%);
+  -webkit-transform: translateX(-50%);
+  -moz-transform: translateX(-50%);
+  transform: translateX(-50%);
 }
 .admin .form-group {
   margin: 2rem auto;

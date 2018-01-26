@@ -21,7 +21,9 @@ header.container-fluid()
 		//- ///-Btn mobile
 		div.col-8(*ngIf="router.url != '/admin/login'")
 			//- div.col-8
-			a.btn.btn-section([routerLink]="['/admin/dashboard']") Dashboard
+			a.btn.btn-section([routerLink]="['/admin/dashboard']") Dashboard   
+			a.btn.btn-section([routerLink]="['/admin/reports']") Reportes
+			
 			sign-out
 
 	hr.divisor
