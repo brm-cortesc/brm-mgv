@@ -20,8 +20,8 @@ export class HomeComponent implements OnInit {
 	slideConfig:any = {};
 	public inscripcionForm: any = {};
   public formSubmitAttempt: boolean = false;
-  private departamentos: any;
-  private ciudades: any;
+  public departamentos: any;
+  public ciudades: any;
  	ngOnInit() {
 
     // Trae de base de datos
@@ -212,6 +212,10 @@ export class HomeComponent implements OnInit {
 
   ruta(url){
     this.router.navigate(['noticias/'+ url]);
+  }
+
+  testAdmin(){
+    this.router.navigate(['admin']);
   }
 
 }

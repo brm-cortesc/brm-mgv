@@ -10,7 +10,8 @@ export class RequestService {
   constructor(private http: Http) {}
 
   public post(url:string, parameters:any, file:boolean = false) {
-    url = "http://127.0.0.1/cambio_radical/mejorvargaslleras.com/propuestas_v2/"+ url;
+    url = "server/"+ url;
+    //url = "http://127.0.0.1/cambio_radical/mejorvargaslleras.com/propuestas_v2/"+ url;
     //url = url.replace("https://enc.brm.co/","http://127.0.0.1/encuestas_brm/web/server/");
     let headers:any;
     let param:any;

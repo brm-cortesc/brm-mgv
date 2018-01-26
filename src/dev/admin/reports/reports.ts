@@ -28,15 +28,18 @@ export class AdminReports {
 	}
 
 	goToPropuesta(){
-		window.open('http://127.0.0.1/cambio_radical/mejorvargaslleras.com/propuestas_v2/informe.php?i=p','_blank');
+		//window.open('http://127.0.0.1/cambio_radical/mejorvargaslleras.com/propuestas_v2/informe.php?i=p','_blank');
+		window.open('server/informe.php?i=p','_blank');
 	}
 
 	goToRegistro(){
-		window.open('http://127.0.0.1/cambio_radical/mejorvargaslleras.com/propuestas_v2/informe.php?i=r','_blank');
+		//window.open('http://127.0.0.1/cambio_radical/mejorvargaslleras.com/propuestas_v2/informe.php?i=r','_blank');
+		window.open('server/informe.php?i=r','_blank');
 	}
 
 	goToContacto(){
-		window.open('http://127.0.0.1/cambio_radical/mejorvargaslleras.com/propuestas_v2/informe.php?i=c','_blank');
+		//window.open('http://127.0.0.1/cambio_radical/mejorvargaslleras.com/propuestas_v2/informe.php?i=c','_blank');
+		window.open('server/informe.php?i=c','_blank');
 	}
 
 	signOut(){

@@ -36,7 +36,7 @@ export class AdminSliders {
 							this.sliders = result.data;
 							break;
 						case 2:
-							this.toast.openToast("No existen clientes",null,5,null);
+							this.toast.openToast("No existen sliders",null,5,null);
 							break;
 					}
 				},

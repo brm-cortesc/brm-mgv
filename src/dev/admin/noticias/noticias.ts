@@ -36,7 +36,7 @@ export class AdminNoticias {
 							this.noticias = result.data;
 							break;
 						case 2:
-							this.toast.openToast("No existen clientes",null,5,null);
+							this.toast.openToast("No existen noticias",null,5,null);
 							break;
 					}
 				},

@@ -55,6 +55,7 @@ export class AdminBiografia {
         //this.toast.closeLoader();
         switch (result.error) {
           case 0:
+            this.toast.openToast("Se actualizó la biografía correctamente",null,5,null);
             console.log("Los datos son incorrectos");
             break;
           case 1:

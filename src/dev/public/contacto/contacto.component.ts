@@ -10,8 +10,8 @@ export class ContactoComponent implements OnInit {
 
 	public contactoForm: any = {};
   public formSubmitAttempt: boolean = false;
-  private departamentos: any;
-  private ciudades: any;
+  public departamentos: any;
+  public ciudades: any;
 
   constructor(
     private requestService:RequestService
