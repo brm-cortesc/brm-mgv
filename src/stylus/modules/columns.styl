@@ -57,9 +57,11 @@
 		background-color $rojo
 		color white
 		make-sm-column(4)
+		make-lg-column(3)
 		margin-top 1rem
 		padding-bottom 1rem
 		padding-top @padding-bottom
+		transitionBase()
 		
 		h2
 			margin 2rem auto
@@ -85,6 +87,8 @@
 		
 	&-slider
 		make-sm-column(8)
+		make-lg-column(9)
+		transitionBase()
 	
 
 @media (min-width:$screen-sm)

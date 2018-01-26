@@ -3,7 +3,7 @@
  * @version v0.1.0
  * @link Cristian Cortés - cristian.cortes@brm.com.co
  * @license 
- *Thu Jan 25 2018 22:59:41 GMT-0500 (COT)
+ *Thu Jan 25 2018 23:36:35 GMT-0500 (COT)
  */
 /*
  *  Font Awesome 4.7.0 by @davegandy - http://fontawesome.io - @fontawesome
@@ -1171,6 +1171,9 @@ section.container-fluid {
   display: block;
   margin: 0 auto;
 }
+.container-content p {
+  color: #919191;
+}
 .container-content .row {
   margin-top: 15rem;
 }
@@ -1195,6 +1198,9 @@ section.container-fluid {
   }
   .container-banner-bio .row::before {
     width: 99%;
+  }
+  .container-content .row {
+    margin-top: 18rem;
   }
   .container-text {
     height: 100rem;
@@ -1376,14 +1382,29 @@ section.container-fluid {
   min-height: 1px;
   padding-left: 0.25rem;
   padding-right: 0.25rem;
+  position: relative;
+  min-height: 1px;
+  padding-left: 0.25rem;
+  padding-right: 0.25rem;
   margin-top: 1rem;
   padding-bottom: 1rem;
   padding-top: 1rem;
+  -o-transition: all 0.3s ease-in-out;
+  -ms-transition: all 0.3s ease-in-out;
+  -webkit-transition: all 0.3s ease-in-out;
+  -moz-transition: all 0.3s ease-in-out;
+  transition: all 0.3s ease-in-out;
 }
 @media (min-width: 770px) {
   .col-form {
     float: left;
     width: 33.33333333333333%;
+  }
+}
+@media (min-width: 1200px) {
+  .col-form {
+    float: left;
+    width: 25%;
   }
 }
 .col-form h2 {
@@ -1458,11 +1479,26 @@ section.container-fluid {
   min-height: 1px;
   padding-left: 0.25rem;
   padding-right: 0.25rem;
+  position: relative;
+  min-height: 1px;
+  padding-left: 0.25rem;
+  padding-right: 0.25rem;
+  -o-transition: all 0.3s ease-in-out;
+  -ms-transition: all 0.3s ease-in-out;
+  -webkit-transition: all 0.3s ease-in-out;
+  -moz-transition: all 0.3s ease-in-out;
+  transition: all 0.3s ease-in-out;
 }
 @media (min-width: 770px) {
   .col-slider {
     float: left;
     width: 66.66666666666666%;
+  }
+}
+@media (min-width: 1200px) {
+  .col-slider {
+    float: left;
+    width: 75%;
   }
 }
 @media (min-width: 770px) {
@@ -1774,11 +1810,13 @@ footer .col-4 p {
   font-weight: 700;
   max-width: 100%;
   padding: 0.5rem 4.1rem;
-  position: fixed;
+  position: absolute;
   text-align: center;
   width: 100%;
   z-index: 9;
 }
+.btn-programa:active,
+.btn-programa:focus,
 .btn-programa:hover {
   background-color: #fff;
   color: #ec1c24;
@@ -2204,7 +2242,7 @@ footer .col-4 p {
 }
 @media (min-width: 770px) {
   .slide-img img {
-    height: 45rem;
+    height: 50.1rem;
     object-fit: cover;
     -webkit-object-fit: cover;
     -moz-object-fit: cover;
@@ -2213,22 +2251,22 @@ footer .col-4 p {
 }
 @media (min-width: 830px) {
   .slide-img img {
-    height: 45.2rem;
+    height: 50.4rem;
   }
 }
-@media (min-width: 940px) {
+@media (min-width: 930px) {
   .slide-img img {
-    height: 43.2rem;
+    height: 48.4rem;
   }
 }
 @media (min-width: 990px) {
   .slide-img img {
-    height: 43.5rem;
+    height: 48.7rem;
   }
 }
 @media (min-width: 1100px) {
   .slide-img img {
-    height: 43.8rem;
+    height: 49rem;
   }
 }
 @media (min-width: 1200px) {
@@ -2237,7 +2275,7 @@ footer .col-4 p {
   }
 }
 .form-group {
-  border: 1px solid #000;
+  border: 1px solid #919191;
   margin: 1rem auto;
   padding: 0.5rem;
   -o-transition: all 0.3s ease-in-out;
@@ -2277,13 +2315,14 @@ footer .col-4 p {
   transition: all 0.3s ease-in-out;
 }
 .form-group label {
+  color: #616161;
   font-weight: 300;
   margin-bottom: 0;
 }
 .form-group input {
   background-color: transparent;
   border: none;
-  color: #000;
+  color: #616161;
   max-width: 64%;
   padding: 1rem 0.5rem;
   width: 100%;
@@ -2296,7 +2335,7 @@ footer .col-4 p {
 .form-group textarea {
   background-color: transparent;
   border: none;
-  color: #000;
+  color: #616161;
   -o-transition: all 0.3s ease-in-out;
   -ms-transition: all 0.3s ease-in-out;
   -webkit-transition: all 0.3s ease-in-out;
@@ -2340,6 +2379,7 @@ footer .col-4 p {
   text-transform: uppercase;
 }
 .form-home label {
+  color: #fff;
   font-weight: 300;
   margin-bottom: 0;
 }

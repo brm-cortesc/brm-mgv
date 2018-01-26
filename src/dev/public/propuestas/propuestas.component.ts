@@ -1,6 +1,6 @@
-import { Component, OnInit} from '@angular/core';
+import { Component, OnInit, Inject} from '@angular/core';
 import { Router, ActivatedRoute} from '@angular/router';
-import { DomSanitizer } from '@angular/platform-browser'
+import { DomSanitizer, DOCUMENT } from '@angular/platform-browser'
 import { RequestService } from '../../services/request/app.request';
 import { Location } from "@angular/common";
 
@@ -18,6 +18,7 @@ export class PropuestasComponent implements OnInit {
 
 
   constructor(
+  	@Inject(DOCUMENT) private document: Document,
   	private requestService: RequestService,
   	private router: Router,
   	private route: ActivatedRoute,
@@ -81,11 +82,16 @@ export class PropuestasComponent implements OnInit {
 						break;
 					case 1:
 						this.email = "";
-						let link = document.createElement("a");
-					    link.target = '_blank';
-					    link.href = 'assets/pdf/'+pdf;
-					    document.body.appendChild(link);
-					    link.click();
+						let ancla = this.document.getElementById("pdf");
+						//    link.target = '_blank';
+						  let link = 'http://stagmejorvg.mejorvargaslleras2018.com/propuestas/assets/pdf/'+pdf;
+						  // document.body.appendChild(link);
+						  // link.click();
+						  ancla.setAttribute('href', link)
+						  ancla.setAttribute('target', '_blank')
+						  ancla.click();
+
+						  // console.log(ancla)
 						break;
 					case 2:
 						alert("Ocurrió un error");

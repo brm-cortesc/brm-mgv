@@ -67,15 +67,17 @@ ng-container(*ngIf="propuesta != null")
 				//correo para descargar
 				div.form-group.form-email-prop
 					label(for="email").
-						Ingrese se correo para descarga el PDF:
+						Ingrese su correo para descargar el PDF:
 					
 					input(type="email", name="email", id="email", [(ngModel)]="email", (ngModelChange)="validEmail()", placeholder="ejemplo@email.com", required, pattern="^\w+([\.-]?\w+)*@\w+([\.-]?\w+)*(\.\w{2,3})+$")
 					
 					div.msn-place(*ngIf="errorEmail") Por favor ingrese correo para descargar PDF
 				///-correo para descargar
 
-			div.banner-pdf((click) = "verPdf(propuesta.pdf)")
-				+image("{{'propuestas/'+propuesta.imgBanner}}", '{{propuesta.nombre}}')
+			div.clearfix
+
+			div.banner-pdf
+				a#pdf((click)="verPdf(propuesta.pdf)",href=""): +image("{{'propuestas/'+propuesta.imgBanner}}", '{{propuesta.nombre}}')
 
 
 ///-Vista individual de propuesta
