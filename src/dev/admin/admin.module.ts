@@ -16,18 +16,23 @@ import { AdminRoutingModule } from './admin-routing.module';
 //Components App
 import { SignOutComponent }      from './components/sign-out/sign-out';
 import { AlertToastComponent }      from './components/alert-toast/alert-toast';
-import { FormClientComponent }      from './components/form-client/form-client';
-import { FormUserClientComponent }      from './components/form-user-client/form-user-client';
+import { FormPropuestaComponent }      from './components/form-propuesta/form-propuesta';
+import { FormNoticiaComponent }      from './components/form-noticia/form-noticia';
+import { FormSliderComponent }      from './components/form-slider/form-slider';
 import { HeaderAdmin }      from './components/header-admin/header-admin.component';
 
 
-
-//Admin¡
+//Admin
 import { AdminLogin }      from './login/login';
 import { AdminReports }      from './reports/reports';
 import { AdminDashboard }      from './dashboard/dashboard';
 import { AdminPropuestas }      from './propuestas/propuestas';
 import { AdminPropuesta }      from './propuesta/propuesta';
+import { AdminNoticias }      from './noticias/noticias';
+import { AdminNoticia }      from './noticia/noticia';
+import { AdminSliders }      from './sliders/sliders';
+import { AdminSlider }      from './slider/slider';
+import { AdminBiografia }      from './biografia/biografia';
 
 @NgModule({
   imports: [
@@ -41,14 +46,20 @@ import { AdminPropuesta }      from './propuesta/propuesta';
   declarations: [
     SignOutComponent,
     AlertToastComponent,
-    FormClientComponent,
-    FormUserClientComponent,
+    FormPropuestaComponent,
+    FormNoticiaComponent,
+    FormSliderComponent,
     HeaderAdmin,
     AdminLogin,
     AdminReports,
     AdminDashboard,
     AdminPropuestas,
-    AdminPropuesta
+    AdminPropuesta,
+    AdminNoticias,
+    AdminNoticia,
+    AdminSliders,
+    AdminSlider,
+    AdminBiografia
   ],
   providers:[browserWindowProvider, windowProvider, RequestService]
 })

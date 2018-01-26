@@ -1,0 +1,36 @@
+div.form-group([class.active]="slider.titulo != ''" )
+	label Título
+	input(type="text", value="{{slider.titulo}}",[(ngModel)]="slider.titulo", (focus)="focusIn($event)", (focusout)="focusOut($event)")
+
+div.form-group([class.active]="slider.url != ''" )
+	label Link
+	input(type="text", value="{{slider.url}}",[(ngModel)]="slider.url", (focus)="focusIn($event)", (focusout)="focusOut($event)")
+
+div.form-group([class.active]="slider.orden != ''" )
+	label Orden
+	input(type="number", value="{{slider.orden}}",[(ngModel)]="slider.orden", (focus)="focusIn($event)", (focusout)="focusOut($event)")
+
+
+div.form-group([class.active]="slider.imgBig != ''" )
+	label Imagen grande (1100 × 698)
+	input(type="hidden", value="{{slider.imgBig}}",[(ngModel)]="slider.imgBig", (change)="fileChange($event)", accept=".png,.jpg,.jpeg")
+	input(type="file", placeholder="Imagen Banner", (change)="fileChange($event)", accept=".png,.jpg,.jpeg", (focus)="focusIn($event)", (focusout)="focusOut($event)")
+
+figure.client(*ngIf="slider.imgBig != undefined")
+	img(src="assets/images/{{slider.imgBig}}", class="imagn")
+
+div.form-group([class.active]="slider.imgThumb != ''" )
+	label Imagen miniatura (768 × 628)
+	input(type="hidden", value="{{slider.imgThumb}}",[(ngModel)]="slider.imgThumb", (change)="fileChange2($event)", accept=".png,.jpg,.jpeg")
+	input(type="file", placeholder="Imagen Banner", (change)="fileChange2($event)", accept=".png,.jpg,.jpeg", (focus)="focusIn($event)", (focusout)="focusOut($event)")
+
+figure.client(*ngIf="slider.imgThumb != undefined")
+	img(src="assets/images/{{slider.imgThumb}}", class="imagn")
+	
+
+div.clearfix
+
+button.btn.btn-submit.btn-full(type="button",*ngIf="idSlider == null || idSlider == ''", (click)="setNoticia()") Crear Slider
+button.btn.btn-submit.btn-full(type="button",*ngIf="idSlider != null && idSlider != ''", (click)="setNoticia()") Editar Slider
+
+alert-toast

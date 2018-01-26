@@ -27,11 +27,16 @@ export class AdminReports {
 		}
 	}
 
-	goToCorreos(){
-		//window.open('./assets/excel/informe.php','_blank');
-		window.open('informe.php','_blank');
-		//window.open('./assets/pdf/propuesta-mejor-economia.pdf','_blank');
-		
+	goToPropuesta(){
+		window.open('http://127.0.0.1/cambio_radical/mejorvargaslleras.com/propuestas_v2/informe.php?i=p','_blank');
+	}
+
+	goToRegistro(){
+		window.open('http://127.0.0.1/cambio_radical/mejorvargaslleras.com/propuestas_v2/informe.php?i=r','_blank');
+	}
+
+	goToContacto(){
+		window.open('http://127.0.0.1/cambio_radical/mejorvargaslleras.com/propuestas_v2/informe.php?i=c','_blank');
 	}
 
 	signOut(){

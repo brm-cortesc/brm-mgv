@@ -1,25 +1,25 @@
-div.form-group
+div.form-group([class.active]="propuest.nombre != ''" )
 	label Nombre
 	input(type="text", value="{{propuest.nombre}}",[(ngModel)]="propuest.nombre", (focus)="focusIn($event)", (focusout)="focusOut($event)")
 
-div.form-group
+div.form-group([class.active]="propuest.url != ''" )
 	label URL
 	input(type="text", value="{{propuest.url}}",[(ngModel)]="propuest.url", (focus)="focusIn($event)", (focusout)="focusOut($event)")
 
-div.form-group
+div.form-group([class.active]="propuest.videoId != ''" )
 	label YouTube Video ID
 	input(type="text", value="{{propuest.videoId}}",[(ngModel)]="propuest.videoId", (focus)="focusIn($event)", (focusout)="focusOut($event)")
 
-div.form-group
+div.form-group([class.active]="propuest.descVideo != ''" )
 	label Descripción Video
 	input(type="text", value="{{propuest.descVideo}}",[(ngModel)]="propuest.descVideo", (focus)="focusIn($event)", (focusout)="focusOut($event)")
 
-div.form-group
+div.form-group([class.active]="propuest.pdf != ''" )
 	label PDF
 	input(type="hidden", value="{{propuest.pdf}}",[(ngModel)]="propuest.pdf", (change)="fileChange2($event)", accept=".pdf")
 	input(type="file", placeholder="PDF", (change)="fileChange2($event)", accept=".pdf", (focus)="focusIn($event)", (focusout)="focusOut($event)")
 
-div.form-group
+div.form-group([class.active]="propuest.imgBanner != ''" )
 	label Imagen Banner
 	input(type="hidden", value="{{propuest.imgBanner}}",[(ngModel)]="propuest.imgBanner", (change)="fileChange($event)", accept=".png,.jpg,.jpeg")
 	input(type="file", placeholder="Imagen Banner", (change)="fileChange($event)", accept=".png,.jpg,.jpeg", (focus)="focusIn($event)", (focusout)="focusOut($event)")
@@ -27,7 +27,7 @@ div.form-group
 figure.client(*ngIf="propuest.imgBanner != undefined")
 	img(src="assets/images/{{propuest.imgBanner}}", class="imagn")
 	
-div.form-group
+div.form-group([class.active]="propuest.propuestaTxt != ''" )
 	label Texto Contenido:
 	div.textarea
 		textarea(value="{{propuest.propuestaTxt}}",[(ngModel)]="propuest.propuestaTxt", (focus)="focusIn($event)", (focusout)="focusOut($event)")
@@ -35,7 +35,7 @@ div.form-group
 div.clearfix
 
 //button.btn.btn-submit.btn-full(type="button", (click)="setClient()") Crear Propuesta
-button.btn.btn-submit.btn-full(type="button",*ngIf="idClient == null || idClient == ''", (click)="setClient()") Crear Propuesta
-button.btn.btn-submit.btn-full(type="button",*ngIf="idClient != null && idClient != ''", (click)="setClient()") Editar Propuesta
+button.btn.btn-submit.btn-full(type="button",*ngIf="idPropuesta == null || idPropuesta == ''", (click)="setClient()") Crear Propuesta
+button.btn.btn-submit.btn-full(type="button",*ngIf="idPropuesta != null && idPropuesta != ''", (click)="setClient()") Editar Propuesta
 
 alert-toast

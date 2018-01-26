@@ -25,15 +25,28 @@ export class AdminDashboard {
 	}
 
 	signOut(){
-	    this.serviceLoginAdmin.deleteSession();
-	    this.router.navigate(['admin/login']);
-	  }
+		this.serviceLoginAdmin.deleteSession();
+		this.router.navigate(['admin/login']);
+	}
 
 	goToClients(){
 		this.router.navigate(['admin/propuestas']);
 	}
+	
 	goToReports(){
 		this.router.navigate(['admin/reports']);
+	}
+
+	goToNoticias(){
+		this.router.navigate(['admin/noticias']);
+	}
+
+	goToSliders(){
+		this.router.navigate(['admin/sliders']);
+	}
+
+	goToBiografia(){
+		this.router.navigate(['admin/biografia']);
 	}
 
 }

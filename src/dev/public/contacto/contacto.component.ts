@@ -63,7 +63,6 @@ export class ContactoComponent implements OnInit {
         console.log(error)
       });
     }
-
   }
 
   getCiudades(e,update:any = false){

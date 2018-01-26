@@ -5,16 +5,16 @@ import { LoginAdminService } from '../../login/login.service';
 import { AlertToastComponent } from '../../components/alert-toast/alert-toast';
 
 @Component({
-	selector: 'form-client',
-	templateUrl: './form-client.html',
+	selector: 'form-slider',
+	templateUrl: './form-slider.html',
 })
-export class FormClientComponent {
-	@Input() idClient;
-	@Output() insertClient = new EventEmitter();
-	propuest:any = [];
+export class FormSliderComponent {
+	@Input() idSlider;
+	@Output() insertSlider = new EventEmitter();
+	slider:any = [];
 	activeS:boolean = false;
-	fileImage: File;
-	filePdf: File;
+	fileImageBig: File;
+	fileImageThumb: File;
 	@ViewChild(AlertToastComponent) toast:AlertToastComponent;
 
 	constructor(private serviceLoginAdmin: LoginAdminService,
@@ -24,8 +24,8 @@ export class FormClientComponent {
 	}
 
 	ngOnInit() {
-		if (this.idClient != null) {
-			this.serviceRequest.post('app.php', { accion: 'getAdminPropuestas', idCuenta: this.idClient})
+		if (this.idSlider != null) {
+			this.serviceRequest.post('app.php', { accion: 'getAdminSlider', idSlider: this.idSlider})
 				.subscribe(
 				(result) => {
 					switch (result.error) {
@@ -33,7 +33,7 @@ export class FormClientComponent {
 							this.toast.openToast("Ocurrió un error",null,5,null);
 							break;
 						case 1:
-							this.propuest = result.data;
+							this.slider = result.data;
 							break;
 						case 2:
 							this.toast.openToast("Cliente incorrecto",null,5,null);
@@ -47,55 +47,52 @@ export class FormClientComponent {
 	}
 
 	fileChange(event) {
-
 		let fileList: FileList = event.target.files;
     	if(fileList.length > 0) {
-			this.fileImage = fileList[0];
+			this.fileImageBig = fileList[0];
 		}
 	}
 
 	fileChange2(event) {
-
 		let fileList: FileList = event.target.files;
     	if(fileList.length > 0) {
-			this.filePdf = fileList[0];
+			this.fileImageThumb = fileList[0];
 		}
 	}
 
 
-	setClient(){
-		if (this.propuest.nombre != undefined && this.propuest.nombre != '' && this.propuest.url != undefined && this.propuest.url != '' && this.propuest.videoId != undefined && this.propuest.videoId != '' && this.propuest.descVideo != undefined && this.propuest.descVideo && this.propuest.propuestaTxt != undefined && this.propuest.propuestaTxt 
-			&& ((this.propuest.imgBanner != undefined && this.propuest.imgBanner != '') || this.fileImage != undefined)
-			&& ((this.propuest.pdf != undefined && this.propuest.pdf != '') || this.filePdf != undefined)) {
+	setNoticia(){
+		if (this.slider.titulo != undefined &&
+		 this.slider.titulo != '' &&
+		 this.slider.url != undefined &&
+		 this.slider.url != '' &&
+			 ((this.slider.imgBig != undefined &&
+			 this.slider.imgBig != '') || this.fileImageBig != undefined)
+			&&
+			 ((this.slider.imgThumb != undefined &&
+			 this.slider.imgThumb != '') || this.fileImageThumb != undefined)) {
 			let user = this.serviceLoginAdmin.getSession();
 			
 			let formData:FormData = new FormData();
 			
 
-			if (this.fileImage == undefined) {
-				formData.append('imgBanner', this.propuest.imgBanner);
+			if (this.fileImageBig == undefined) {
+				formData.append('imgBig', this.slider.imgBig);
 			}else{
-				formData.append('imgBanner', this.fileImage, this.fileImage.name);
+				formData.append('imgBig', this.fileImageBig, this.fileImageBig.name);
 			}
 
-			if (this.filePdf == undefined) {
-				formData.append('pdf', this.propuest.pdf);
+			if (this.fileImageThumb == undefined) {
+				formData.append('imgThumb', this.slider.imgThumb);
 			}else{
-				formData.append('pdf', this.filePdf, this.filePdf.name);
+				formData.append('imgThumb', this.fileImageThumb, this.fileImageThumb.name);
 			}
 
-			
-			
-
-			//formData.append('categorias', JSON.stringify(categoriasActivas));
-			
-			formData.append('idCuenta', this.idClient);
-			formData.append('nombre', this.propuest.nombre);
-			formData.append('url', this.propuest.url);
-			formData.append('videoId', this.propuest.videoId);
-			formData.append('descVideo', this.propuest.descVideo);
-			formData.append('propuestaTxt', this.propuest.propuestaTxt);
-			formData.append('accion', 'setAdminPropuesta');
+			formData.append('id', this.idSlider);
+			formData.append('titulo', this.slider.titulo);
+			formData.append('url', this.slider.url);
+			formData.append('orden', (this.slider.orden != undefined) ? this.slider.orden : null );
+			formData.append('accion', 'setAdminSlider');
 
 			this.serviceRequest.post('app.php', formData, true)
 				.subscribe(
@@ -105,18 +102,23 @@ export class FormClientComponent {
 							this.toast.openToast("Ocurrió un error",null,5,null);
 							break;
 						case 1:
-							//if (this.idClient != '') {
-								this.toast.openToast("Actualizó correctamente la propuesta",null,3,()=>{
-									window.location.href="../propuestas/admin/propuestas";
+							if (this.idSlider != null && this.idSlider == '') {
+								this.toast.openToast("Actualizó correctamente el slider",null,5,null);
+							}else{
+								this.insertSlider.emit({id: result.data.id,
+									titulo: this.slider.titulo,
+									imgThumb: result.data.imgThumb});
+							}
+
+							if (this.idSlider == null || this.idSlider == '') {
+								this.toast.openToast("Agregó correctamente el slider",null,3,()=>{
+									this.router.navigate(['admin/sliders']);
 								});
-							//}
-							/*
-							else{
-								this.insertClient.emit({colorCuenta: this.client.color,
-									idCuenta: result.data.id,
-									imagenCuenta: result.data.imagen,
-									nombreCuenta: this.client.nombre});
-							}*/
+							}else{
+								this.toast.openToast("Actualizó correctamente el slider",null,3,()=>{
+									this.router.navigate(['admin/sliders']);
+								});
+							}
 							break;
 						case 2:
 							this.toast.openToast("Los datos son incorrectos",null,5,null);
@@ -125,7 +127,7 @@ export class FormClientComponent {
 							this.toast.openToast("Los datos son incorrectos",null,5,null);
 							break;
 						case 5:
-							this.toast.openToast("El nombre de  la propuesta o la url ya existen",null,5,null);
+							this.toast.openToast("El nombre de la slider o la url ya existen",null,5,null);
 							break;
 					}
 				},

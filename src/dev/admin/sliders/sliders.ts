@@ -5,13 +5,13 @@ import { LoginAdminService } from '../login/login.service';
 import { AlertToastComponent } from '../components/alert-toast/alert-toast';
 
 @Component({
-  templateUrl: './propuestas.html',
+  templateUrl: './sliders.html',
   // styleUrls: ['./reports.css'],
   providers: [RequestService, LoginAdminService]
 })
 
-export class AdminPropuestas {
-	propuestas:any = [];
+export class AdminSliders {
+	sliders:any = [];
 	activeS:boolean = false;
 
 	@ViewChild(AlertToastComponent) toast:AlertToastComponent;
@@ -24,7 +24,7 @@ export class AdminPropuestas {
 		if (!this.serviceLoginAdmin.validateSession()) {
 			this.router.navigate(['admin']);
 		}else{
-			this.serviceRequest.post('app.php', { accion: 'getPropuestas'})
+			this.serviceRequest.post('app.php', { accion: 'getSliders'})
 				.subscribe(
 				(result) => {
 					switch (result.error) {
@@ -33,10 +33,10 @@ export class AdminPropuestas {
 							break;
 						case 1:
 							//this.toast.openToast(result.data,null,5,null);
-							this.propuestas = result.data;
+							this.sliders = result.data;
 							break;
 						case 2:
-							this.toast.openToast("No existen propuestas",null,5,null);
+							this.toast.openToast("No existen clientes",null,5,null);
 							break;
 					}
 				},
@@ -46,25 +46,24 @@ export class AdminPropuestas {
 		}
 	}
 
-	goToClient(idClient){
-		this.router.navigate(['admin/propuesta', { i: idClient } ]);
+	goToSlider(id){
+		this.router.navigate(['admin/slider', { i: id } ]);
 	}
 	
 	toggleClass(){
       this.activeS = !this.activeS;
   	}
 
-  	insertPropuesta(propuesta){
-		this.toast.openToast("Agregó correctamente la propuesta",null,5,null);
+  	insertSlider(slider){
+		this.toast.openToast("Agregó correctamente el slider",null,5,null);
 		this.activeS = false;
-		this.propuestas.push(propuesta);
+		this.sliders.push(slider);
 	}
 
-
-  	removePropuesta(idClient){
-		var conf = confirm("Desea eliminar la propuesta?");
+  	removeSlider(id){
+		var conf = confirm("Desea eliminar el slider?");
 		if (conf == true) {
-	  		this.serviceRequest.post('app.php', { accion: 'removePropuesta',id: idClient})
+	  		this.serviceRequest.post('app.php', { accion: 'removeSlider',id: id})
 				.subscribe(
 				(result) => {
 					switch (result.error) {
@@ -72,7 +71,7 @@ export class AdminPropuestas {
 							this.toast.openToast("Ocurrió un error",null,5,null);
 							break;
 						case 1:
-							this.toast.openToast("Se ha eliminado la propuesta correctamente",null,3,()=>{
+							this.toast.openToast("Se ha eliminado la noticia correctamente",null,3,()=>{
 								window.location.reload();
 							});
 							break;

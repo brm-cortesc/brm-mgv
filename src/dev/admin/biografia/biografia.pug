@@ -1,0 +1,29 @@
+header-admin
+	
+section.container-fluid.container-clients
+
+	div.row
+
+		article.client-edit.active(*ngIf="biografiaForm")
+			form(#bio="ngForm", novalidate)
+
+				//Comentario
+				div.form-group([class.active] = "biografiaForm.contenido != ''")
+					label(for="Biografia") Biografía
+					div.textarea
+						textarea(id="contenido", name="contenido", required, pattern="[a-zA-ZñÑáéíóúÁÉÍÓÚ ]+", [(ngModel)]="biografiaForm.contenido", #biografia="ngModel", (focus)="focusIn($event)", (focusout)="focusOut($event)")
+						
+							//- option(*ngFor="let citie of cities; let citieKey = index",[value]="citie.idCity") {{citie.name}}
+					div.msn-place(*ngIf='biografia.errors && (biografia.dirty || biografia.touched || formSubmitAttempt)')
+						div([hidden]="!biografia.hasError('required')") Escribe algo
+
+
+				//div.form-group([class.active]="biografiaForm.contenido != ''" )
+					label Biografía:
+					div.textarea
+						textarea(value="{{biografiaForm.contenido}}",[(ngModel)]="biografiaForm.contenido", #contenido="ngModel", (focus)="focusIn($event)", (focusout)="focusOut($event)")
+
+				button.btn.btn-submit.btn-full(type="button", (click)="save(bio)") Aceptar
+
+	alert-toast
+

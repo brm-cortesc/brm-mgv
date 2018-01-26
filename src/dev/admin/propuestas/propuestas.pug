@@ -8,7 +8,7 @@ section.container-fluid.container-propuestas
 		a.btn.btn-blue((click)="toggleClass()", [class.active]="activeS") Nueva Propuesta
 
 		article.client-create( [class.active]="activeS")
-			form-client([idClient]="",(insertClient)="insertClient($event)",*ngIf="activeS")
+			form-propuesta([idPropuesta]="",(insertPropuesta)="insertPropuesta($event)",*ngIf="activeS")
 		///-Crear clientes
 
 	//Listado de clientes BRM

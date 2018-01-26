@@ -1,0 +1,40 @@
+div.form-group([class.active]="noticia.titulo != ''" )
+	label Título
+	input(type="text", value="{{noticia.titulo}}",[(ngModel)]="noticia.titulo", (focus)="focusIn($event)", (focusout)="focusOut($event)")
+
+div.form-group([class.active]="noticia.url != ''" )
+	label Url
+	input(type="text", value="{{noticia.url}}",[(ngModel)]="noticia.url", (focus)="focusIn($event)", (focusout)="focusOut($event)")
+
+div.form-group([class.active]="noticia.destacado != ''" )
+	label Destacado
+	input(type="number", value="{{noticia.destacado}}",[(ngModel)]="noticia.destacado", (focus)="focusIn($event)", (focusout)="focusOut($event)")
+
+
+div.form-group([class.active]="noticia.imgBig != ''" )
+	label Imagen grande (768 × 355)
+	input(type="hidden", value="{{noticia.imgBig}}",[(ngModel)]="noticia.imgBig", (change)="fileChange($event)", accept=".png,.jpg,.jpeg")
+	input(type="file", placeholder="Imagen Banner", (change)="fileChange($event)", accept=".png,.jpg,.jpeg", (focus)="focusIn($event)", (focusout)="focusOut($event)")
+
+figure.client(*ngIf="noticia.imgBig != undefined")
+	img(src="assets/images/{{noticia.imgBig}}", class="imagn")
+
+div.form-group([class.active]="noticia.imgThumb != ''" )
+	label Imagen miniatura (560 × 179)
+	input(type="hidden", value="{{noticia.imgThumb}}",[(ngModel)]="noticia.imgThumb", (change)="fileChange2($event)", accept=".png,.jpg,.jpeg")
+	input(type="file", placeholder="Imagen Banner", (change)="fileChange2($event)", accept=".png,.jpg,.jpeg", (focus)="focusIn($event)", (focusout)="focusOut($event)")
+
+figure.client(*ngIf="noticia.imgThumb != undefined")
+	img(src="assets/images/{{noticia.imgThumb}}", class="imagn")
+	
+div.form-group([class.active]="noticia.contenido != ''" )
+	label Contenido:
+	div.textarea
+		textarea(value="{{noticia.contenido}}",[(ngModel)]="noticia.contenido", (focus)="focusIn($event)", (focusout)="focusOut($event)")
+
+div.clearfix
+
+button.btn.btn-submit.btn-full(type="button",*ngIf="idNoticia == null || idNoticia == ''", (click)="setNoticia()") Crear Noticia
+button.btn.btn-submit.btn-full(type="button",*ngIf="idNoticia != null && idNoticia != ''", (click)="setNoticia()") Editar Noticia
+
+alert-toast
