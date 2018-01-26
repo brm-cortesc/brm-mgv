@@ -82,7 +82,11 @@ export class PropuestasComponent implements OnInit {
 						break;
 					case 1:
 						this.email = "";
-						window.open('assets/pdf/'+pdf, '_blank');
+						var link = document.createElement('a');
+						link.href = 'assets/pdf/'+pdf;
+						link.download = 'assets/pdf/'+pdf;
+						link.dispatchEvent(new MouseEvent('click'));
+						//window.open('assets/pdf/'+pdf, '_blank');
 						break;
 					case 2:
 						alert("Ocurrió un error");
