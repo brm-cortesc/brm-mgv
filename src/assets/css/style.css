@@ -3,7 +3,7 @@
  * @version v0.1.0
  * @link Cristian Cortés - cristian.cortes@brm.com.co
  * @license 
- *Thu Jan 25 2018 21:57:18 GMT-0500 (COT)
+ *Thu Jan 25 2018 22:24:13 GMT-0500 (COT)
  */
 /*
  *  Font Awesome 4.7.0 by @davegandy - http://fontawesome.io - @fontawesome
@@ -1663,6 +1663,9 @@ footer .col-4 p {
   footer .col-4 {
     text-align: left;
   }
+  footer .col-4:nth-of-type(3) {
+    text-align: center;
+  }
 }
 .btn {
   -o-transition: all 0.3s ease-in-out;
@@ -2422,8 +2425,10 @@ footer .col-4 p {
   margin-top: 3rem;
 }
 .msn-place {
-  color: #fd0;
-  font-size: 0.9rem;
+  background-color: #fd0;
+  color: #000;
+  font-size: 1.1rem;
+  padding: 0 0.5rem;
 }
 @media (min-width: 460px) {
   .form-group .select {
