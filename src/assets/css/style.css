@@ -3,7 +3,7 @@
  * @version v0.1.0
  * @link Cristian Cortés - cristian.cortes@brm.com.co
  * @license 
- *Thu Jan 25 2018 23:36:35 GMT-0500 (COT)
+ *Fri Jan 26 2018 02:38:47 GMT-0500 (COT)
  */
 /*
  *  Font Awesome 4.7.0 by @davegandy - http://fontawesome.io - @fontawesome
@@ -1540,7 +1540,7 @@ section.container-fluid {
   .col-banner img {
     margin: 0 auto;
     max-width: 25rem;
-    padding: 7.9rem 3rem;
+    padding: 8.9rem 3rem;
   }
 }
 @media (min-width: 960px) {
@@ -1549,12 +1549,18 @@ section.container-fluid {
   }
 }
 @media (min-width: 1000px) {
+  .col-banner img {
+    padding: 7.9rem 3rem;
+  }
   .col-bio {
     margin-bottom: 7%;
     margin-top: 7%;
   }
   .col-bio h2 {
     font-size: 2.3rem;
+  }
+  .col-noticias-recientes .box {
+    margin-top: 0;
   }
 }
 @media (min-width: 1100px) {
@@ -1810,7 +1816,7 @@ footer .col-4 p {
   font-weight: 700;
   max-width: 100%;
   padding: 0.5rem 4.1rem;
-  position: absolute;
+  position: fixed;
   text-align: center;
   width: 100%;
   z-index: 9;
@@ -1885,6 +1891,7 @@ footer .col-4 p {
     font-size: 1.3rem;
     max-width: 30rem;
     padding: 0.5rem 1rem;
+    position: absolute;
     right: 0;
     top: 12.2rem;
   }
@@ -2035,6 +2042,47 @@ footer .col-4 p {
   max-width: 100%;
   height: auto;
   width: 100%;
+}
+@media (min-width: 770px) {
+  .box p {
+    -webkit-box-orient: vertical;
+    -moz-box-orient: vertical;
+    box-orient: vertical;
+    -moz-box-orient: vertical;
+    -ms-box-orient: vertical;
+    -o-box-orient: vertical;
+    -webkit-box-orient: vertical;
+    display: block;
+    display: -webkit-box;
+    display: -moz-box;
+    display: -ms-box;
+    display: -o-box;
+    height: 10rem;
+    line-clamp: 5;
+    -moz-line-clamp: 5;
+    -ms-line-clamp: 5;
+    -o-line-clamp: 5;
+    -webkit-line-clamp: 5;
+    overlow: hidden;
+    text-overflow: ellipsis;
+    overflow: hidden;
+    white-space: normal;
+  }
+}
+@media (min-width: 1000px) {
+  .box p {
+    height: 8rem;
+    line-clamp: 4;
+    -moz-line-clamp: 4;
+    -ms-line-clamp: 4;
+    -o-line-clamp: 4;
+    -webkit-line-clamp: 4;
+  }
+}
+@media (min-width: 1100px) {
+  .box p {
+    height: 6.2rem;
+  }
 }
 .menu {
   background-color: #fff;
