@@ -3,7 +3,7 @@
  * @version v0.1.0
  * @link Cristian Cortés - cristian.cortes@brm.com.co
  * @license 
- *Fri Jan 26 2018 04:34:05 GMT-0500 (COT)
+ *Fri Jan 26 2018 06:42:56 GMT-0500 (COT)
  */
 /*
  *  Font Awesome 4.7.0 by @davegandy - http://fontawesome.io - @fontawesome
@@ -1185,7 +1185,7 @@ section.container-fluid {
 }
 .container-text-noticia {
   background-color: #fff;
-  padding-top: 2rem;
+  padding: 2rem;
   position: relative;
   z-index: 2;
 }
