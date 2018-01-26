@@ -34,28 +34,28 @@ export class HeaderComponent implements OnInit {
       this.document.body.classList.toggle('body-fixed');
      }
 
-    if (this.offset > 150) {
-      this.document.getElementsByTagName('header')[0].classList.toggle('affix')
+    // if (this.offset > 150) {
+    //   this.document.getElementsByTagName('header')[0].classList.toggle('affix')
 
-    } else if (this.headerFixed && this.offset < 10) {
+    // } else if (this.headerFixed && this.offset < 10) {
       
-      this.document.getElementsByTagName('header')[0].classList.toggle('affix')
+    //   this.document.getElementsByTagName('header')[0].classList.toggle('affix')
 
-    }
+    // }
 
   };
 
-  @HostListener("window:scroll", [])
+  // @HostListener("window:scroll", [])
 
-  onScroll(){
+  // onScroll(){
 
-    this.offset = this.window.pageYOffset || this.document.documentElement.scrollTop || this.document.body.scrollTop || 0;
-        if (this.offset > 150) {
-          this.headerFixed = true;
-        } else if (this.headerFixed && this.offset < 10) {
-          this.headerFixed = false;
-        }
-  };
+  //   this.offset = this.window.pageYOffset || this.document.documentElement.scrollTop || this.document.body.scrollTop || 0;
+  //       if (this.offset > 150) {
+  //         this.headerFixed = true;
+  //       } else if (this.headerFixed && this.offset < 10) {
+  //         this.headerFixed = false;
+  //       }
+  // };
 
 
 }

@@ -1,6 +1,6 @@
 .form
 	&-group
-		border 1px solid black
+		border 1px solid darken($gris,40%)
 		margin 1rem auto
 		padding 0.5rem
 		transitionBase()
@@ -32,13 +32,14 @@
 			transitionBase()
 			
 		label
+			color darken($gris,60%)
 			font-weight $light
 			margin-bottom 0 			
 
 		input
 			background-color transparent
 			border none
-			color black
+			color darken($gris,60%)
 			max-width 64%
 			padding 1rem 0.5rem
 			width 100%
@@ -51,7 +52,7 @@
 		textarea
 			background-color transparent
 			border none
-			color black
+			color darken($gris,60%)
 			transitionBase()
 			width 100%
 			
@@ -96,6 +97,7 @@
 			
 		
 		label
+			color white
 			font-weight $light
 			margin-bottom 0 
 			
@@ -196,8 +198,11 @@
 	margin-top 3rem
 	
 .msn-place
-	color $amarillo
-	font-size 0.9rem
+	background-color $amarillo
+	color black
+	font-size 1.1rem
+	padding 0 0.5rem
+	
 
 @media (min-width:460px)
 	.form

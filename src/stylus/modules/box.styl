@@ -39,6 +39,44 @@
 		width 100%
 		
 
-// @media (min-width:$screen-sm)
-// 	.col-box
-// 		.box
+// @stylint off
+
+@media (min-width:$screen-sm)
+	.box
+		p
+			box-orient vertical
+			-moz-box-orient vertical
+			-ms-box-orient vertical
+			-o-box-orient vertical
+			-webkit-box-orient vertical
+			display block
+			display -webkit-box
+			display -moz-box
+			display -ms-box
+			display -o-box
+			height 10rem
+			line-clamp 5
+			-moz-line-clamp 5
+			-ms-line-clamp 5
+			-o-line-clamp 5
+			-webkit-line-clamp 5
+			overlow hidden
+			text-overflow ellipsis
+			white-space normal
+			
+@media (min-width:1000px)
+	.box
+		p
+			height 8rem
+			line-clamp 4
+			-moz-line-clamp 4
+			-ms-line-clamp 4
+			-o-line-clamp 4
+			-webkit-line-clamp 4
+
+@media (min-width:1100px)
+	.box				
+		p
+			height 6.2rem
+
+// @stylint on
