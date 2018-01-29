@@ -12,7 +12,7 @@ div.form-group([class.active]="noticia.destacado != ''" )
 
 
 div.form-group([class.active]="noticia.imgBig != ''" )
-	label Imagen grande (768 × 355)
+	label Imagen grande (1200 x 336)
 	input(type="hidden", value="{{noticia.imgBig}}",[(ngModel)]="noticia.imgBig", (change)="fileChange($event)", accept=".png,.jpg,.jpeg")
 	input(type="file", placeholder="Imagen Banner", (change)="fileChange($event)", accept=".png,.jpg,.jpeg", (focus)="focusIn($event)", (focusout)="focusOut($event)")
 
@@ -20,7 +20,7 @@ figure.client(*ngIf="noticia.imgBig != undefined")
 	img(src="assets/images/{{noticia.imgBig}}", class="imagn")
 
 div.form-group([class.active]="noticia.imgThumb != ''" )
-	label Imagen miniatura (560 × 179)
+	label Imagen miniatura (768 x 355)
 	input(type="hidden", value="{{noticia.imgThumb}}",[(ngModel)]="noticia.imgThumb", (change)="fileChange2($event)", accept=".png,.jpg,.jpeg")
 	input(type="file", placeholder="Imagen Banner", (change)="fileChange2($event)", accept=".png,.jpg,.jpeg", (focus)="focusIn($event)", (focusout)="focusOut($event)")
 

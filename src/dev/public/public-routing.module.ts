@@ -5,6 +5,7 @@ import { PropuestasComponent } from './propuestas/propuestas.component';
 import { NoticiasComponent } from './noticias/noticias.component';
 import { ContactoComponent } from './contacto/contacto.component';
 import { BioComponent } from './bio/bio.component';
+import { TerminosComponent } from './terminos/terminos.component';
 import { NotFoundComponent } from './404/404.component';
 
 
@@ -27,6 +28,7 @@ const routes: Routes = [
 	{path: 'contacto', component: ContactoComponent},
 	{path: 'biografia', component: BioComponent},
 	{path: '404', component: NotFoundComponent},
+	{path: 'terminos', component: TerminosComponent},
 	{path: '**', redirectTo: '404'}
 ];
 

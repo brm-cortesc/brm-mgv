@@ -14,7 +14,7 @@ export class HomeComponent implements OnInit {
     // @Inject(DOCUMENT) private document: Document,
     ) { }
   
-	slides:any = [];
+	slides:any = null;
 	noticiasR:any [];
   // estadito:boolean = false;
 	slideConfig:any = {};

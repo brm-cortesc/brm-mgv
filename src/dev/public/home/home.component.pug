@@ -6,21 +6,22 @@ section.container-fluid.container-content
 	div.row
 		//Slider
 		div.col-slider
-			ngx-slick.slider(#slickModal="slick-modal", [config]="slideConfig")
-				//Item
-				article.slide(ngxSlickItem, *ngFor="let slide of slides; let keySlide = index ")
-					
-					div.slide-img
-						a(*ngIf="slide.url; else slide_img" href="{{slide.url}}")
-							
-							img(src="{{'assets/images/slides/'+slide.imgBig}}",
-								srcset="{{'assets/images/slides/'+slide.imgBig}} 1000w, {{'assets/images/slides/'+slide.imgThumb}} 770w",
-								sizes="(min-width:770px) 100%, 100% " )
+			ng-container(*ngIf="slides")
+				ngx-slick.slider(#slickModal="slick-modal", [config]="slideConfig")
+					//Item
+					article.slide(ngxSlickItem, *ngFor="let slide of slides; let keySlide = index ")
+						
+						div.slide-img
+							a(*ngIf="slide.url; else slide_img" href="{{slide.url}}")
+								
+								img(src="{{'assets/images/slides/'+slide.imgBig}}",
+									srcset="{{'assets/images/slides/'+slide.imgBig}} 1000w, {{'assets/images/slides/'+slide.imgThumb}} 770w",
+									sizes="(min-width:770px) 100%, 100% " )
 
-						ng-template(#slide_img="")
-							img(src="{{'assets/images/slides/'+slide.imgBig}}",
-								srcset="{{'assets/images/slides/'+slide.imgBig}} 1000w, {{'assets/images/slides/'+slide.imgThumb}} 770w",
-								sizes="(min-width:770px) 100%, 100% ")
+							ng-template(#slide_img="")
+								img(src="{{'assets/images/slides/'+slide.imgBig}}",
+									srcset="{{'assets/images/slides/'+slide.imgBig}} 1000w, {{'assets/images/slides/'+slide.imgThumb}} 770w",
+									sizes="(min-width:770px) 100%, 100% ")
 				//Item
 		///-Slider
 		//Inscripcion
@@ -97,8 +98,9 @@ section.container-fluid.container-content
 					div.checkbox
 						input(type="checkbox", name="politicasH", id="politicasH", required, [(ngModel)]="inscripcionForm.politicas",#politicas="ngModel")
 						label(for="politicasH")
-							| Acepto  
-							a([routerLink]="['/terminos']", target="_blank") Términos y Condiciones.
+							| Acepto los 
+							a([routerLink]="['/terminos']", target="_blank") Términos y Condiciones
+							|  de tratamiento de datos.
 
 						div.msn-place(*ngIf='politicas.errors && (politicas.dirty || politicas.touched || formSubmitAttempt)')
 							div([hidden]="!politicas.hasError('required')") Los términos y condiciones son requeridos

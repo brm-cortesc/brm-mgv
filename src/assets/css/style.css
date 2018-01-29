@@ -3,7 +3,7 @@
  * @version v0.1.0
  * @link Cristian Cortés - cristian.cortes@brm.com.co
  * @license 
- *Fri Jan 26 2018 10:19:46 GMT-0500 (COT)
+ *Mon Jan 29 2018 09:11:17 GMT-0500 (COT)
  */
 /*
  *  Font Awesome 4.7.0 by @davegandy - http://fontawesome.io - @fontawesome
@@ -1819,7 +1819,7 @@ footer .col-4 p {
   position: fixed;
   text-align: center;
   width: 100%;
-  z-index: 9;
+  z-index: 10;
 }
 .btn-programa:active,
 .btn-programa:focus,

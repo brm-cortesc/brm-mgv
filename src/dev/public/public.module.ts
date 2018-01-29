@@ -30,6 +30,7 @@ import { PropuestasComponent } from './propuestas/propuestas.component';
 import { NoticiasComponent } from './noticias/noticias.component';
 import { ContactoComponent } from './contacto/contacto.component';
 import { BioComponent } from './bio/bio.component';
+import { TerminosComponent } from './terminos/terminos.component';
 import { NotFoundComponent } from './404/404.component';
 
 // import { HomeComponent } from './home/home.component';
@@ -51,6 +52,7 @@ import { NotFoundComponent } from './404/404.component';
     PropuestasComponent,
     NoticiasComponent,
     ContactoComponent,
+    TerminosComponent,
     NotFoundComponent,
   	BioComponent
   ],

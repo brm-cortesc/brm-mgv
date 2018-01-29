@@ -20,7 +20,7 @@ div.form-group([class.active]="propuest.pdf != ''" )
 	input(type="file", placeholder="PDF", (change)="fileChange2($event)", accept=".pdf", (focus)="focusIn($event)", (focusout)="focusOut($event)")
 
 div.form-group([class.active]="propuest.imgBanner != ''" )
-	label Imagen Banner PDF
+	label Imagen Banner PDF (630 x 120)
 	input(type="hidden", value="{{propuest.imgBanner}}",[(ngModel)]="propuest.imgBanner", (change)="fileChange($event)", accept=".png,.jpg,.jpeg")
 	input(type="file", placeholder="Imagen Banner", (change)="fileChange($event)", accept=".png,.jpg,.jpeg", (focus)="focusIn($event)", (focusout)="focusOut($event)")
 
@@ -28,7 +28,7 @@ figure.client(*ngIf="propuest.imgBanner != undefined")
 	img(src="assets/images/propuestas/{{propuest.imgBanner}}", class="imagn")
 
 div.form-group([class.active]="propuest.imgFondo != ''" )
-	label Imagen Fondo
+	label Imagen Fondo (560 x 180)
 	input(type="hidden", value="{{propuest.imgFondo}}",[(ngModel)]="propuest.imgFondo", (change)="fileChange3($event)", accept=".png,.jpg,.jpeg")
 	input(type="file", placeholder="Imagen Banner", (change)="fileChange3($event)", accept=".png,.jpg,.jpeg", (focus)="focusIn($event)", (focusout)="focusOut($event)")
 
