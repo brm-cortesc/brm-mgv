@@ -98,9 +98,8 @@ section.container-fluid.container-content
 					div.checkbox
 						input(type="checkbox", name="politicasH", id="politicasH", required, [(ngModel)]="inscripcionForm.politicas",#politicas="ngModel")
 						label(for="politicasH")
-							| Acepto los 
-							a([routerLink]="['/terminos']", target="_blank") Términos y Condiciones
-							|  de tratamiento de datos.
+							| Acepto  
+							a([routerLink]="['/terminos']", target="_blank") Términos y Condiciones.
 
 						div.msn-place(*ngIf='politicas.errors && (politicas.dirty || politicas.touched || formSubmitAttempt)')
 							div([hidden]="!politicas.hasError('required')") Los términos y condiciones son requeridos
