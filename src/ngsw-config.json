@@ -19,7 +19,7 @@
     "updateMode": "prefetch",
     "resources": {
       "files": [
-        "/assets/images/**",
+        "/assets/images/layout/**",
         "/assets/fonts/**",
         "/assets/js/**"
       ],

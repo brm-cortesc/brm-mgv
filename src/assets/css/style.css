@@ -3,7 +3,7 @@
  * @version v0.1.0
  * @link Cristian Cortés - cristian.cortes@brm.com.co
  * @license 
- *Mon Jan 29 2018 09:11:17 GMT-0500 (COT)
+ *Wed Jan 31 2018 14:51:54 GMT-0500 (COT)
  */
 /*
  *  Font Awesome 4.7.0 by @davegandy - http://fontawesome.io - @fontawesome
@@ -1171,7 +1171,9 @@ section.container-fluid {
   display: block;
   margin: 0 auto;
 }
-.container-content p {
+.container-content ol,
+.container-content p,
+.container-content ul {
   color: #919191;
 }
 .container-content .row {
@@ -2471,6 +2473,10 @@ footer .col-4 p {
 .form-home .form-checkbox {
   border-color: transparent;
 }
+.form-home .form-checkbox a {
+  color: #fff;
+  text-decoration: underline;
+}
 .form-home .form-checkbox input,
 .form-home .form-checkbox label {
   margin: 0;
@@ -2517,7 +2523,7 @@ footer .col-4 p {
   margin-top: 3rem;
 }
 .msn-place {
-  background-color: #fd0;
+  background-color: #edd017;
   color: #000;
   font-size: 1.1rem;
   padding: 0 0.5rem;

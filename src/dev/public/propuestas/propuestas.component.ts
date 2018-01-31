@@ -101,9 +101,7 @@ export class PropuestasComponent implements OnInit {
 	}
 
 	ruta(url){
-
 		this.router.navigate(['propuestas/'+ url])
-
 	}
 
 	selPropuesta(e){
@@ -111,7 +109,7 @@ export class PropuestasComponent implements OnInit {
 		var urlIndex = selectElement.selectedIndex;
 		var url = selectElement.options[urlIndex].value;
 		if (urlIndex != '0') {
-			location.href = './propuestas/'+url;
+			location.href = '/propuestas/'+url;
 			// this.router.navigate('')
 		}
 

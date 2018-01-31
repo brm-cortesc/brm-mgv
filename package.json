@@ -12,7 +12,7 @@
     "temps": " gulp show:dev && gulp copy:temp && gulp delete:temp",
     "start": "npm run serve & npm run watch",
     "ng:build": "ng build",
-    "build": "gulp build --prod && ng build --prod --base-href /fbappPuntosColombia/mejorvargaslleras.com/ && npm run reports && npm run temps",
+    "build": "gulp build --prod && ng build --prod && npm run reports && npm run temps",
     "test": "ng test",
     "lint": "ng lint",
     "e2e": "ng e2e"

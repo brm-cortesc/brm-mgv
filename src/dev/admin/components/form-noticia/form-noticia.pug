@@ -6,7 +6,7 @@ div.form-group([class.active]="noticia.url != ''" )
 	label Url
 	input(type="text", value="{{noticia.url}}",[(ngModel)]="noticia.url", (focus)="focusIn($event)", (focusout)="focusOut($event)")
 
-div.form-group([class.active]="noticia.destacado != ''" )
+//div.form-group([class.active]="noticia.destacado != ''" )
 	label Destacado
 	input(type="number", value="{{noticia.destacado}}",[(ngModel)]="noticia.destacado", (focus)="focusIn($event)", (focusout)="focusOut($event)")
 
