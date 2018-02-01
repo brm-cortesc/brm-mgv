@@ -2,6 +2,7 @@ import { Component, OnInit, Inject} from '@angular/core';
 import { Router, ActivatedRoute} from '@angular/router';
 import { DomSanitizer, DOCUMENT } from '@angular/platform-browser'
 import { RequestService } from '../../services/request/app.request';
+import { WindowRef } from '../../services/windowObj.service';
 import { Location } from "@angular/common";
 
 
@@ -23,7 +24,8 @@ export class PropuestasComponent implements OnInit {
   	private router: Router,
   	private route: ActivatedRoute,
   	private location: Location,
-  	private sanitizer: DomSanitizer
+  	private sanitizer: DomSanitizer,
+  	private winRef: WindowRef
   	) { }
 
  	ngOnInit() {
@@ -82,10 +84,12 @@ export class PropuestasComponent implements OnInit {
 						break;
 					case 1:
 						this.email = "";
-						var link = document.createElement('a');
+						let filePdf = 'assets/pdf/'+pdf;
+						this.saveToDisk(filePdf, filePdf);
+						/*var link = document.createElement('a');
 						link.href = 'assets/pdf/'+pdf;
 						link.download = 'assets/pdf/'+pdf;
-						link.dispatchEvent(new MouseEvent('click'));
+						link.dispatchEvent(new MouseEvent('click'));*/
 						//window.open('assets/pdf/'+pdf, '_blank');
 						break;
 					case 2:
@@ -99,6 +103,27 @@ export class PropuestasComponent implements OnInit {
 		}
 
 	}
+
+	saveToDisk(fileURL, fileName) {
+		// for non-IE
+		if(!this.winRef.nativeWindow.ActiveXObject) {
+			var link = document.createElement('a');
+			link.href = fileURL;
+			link.download = fileURL;
+			link.dispatchEvent(new MouseEvent('click'));
+		}
+
+		// for IE
+		else if(!!this.winRef.nativeWindow.ActiveXObject && document.execCommand) {
+			var _window = this.winRef.nativeWindow.open(fileURL, '_blank');
+			_window.document.close();
+			_window.document.execCommand('SaveAs', true, fileName || fileURL)
+			_window.close();
+		}
+	}
+	
+
+
 
 	ruta(url){
 		this.router.navigate(['propuestas/'+ url])

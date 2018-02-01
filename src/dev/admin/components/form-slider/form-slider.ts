@@ -61,11 +61,9 @@ export class FormSliderComponent {
 	}
 
 
-	setNoticia(){
+	setSlider(){
 		if (this.slider.titulo != undefined &&
 		 this.slider.titulo != '' &&
-		 this.slider.url != undefined &&
-		 this.slider.url != '' &&
 			 ((this.slider.imgBig != undefined &&
 			 this.slider.imgBig != '') || this.fileImageBig != undefined)
 			&&

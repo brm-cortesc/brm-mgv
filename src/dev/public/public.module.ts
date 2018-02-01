@@ -7,6 +7,7 @@ import { HttpModule } from '@angular/http';
 
 //Servicios
 import { browserWindowProvider, windowProvider } from "../services/window.service";
+import { WindowRef } from "../services/windowObj.service";
 import { RequestService } from '../services/request/app.request';
 
 
@@ -56,6 +57,6 @@ import { NotFoundComponent } from './404/404.component';
     NotFoundComponent,
   	BioComponent
   ],
-  providers:[browserWindowProvider, windowProvider, RequestService]
+  providers:[browserWindowProvider, windowProvider, RequestService, WindowRef]
 })
 export class PublicModule { }

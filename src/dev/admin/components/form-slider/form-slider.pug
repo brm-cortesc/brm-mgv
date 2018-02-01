@@ -3,7 +3,7 @@ div.form-group([class.active]="slider.titulo != ''" )
 	input(type="text", value="{{slider.titulo}}",[(ngModel)]="slider.titulo", (focus)="focusIn($event)", (focusout)="focusOut($event)")
 
 div.form-group([class.active]="slider.url != ''" )
-	label Link
+	label Link (Deje este campo vacío si no tiene un link)
 	input(type="text", value="{{slider.url}}",[(ngModel)]="slider.url", (focus)="focusIn($event)", (focusout)="focusOut($event)")
 
 div.form-group([class.active]="slider.orden != ''" )
@@ -30,7 +30,7 @@ figure.client(*ngIf="slider.imgThumb != undefined")
 
 div.clearfix
 
-button.btn.btn-submit.btn-full(type="button",*ngIf="idSlider == null || idSlider == ''", (click)="setNoticia()") Crear Slider
-button.btn.btn-submit.btn-full(type="button",*ngIf="idSlider != null && idSlider != ''", (click)="setNoticia()") Editar Slider
+button.btn.btn-submit.btn-full(type="button",*ngIf="idSlider == null || idSlider == ''", (click)="setSlider()") Crear Slider
+button.btn.btn-submit.btn-full(type="button",*ngIf="idSlider != null && idSlider != ''", (click)="setSlider()") Editar Slider
 
 alert-toast
