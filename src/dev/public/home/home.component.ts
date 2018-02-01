@@ -83,21 +83,21 @@ export class HomeComponent implements OnInit {
       console.log(error)
     });
  
-/*    this.slides = [
-       {
-         titulo: 'slide 1',
-         imgBig: 'slide-01-big.jpg',
-         imgThumb: 'slide-01-thumb.jpg',
-         url: 'noticias/lorem-ipsum-dolor-samet'
-      },
-      {
-         titulo: 'slide 2',
-         imgBig: 'slide-01-big.jpg',
-         imgThumb: 'slide-01-thumb.jpg',
-         url: 'noticias/ricardo'
-      }
+    // this.slides = [
+    //    {
+    //      titulo: 'Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmodtempor incididunt ut labore ',
+    //      imgBig: 'slide-01-big.jpg',
+    //      imgThumb: 'slide-01-thumb.jpg',
+    //      url: 'noticias/lorem-ipsum-dolor-samet'
+    //   },
+    //   {
+    //      titulo: 'tempor incididunt ut labore et dolore magna aliqua. ',
+    //      imgBig: 'slide-01-big.jpg',
+    //      imgThumb: 'slide-01-thumb.jpg',
+    //      url: 'noticias/ricardo'
+    //   }
      
-     ];*/
+    //  ];
 
  		//configuracion de slider
  		this.slideConfig = {

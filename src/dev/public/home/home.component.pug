@@ -11,15 +11,17 @@ section.container-fluid.container-content
 					//Item
 					article.slide(ngxSlickItem, *ngFor="let slide of slides; let keySlide = index ")
 						
+						div.slide-text(*ngIf="slide.titulo")
+							h4 {{slide.titulo}}
 						div.slide-img
 							a(*ngIf="slide.url; else slide_img" href="{{slide.url}}")
 								
-								img(src="{{'assets/images/slides/'+slide.imgBig}}",
+								img(alt="{{slide.titulo}}", title="{{slide.titulo}}", src="{{'assets/images/slides/'+slide.imgBig}}",
 									srcset="{{'assets/images/slides/'+slide.imgBig}} 1000w, {{'assets/images/slides/'+slide.imgThumb}} 770w",
-									sizes="(min-width:770px) 100%, 100% " )
+									sizes="(min-width:770px) 100%, 100% ")
 
 							ng-template(#slide_img="")
-								img(src="{{'assets/images/slides/'+slide.imgBig}}",
+								img(alt="{{slide.titulo}}", title="{{slide.titulo}}", src="{{'assets/images/slides/'+slide.imgBig}}",
 									srcset="{{'assets/images/slides/'+slide.imgBig}} 1000w, {{'assets/images/slides/'+slide.imgThumb}} 770w",
 									sizes="(min-width:770px) 100%, 100% ")
 				//Item
@@ -30,12 +32,13 @@ section.container-fluid.container-content
 			form#ins.form-home(#inscripcion="ngForm", novalidate)
 				
 				//Nombre
-				div.form-group
+				div.form-group()
 					label(for="nombre") Nombre
 					input(type="text", id="nombre", name="nombre", required, pattern="[a-zA-ZñÑáéíóúÁÉÍÓÚ ]+", [(ngModel)]="inscripcionForm.nombre", #nombre="ngModel", (focus)="focusIn($event)", (focusout)="focusOut($event)")
 					div.msn-place(*ngIf='nombre.errors && (nombre.dirty || nombre.touched || formSubmitAttempt)')
 						div([hidden]="!nombre.hasError('required')") El nombre es requerido
 						div([hidden]="!nombre.hasError('pattern')") El nombre no es correcto
+					//- | {{nombre}} 
 
 				///-Nombre
 

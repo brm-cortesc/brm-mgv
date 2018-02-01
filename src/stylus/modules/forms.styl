@@ -129,7 +129,7 @@
 			
 		.form
 			&-group
-				border 1px solid white
+				border 1px solid rgba(255,255,255,0.5)
 				margin 1rem auto
 				padding 0.5rem
 				
@@ -201,8 +201,11 @@
 #contact
 	margin-top 3rem
 	
+	.msn-place
+		color $rojo
+
 .msn-place
-	background-color $amarillo
+	background-color white
 	color black
 	font-size 1.1rem
 	padding 0 0.5rem
@@ -256,6 +259,9 @@
 				&.active
 					label
 						background-color $rojo
+			.msn-place
+				position absolute
+				right 0
 						
 		&-group
 			margin 1rem auto
@@ -315,7 +321,10 @@
 				position static
 				top auto
 				transform none
-				
+	
+	
+	
+
 @media (min-width:850px)
 	.form
 		&-home
