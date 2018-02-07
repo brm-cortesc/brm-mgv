@@ -1,5 +1,5 @@
 div.form-group([class.active]="slider.titulo != ''" )
-	label Título
+	label Título (max. 100 caractares)
 	input(type="text", value="{{slider.titulo}}",[(ngModel)]="slider.titulo", (focus)="focusIn($event)", (focusout)="focusOut($event)")
 
 div.form-group([class.active]="slider.url != ''" )

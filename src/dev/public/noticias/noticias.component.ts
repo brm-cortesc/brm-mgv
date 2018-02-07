@@ -3,6 +3,7 @@ import { Router, ActivatedRoute} from '@angular/router';
 import { DomSanitizer } from '@angular/platform-browser'
 import { RequestService } from '../../services/request/app.request';
 import { Location } from "@angular/common";
+import { Meta, Title } from '@angular/platform-browser';
 
 @Component({
   templateUrl: './noticias.component.html'
@@ -19,8 +20,14 @@ export class NoticiasComponent implements OnInit {
     private route: ActivatedRoute,
     private location: Location,
     private sanitizer: DomSanitizer,
-    private requestService:RequestService
-    ) { }
+    private requestService:RequestService,
+    private meta: Meta,
+    private title: Title
+    ) { 
+      meta.addTags([
+        { name: 'description', content: 'Últimas noticias del candidato a la presidencia de Colombia Germán Vargas Lleras, su campaña y sus propuestas de gobierno.' }
+      ]);
+  }
 
   ngOnInit() {
 

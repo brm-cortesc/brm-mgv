@@ -1,6 +1,8 @@
 import { Component, OnInit} from '@angular/core';
 import { RequestService } from "../../services/request/app.request";
 import { Router, ActivatedRoute} from '@angular/router';
+import { Meta, Title } from '@angular/platform-browser';
+declare let dataLayer: any;
 // import { DOCUMENT } from '@angular/platform-browser';
 
 @Component({
@@ -11,8 +13,15 @@ export class HomeComponent implements OnInit {
   constructor(
     private router: Router,
     private requestService:RequestService,
+    private meta: Meta, 
+    private title: Title
     // @Inject(DOCUMENT) private document: Document,
-    ) { }
+    ) { 
+      //title.setTitle('My Spiffy Home Page');
+      meta.addTags([
+        { name: 'description', content: 'Mejor Vargas Lleras, toda la información del candidato a la presidencia de Colombia del año 2018 Germán Vargas Lleras' }
+      ]);
+  }
   
 	slides:any = null;
 	noticiasR:any [];
@@ -130,6 +139,7 @@ export class HomeComponent implements OnInit {
             console.log("Los datos son incorrectos");
             break;
           case 1:
+            dataLayer.push({ 'event': 'Enviar-Formulario'});
              this.formSubmitAttempt = false;
               inscripcion.reset();
               this.msg = true;

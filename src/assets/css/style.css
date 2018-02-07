@@ -3,7 +3,7 @@
  * @version v0.1.0
  * @link Cristian Cortés - cristian.cortes@brm.com.co
  * @license 
- *Thu Feb 01 2018 18:28:42 GMT-0500 (COT)
+ *Wed Feb 07 2018 10:37:15 GMT-0500 (COT)
  */
 /*
  *  Font Awesome 4.7.0 by @davegandy - http://fontawesome.io - @fontawesome
@@ -2252,6 +2252,7 @@ footer .col-4 p {
   filter: progid:DXImageTransform.Microsoft.gradient(startColorstr='#00000000', endColorstr='#cc000000', GradientType=0);
   left: 0;
   padding: 0.5rem 1rem 2.5rem;
+  pointer-events: none;
   position: absolute;
   width: 100%;
 }

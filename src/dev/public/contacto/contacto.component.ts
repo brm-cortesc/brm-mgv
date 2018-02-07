@@ -2,6 +2,8 @@ import { Component, OnInit} from '@angular/core';
 // import { DOCUMENT } from '@angular/platform-browser';
 // import {WINDOW } from "../../services/window.service";
 import { RequestService } from '../../services/request/app.request';
+import { Meta, Title } from '@angular/platform-browser';
+declare let dataLayer: any;
 
 @Component({
   templateUrl: './contacto.component.html'
@@ -14,8 +16,14 @@ export class ContactoComponent implements OnInit {
   public ciudades: any;
   public msg:any = false;
   constructor(
-    private requestService:RequestService
-    ) {}
+    private requestService:RequestService,
+    private meta: Meta,
+    private title: Title
+    ) {
+      meta.addTags([
+        { name: 'description', content: 'Contáctenos y conozca la propuesta del candidato a la presidencia de Colombia Germán Vargas Lleras, y porqué es la mejor opción para el país.' }
+      ]);
+  }
 
   ngOnInit() {
     
@@ -54,6 +62,7 @@ export class ContactoComponent implements OnInit {
             console.log("Los datos son incorrectos");
             break;
           case 1:
+            dataLayer.push({ 'event': 'Enviar-Formulario'});
             this.formSubmitAttempt = false;
             contacto.reset();
             this.msg = true;

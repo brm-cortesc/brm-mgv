@@ -62,8 +62,7 @@ export class FormSliderComponent {
 
 
 	setSlider(){
-		if (this.slider.titulo != undefined &&
-		 this.slider.titulo != '' &&
+		if ( this.slider.titulo.length <= 100 &&
 			 ((this.slider.imgBig != undefined &&
 			 this.slider.imgBig != '') || this.fileImageBig != undefined)
 			&&

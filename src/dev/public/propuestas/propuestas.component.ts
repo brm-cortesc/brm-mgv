@@ -4,6 +4,8 @@ import { DomSanitizer, DOCUMENT } from '@angular/platform-browser'
 import { RequestService } from '../../services/request/app.request';
 import { WindowRef } from '../../services/windowObj.service';
 import { Location } from "@angular/common";
+import { Meta, Title } from '@angular/platform-browser';
+declare let dataLayer: any;
 
 
 @Component({
@@ -25,8 +27,14 @@ export class PropuestasComponent implements OnInit {
   	private route: ActivatedRoute,
   	private location: Location,
   	private sanitizer: DomSanitizer,
-  	private winRef: WindowRef
-  	) { }
+  	private winRef: WindowRef,
+    private meta: Meta, 
+    private title: Title
+  	) { 
+		meta.addTags([
+			{ name: 'description', content: 'Propuestas, conozca la propuesta del candidato a la presidencia de Colombia Germán Vargas Lleras, y porqué es la mejor opción para el país.' }
+		]);
+  	}
 
  	ngOnInit() {
 		this.propuestaSelUrl = this.route.snapshot.params['id'];
@@ -83,6 +91,7 @@ export class PropuestasComponent implements OnInit {
 						alert("Ocurrió un error");
 						break;
 					case 1:
+						dataLayer.push({ 'event': 'Descarga-PDF'});
 						this.email = "";
 						let filePdf = 'assets/pdf/'+pdf;
 						this.saveToDisk(filePdf, filePdf);
