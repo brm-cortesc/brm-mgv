@@ -5,7 +5,6 @@ import { BrowserModule } from '@angular/platform-browser';
 import { NgModule } from '@angular/core';
 import { NgbModule} from '@ng-bootstrap/ng-bootstrap';
 
-import { AppRoutingModule } from './app-routing.module';
 
 import { AppComponent } from './app.component';
 
@@ -14,6 +13,7 @@ import { AppComponent } from './app.component';
 //Modulo para sliders
 import { SlickModule } from 'ngx-slick';
 
+import { AppRoutingModule } from './app-routing.module';
 import { PublicModule } from './public/public.module';
 import { AdminModule } from './admin/admin.module';
 

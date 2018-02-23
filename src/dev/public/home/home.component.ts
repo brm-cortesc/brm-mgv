@@ -17,7 +17,7 @@ export class HomeComponent implements OnInit {
     private title: Title
     // @Inject(DOCUMENT) private document: Document,
     ) { 
-      //title.setTitle('My Spiffy Home Page');
+      //title.setTitle('Inicio | #MejorVargasLleras');
       meta.addTags([
         { name: 'description', content: 'Mejor Vargas Lleras, toda la información del candidato a la presidencia de Colombia del año 2018 Germán Vargas Lleras' }
       ]);
@@ -188,42 +188,36 @@ export class HomeComponent implements OnInit {
   }
 
   focusIn(event){
-    let el = event.srcElement;
+    let el = event.srcElement || event.target;
     let parent = el.parentNode;     
     let valor = el.value
-
-
-    if (el.tagName == 'SELECT'){
+    if (el.tagName == 'SELECT' || el.tagName == 'TEXTAREA'){
       parent.parentNode.classList.add('active')
     }else{
-
-        parent.classList.add('active')
+      parent.classList.add('active')
     }
 
   }
 
   focusOut(event){
-    let el = event.srcElement;
+    let el = event.srcElement || event.target;
     let parent = el.parentNode;     
     let valor = el.value;
-
     if (valor != '' ){
-      if (el.tagName == 'SELECT'){
-      parent.parentNode.classList.add('active')
+      if (el.tagName == 'SELECT' || el.tagName == 'TEXTAREA'){
+        parent.parentNode.classList.add('active')
       }else{
-
-          parent.classList.add('active')
+        parent.classList.add('active')
       }
-
-
     }else{
-      if (el.tagName == 'SELECT'){
-      parent.parentNode.classList.remove('active')
+      if (el.tagName == 'SELECT' || el.tagName == 'TEXTAREA'){
+        parent.parentNode.classList.remove('active')
       }else{
-
-          parent.classList.remove('active')
+        parent.classList.remove('active')
       }
-
+    }
+    if(valor == 0 && valor == '' ){
+      parent.classList.add('active')
     }
   }
 

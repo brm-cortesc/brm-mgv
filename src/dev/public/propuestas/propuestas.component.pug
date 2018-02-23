@@ -43,7 +43,8 @@ ng-container(*ngIf="propuesta != null")
 			article.col-6
 				//Video propuesta
 				div.embed-responsive.embed-responsive-16by9
-					iframe#videoPropuesta.embed-responsive-item([src]="urlVideo(propuesta.videoId)", allowfullscreen)
+					iframe.embed-responsive-item([src]="propuesta.videoUrl", scrolling="no", frameborder="0", allowfullscreen)
+					//iframe#videoPropuesta.embed-responsive-item([src]="propuesta.videoUrl", allowfullscreen)
 				///-Video propuesta
 				
 

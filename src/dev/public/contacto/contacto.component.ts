@@ -20,6 +20,7 @@ export class ContactoComponent implements OnInit {
     private meta: Meta,
     private title: Title
     ) {
+      title.setTitle('Contacto | #MejoVargasLleras');
       meta.addTags([
         { name: 'description', content: 'Contáctenos y conozca la propuesta del candidato a la presidencia de Colombia Germán Vargas Lleras, y porqué es la mejor opción para el país.' }
       ]);
@@ -112,41 +113,36 @@ export class ContactoComponent implements OnInit {
 
 
   focusIn(event){
-    let el = event.srcElement;
+    let el = event.srcElement || event.target;
     let parent = el.parentNode;     
     let valor = el.value
-
-
     if (el.tagName == 'SELECT' || el.tagName == 'TEXTAREA'){
       parent.parentNode.classList.add('active')
     }else{
-
-        parent.classList.add('active')
+      parent.classList.add('active')
     }
 
   }
 
   focusOut(event){
-    let el = event.srcElement;
+    let el = event.srcElement || event.target;
     let parent = el.parentNode;     
     let valor = el.value;
-
     if (valor != '' ){
       if (el.tagName == 'SELECT' || el.tagName == 'TEXTAREA'){
-      parent.parentNode.classList.add('active')
+        parent.parentNode.classList.add('active')
       }else{
-
-          parent.classList.add('active')
+        parent.classList.add('active')
       }
-
-
     }else{
       if (el.tagName == 'SELECT' || el.tagName == 'TEXTAREA'){
         parent.parentNode.classList.remove('active')
       }else{
         parent.classList.remove('active')
       }
-
+    }
+    if(valor == 0 && valor == '' ){
+      parent.classList.add('active')
     }
   }
 

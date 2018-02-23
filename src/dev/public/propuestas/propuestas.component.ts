@@ -38,7 +38,7 @@ export class PropuestasComponent implements OnInit {
 
  	ngOnInit() {
 		this.propuestaSelUrl = this.route.snapshot.params['id'];
-		console.log(this.propuestaSelUrl);
+		//console.log(this.propuestaSelUrl);
 		/* Trae de base de datos Servicio noticias */
 	    this.requestService.post('app.php',{accion:"getPropuestas"})
 	    .subscribe(
@@ -57,7 +57,7 @@ export class PropuestasComponent implements OnInit {
 					let notTemp = this.propuestas.filter((node)=>{return node.url == this.propuestaSelUrl });        
 					if (notTemp.length > 0) {
 						this.propuesta = notTemp[0];
-						console.log(this.propuesta,"propuesta");
+						this.propuesta.videoUrl = this.urlVideo(this.propuesta.videoId);
 					}else{
 						this.router.navigate(['propuestas']);
 					}
@@ -93,13 +93,8 @@ export class PropuestasComponent implements OnInit {
 					case 1:
 						dataLayer.push({ 'event': 'Descarga-PDF'});
 						this.email = "";
-						let filePdf = 'assets/pdf/'+pdf;
-						this.saveToDisk(filePdf, filePdf);
-						/*var link = document.createElement('a');
-						link.href = 'assets/pdf/'+pdf;
-						link.download = 'assets/pdf/'+pdf;
-						link.dispatchEvent(new MouseEvent('click'));*/
-						//window.open('assets/pdf/'+pdf, '_blank');
+						let filePdf = 'https://www.mejorvargaslleras.com/assets/pdf/'+pdf;
+						this.saveToDisk(filePdf, pdf);
 						break;
 					case 2:
 						alert("Ocurrió un error");
@@ -110,25 +105,26 @@ export class PropuestasComponent implements OnInit {
 				console.log(error)
 			});	
 		}
-
 	}
 
-	saveToDisk(fileURL, fileName) {
-		// for non-IE
-		if(!this.winRef.nativeWindow.ActiveXObject) {
-			var link = document.createElement('a');
-			link.href = fileURL;
-			link.download = fileURL;
-			link.dispatchEvent(new MouseEvent('click'));
+	saveToDisk(fileDownload, fileName){
+		var a = document.createElement('a');
+		a.href = fileDownload;
+		a.target = '_parent';
+		// Use a.download if available, it prevents plugins from opening.
+		if ('download' in a) {
+			a.download = fileName;
 		}
-
-		// for IE
-		else if(!!this.winRef.nativeWindow.ActiveXObject && document.execCommand) {
-			var _window = this.winRef.nativeWindow.open(fileURL, '_blank');
-			_window.document.close();
-			_window.document.execCommand('SaveAs', true, fileName || fileURL)
-			_window.close();
+		// Add a to the doc for click to work.
+		(document.body || document.documentElement).appendChild(a);
+		if (a.click) {
+			a.click(); // The click method is supported by most browsers.
+		} else {
+			//$(a).click(); // Backup using jquery
 		}
+		// Delete the temporary link.
+		a.parentNode.removeChild(a);
+		return true;
 	}
 	
 
@@ -154,7 +150,7 @@ export class PropuestasComponent implements OnInit {
 
 	selUrl(url){
 		this.propuestaSelUrl = url;
-		console.log(this.propuestaSelUrl);
+		//console.log(this.propuestaSelUrl);
 		let proTemp = this.propuestas.filter((node)=>{
 			return node.url==url;
 		});

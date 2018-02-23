@@ -85,6 +85,8 @@ export class FormSliderComponent {
 				formData.append('imgThumb', this.fileImageThumb, this.fileImageThumb.name);
 			}
 
+			console.log(this.slider.titulo);
+
 			formData.append('id', this.idSlider);
 			formData.append('titulo', this.slider.titulo);
 			formData.append('url', this.slider.url);
