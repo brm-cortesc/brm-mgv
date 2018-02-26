@@ -1,0 +1,20 @@
+include ../../templates/partials/mixins.pug
+
+header-public
+
+
+section.container-fluid.container-content
+	div.row
+		nav-descargas
+
+
+section.container-fluid
+	div.row
+		ng-container(*ngFor="let boletin of boletines; let keyValue = index")
+			ngb-accordion( [closeOthers]="true", actiIds='0')
+
+				//Boletin
+				
+				///-Boletin
+
+footer-public

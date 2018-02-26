@@ -31,6 +31,7 @@ import {FooterComponent} from './components/footer/footer.component'
 // Vistas
 import { HomeComponent } from './home/home.component';
 import { ComunicacionComponent } from './comunicacion/comunicacion.component';
+import { BoletinComponent } from './boletin/boletin.component';
 import { PropuestasComponent } from './propuestas/propuestas.component';
 import { NoticiasComponent } from './noticias/noticias.component';
 import { ContactoComponent } from './contacto/contacto.component';
@@ -56,6 +57,7 @@ import { NotFoundComponent } from './404/404.component';
   	NavDesComponent,
     HomeComponent,
     ComunicacionComponent,
+    BoletinComponent,
     PropuestasComponent,
     NoticiasComponent,
     ContactoComponent,

@@ -1,6 +1,7 @@
 import { NgModule } from '@angular/core';
 import { Routes, RouterModule } from '@angular/router';
 import { HomeComponent } from './home/home.component';
+import { BoletinComponent } from './boletin/boletin.component';
 import { ComunicacionComponent } from './comunicacion/comunicacion.component';
 import { PropuestasComponent } from './propuestas/propuestas.component';
 import { NoticiasComponent } from './noticias/noticias.component';
@@ -27,6 +28,7 @@ const routes: Routes = [
 		]
 	},
 	{path: 'comunicacion', component: ComunicacionComponent},
+	{path: 'boletin', component: BoletinComponent},
 	{path: 'contacto', component: ContactoComponent},
 	{path: 'biografia', component: BioComponent},
 	{path: '404', component: NotFoundComponent},

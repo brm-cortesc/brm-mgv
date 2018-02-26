@@ -1,0 +1,19 @@
+include ../../../templates/partials/mixins.pug
+
+//Navegacion descargas
+nav.nav-descargas
+	ul
+		li(routerLinkActive="active")
+			a([routerLink]="['/audios']") Audios
+
+		li(routerLinkActive="active")
+			a([routerLink]="['/comunicacion']") Comunicación
+
+		li(routerLinkActive="active")
+			a([routerLink]="['/boletin']") Boletín
+
+		li(routerLinkActive="active")
+			a([routerLink]="['/videos']") Videos
+
+	
+///-Navegacion descargas

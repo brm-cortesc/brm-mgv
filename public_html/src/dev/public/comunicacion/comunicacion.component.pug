@@ -1,0 +1,31 @@
+include ../../templates/partials/mixins.pug
+
+header-public
+
+section.container-fluid.container-content
+	div.row
+		nav-descargas
+
+section.container-fluid(*ngIf="comunicacion == null")
+	div.row
+		ng-container(*ngFor="let comunicacion of comunicaciones; let keyValue = index")
+			//comunicacion
+			article.col-box
+			
+				div.box
+					div.box-header
+						h2.box-title {{comunicacion.nombre}}
+						a.btn.btn-read( (click)="comunicacion.url") Descargar
+						//Imagen propuesta
+						+image('{{"comunicacion/"+comunicacion.imgFondo}}', '{{comunicacion.nombre}}')
+						///-Imagen propuesta
+
+					div.box-content
+						p.box-text {{comunicacion.desc}}
+
+			///-comunicacion
+
+			div.clearfix(*ngIf='(keyValue+1) % 3 == 0 && keyValue > 0')
+
+
+footer-public
