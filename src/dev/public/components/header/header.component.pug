@@ -39,6 +39,23 @@ header.container-fluid.affix
 							a([routerLink]="['/']", (click)="toggleMenu()") Inicio
 
 						li(routerLinkActive="active")
+							a(href="#") descargas
+							
+							ul
+								li(routerLinkActive="active")
+									a([routerLink]="['/audios']", (click)="toggleMenu()") Audios
+
+								li(routerLinkActive="active")
+									a([routerLink]="['/comunicacion']", (click)="toggleMenu()") Comunicación
+
+								li(routerLinkActive="active")
+									a([routerLink]="['/boletin']", (click)="toggleMenu()") Boletín
+
+								li(routerLinkActive="active")
+									a([routerLink]="['/videos']", (click)="toggleMenu()") Videos
+
+
+						li(routerLinkActive="active")
 							a([routerLink]="['/noticias']", (click)="toggleMenu()") Noticias
 
 						li(routerLinkActive="active", [routerLinkActiveOptions]="{ exact: true }")

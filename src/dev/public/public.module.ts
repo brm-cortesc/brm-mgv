@@ -20,6 +20,9 @@ import { PublicRoutingModule } from './public-routing.module';
 //Header
 import {HeaderComponent} from './components/header/header.component'
 
+//navegacion descargas
+import {NavDesComponent} from './components/nav-descargas/nav-descargas.component'
+
 // footer
 import {FooterComponent} from './components/footer/footer.component'
 
@@ -27,6 +30,7 @@ import {FooterComponent} from './components/footer/footer.component'
 
 // Vistas
 import { HomeComponent } from './home/home.component';
+import { ComunicacionComponent } from './comunicacion/comunicacion.component';
 import { PropuestasComponent } from './propuestas/propuestas.component';
 import { NoticiasComponent } from './noticias/noticias.component';
 import { ContactoComponent } from './contacto/contacto.component';
@@ -48,8 +52,10 @@ import { NotFoundComponent } from './404/404.component';
   ],
   declarations: [
   	HeaderComponent,
-  	FooterComponent,
+    FooterComponent,
+  	NavDesComponent,
     HomeComponent,
+    ComunicacionComponent,
     PropuestasComponent,
     NoticiasComponent,
     ContactoComponent,
